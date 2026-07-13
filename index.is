@@ -1,0 +1,746 @@
+@*
+  DenteClean — Premium Dental Clinic Landing Page
+
+  Design Direction:
+  Warm, inviting, clinically precise yet human-centered. A sanctuary approach to dentistry.
+  Colour palette: warm ivory and cream tones (backgrounds, cards) with a signature
+  deep teal accent (#0D9488) for CTAs and interactive elements. Dark charcoal (#1A1A2E)
+  for headings, warm grey for body text.
+
+  Typography: Elegant serif (Playfair Display) for display heads, clean sans-serif
+  (DM Sans) for body. Generous measure (max 70ch) for readability.
+
+  Layout ethos: Each section has its own distinct rhythm — no two sections share the
+  same compositional pattern. Asymmetry, generous negative space, and subtle overlapping
+  create a premium editorial feel. On mobile, all multi-column layouts collapse to
+  stacked single-column.
+
+  Viewport safety: Root column is scrollable and vertically centred with a max-width
+  of 1200px for desktop. All image-heavy sections use hints to guide aspect ratios.
+*@
+
+page Main() {
+    column {
+        scrollable: true
+        align: (center, top)
+
+        @* ——————————————————————————————
+            1.  HERO
+               Full-viewport splash with background image, dark overlay, centred text,
+               dual CTAs. Implementer should render the Image as a full-bleed background
+               with a dark gradient overlay (black → transparent, ~60% opacity at bottom),
+               and position the text column absolutely centred over it.
+            —————————————————————————————— *@
+        column {
+            @ Full viewport height (100vh), position: relative, overflow: hidden
+
+            Image("https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=1600&q=80") {
+                @ Full-bleed background, object-fit: cover, dark overlay via pseudo-element
+                @ Aspect-ratio: 16/9 minimum on desktop, cover-crop on mobile
+            }
+
+            column {
+                @ Absolute-centred over hero image, z-index: 2, max-width: 720px
+                align: (center, center)
+
+                Text("WELCOME TO DENTECLEAN") {
+                    @ Small caps, letter-spacing: 0.18em, colour: rgba(255,255,255,0.7), size: 0.9rem
+                }
+
+                Text("Your Smile,") {
+                    @ Display size: 4rem desktop / 2.5rem mobile, colour: white, line-height: 1.05
+                }
+                Text("Our Masterpiece") {
+                    @ Display size: 4rem desktop / 2.5rem mobile, colour: white, line-height: 1.05
+                    @ Playfair Display italic for "Masterpiece"
+                }
+
+                Text("Experience dentistry where precision meets compassion. Modern technology, timeless care — all in a space designed for your comfort.") {
+                    @ Subtitle: 1.15rem, colour: rgba(255,255,255,0.85), max-width: 560px
+                    @ margin-top: 1.5rem, line-height: 1.65
+                }
+
+                row {
+                    collapse: true
+                    align: (center, center)
+
+                    Button("Book Your Visit") {
+                        @ Teal (#0D9488) background, white text, 1rem padding-x 2.5rem padding-y
+                        @ Border-radius: 999px (pill), font-weight: 600
+                        @ Hover: translateY(-2px), box-shadow: 0 12px 28px rgba(13,148,136,0.35)
+                        @ Transition: 250ms ease
+                        on click {
+                            Dialog("Book Your Visit") {
+                                Text("Ready for your healthiest smile?")
+                                Text("Call us at (503) 555-0142 or use the contact form below to schedule your first appointment. New patients receive a complimentary consultation.")
+                                Button("Go to Contact") {
+                                    on click {
+                                        Toast("Scrolling to contact section...")
+                                    }
+                                }
+                                Button("Close")
+                            }
+                        }
+                    }
+
+                    Link("Explore Our Services") {
+                        @ White text, underlined on hover, arrow → appears on hover
+                        @ Font-size: 1rem, margin-left: 2rem
+                        on click {
+                            Toast("Discover our full range of services below")
+                        }
+                    }
+                }
+            }
+        }
+
+        @* Decorative divider — subtle wave or thin rule to mark section transition *@
+        Divider() {
+            @ Implementer: make this a thin teal rule, 60px wide, centred, with 4rem margin
+        }
+
+        @* ——————————————————————————————
+            2.  SERVICES
+               Three core services presented in an alternating editorial spread.
+               NOT a card grid. Each service has its own visual rhythm:
+               Service 1 → image right, text left
+               Service 2 → image left, text right (reversed flow)
+               Service 3 → image right, text left (like #1 but with a decorative
+                            accent badge overlapping the image boundary)
+               Each service includes a small icon, heading, description, and
+               keyword badges.
+            —————————————————————————————— *@
+        Section("Our Services") {
+            column {
+                align: (center, center)
+
+                Text("Premium Dental Care") {
+                    @ Section label: small caps, 0.85rem, colour: teal (#0D9488), letter-spacing: 0.12em
+                }
+
+                Text("Every procedure is an art form. We blend clinical excellence with genuine warmth — because great dentistry starts with trust.") {
+                    @ Intro paragraph: max-width 620px, centred, warm grey (#5C5C6E), line-height: 1.7
+                    @ margin-bottom: 3rem
+                }
+
+                @* Service 1 — Professional Cleaning *@
+                row {
+                    collapse: true
+                    align: (center, center)
+
+                    column {
+                        weight: horizontal
+                        @ 55% width on desktop, padding-right: 3rem
+
+                        Icon("star") {
+                            @ Teal accent, size: 1.4rem, margin-bottom: 0.5rem
+                        }
+
+                        Text("Professional Cleaning") {
+                            @ 1.6rem, font-weight: 700, colour: #1A1A2E, margin-bottom: 0.35rem
+                        }
+
+                        Text("Our gentle, thorough cleaning removes plaque and tartar buildup, leaving your teeth feeling smooth and looking brilliantly clean. We use ultrasonic technology for a comfortable, anxiety-free experience.") {
+                            @ Line-height: 1.7, colour: #5C5C6E
+                        }
+
+                        row {
+                            collapse: true
+                            Badge("Painless") { variant: success }
+                            Badge("30 min") { variant: info }
+                            Badge("Recommended biannually") { variant: success }
+                        }
+
+                        Link("Learn more about cleaning →") {
+                            on click {
+                                Dialog("Professional Cleaning") {
+                                    Text("Our hygienists use ultrasonic scalers and air-polishing for a deep yet gentle clean. Includes fluoride treatment and oral hygiene coaching. Covered by most insurance plans.")
+                                }
+                            }
+                        }
+                    }
+
+                    Image("https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=800&q=80") {
+                        @ 45% width, border-radius: 16px, aspect-ratio: 4/3, object-fit: cover
+                        @ Box-shadow: 0 20px 40px -12px rgba(0,0,0,0.15)
+                        weight: horizontal
+                    }
+                }
+
+                Divider() {
+                    @ 40px centred rule, 30% opacity, margin: 2.5rem auto
+                }
+
+                @* Service 2 — Laser Whitening (reversed layout) *@
+                row {
+                    collapse: true
+                    align: (center, center)
+
+                    Image("https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=800&q=80") {
+                        @ 45% width, border-radius: 16px, aspect-ratio: 4/3, object-fit: cover
+                        @ Box-shadow: 0 20px 40px -12px rgba(0,0,0,0.15)
+                        weight: horizontal
+                    }
+
+                    column {
+                        weight: horizontal
+                        @ 55% width on desktop, padding-left: 3rem
+
+                        Icon("award") {
+                            @ Teal accent, size: 1.4rem, margin-bottom: 0.5rem
+                        }
+
+                        Text("Laser Whitening") {
+                            @ 1.6rem, font-weight: 700, colour: #1A1A2E, margin-bottom: 0.35rem
+                        }
+
+                        Text("Transform your smile in just one session. Our advanced laser-activated whitening system is up to 8x more effective than store-bought kits, with zero sensitivity — even on enamel-sensitive teeth.") {
+                            @ Line-height: 1.7, colour: #5C5C6E
+                        }
+
+                        row {
+                            collapse: true
+                            Badge("1 session") { variant: success }
+                            Badge("Zero sensitivity") { variant: info }
+                            Badge("Lasts 12+ months") { variant: success }
+                        }
+
+                        Link("Learn more about whitening →") {
+                            on click {
+                                Dialog("Laser Whitening") {
+                                    Text("Our Zoom! whitening system with LED activation delivers results up to 8 shades brighter in under 90 minutes. Take-home kits also available for touch-ups.")
+                                }
+                            }
+                        }
+                    }
+                }
+
+                Divider() {
+                    @ 40px centred rule, 30% opacity, margin: 2.5rem auto
+                }
+
+                @* Service 3 — Dental Implants (image right, with overlapping accent) *@
+                row {
+                    collapse: true
+                    align: (center, center)
+
+                    column {
+                        weight: horizontal
+                        @ 55% width on desktop, padding-right: 3rem
+
+                        Icon("heart") {
+                            @ Teal accent, size: 1.4rem, margin-bottom: 0.5rem
+                        }
+
+                        Text("Dental Implants") {
+                            @ 1.6rem, font-weight: 700, colour: #1A1A2E, margin-bottom: 0.35rem
+                        }
+
+                        Text("Permanent, natural-looking replacements that restore both function and confidence. Our titanium posts fuse with your jawbone for a solution that feels, looks, and lasts like the real thing — for a lifetime.") {
+                            @ Line-height: 1.7, colour: #5C5C6E
+                        }
+
+                        row {
+                            collapse: true
+                            Badge("Lifetime warranty") { variant: success }
+                            Badge("Natural look") { variant: info }
+                            Badge("Same-day option") { variant: success }
+                        }
+
+                        Link("Learn more about implants →") {
+                            on click {
+                                Dialog("Dental Implants") {
+                                    Text("From single-tooth to full-arch restoration. We use 3D CBCT imaging for precision placement and offer sedation options for complex cases. Free consultation for new patients.")
+                                }
+                            }
+                        }
+                    }
+
+                    Image("https://images.unsplash.com/photo-1551076805-e1869033e561?w=800&q=80") {
+                        @ 45% width, border-radius: 16px, aspect-ratio: 4/3, object-fit: cover
+                        @ Box-shadow: 0 20px 40px -12px rgba(0,0,0,0.15)
+                        @ Implementer: let the top badge overlap the image slightly for a premium editorial feel
+                        weight: horizontal
+                    }
+                }
+            }
+        }
+
+        Divider() {
+            @ Full-width, subtle, margin: 3rem 0
+        }
+
+        @* ——————————————————————————————
+            3.  ABOUT US
+               Split-screen composition: full-height image left, text right.
+               The text column includes a highlighted mission statement with a
+               thick teal left border and warm tinted background.
+               A patient testimonial with avatar adds social proof at the bottom.
+            —————————————————————————————— *@
+        Section("About Us") {
+            row {
+                collapse: true
+
+                Image("https://images.unsplash.com/photo-1520341280432-4749d4d7bcf9?w=800&q=80") {
+                    @ 50% width desktop, full-height (min 500px), object-fit: cover
+                    @ Border-radius: 0 20px 20px 0 on desktop, 20px all on mobile
+                    weight: horizontal
+                }
+
+                column {
+                    weight: horizontal
+                    @ 50% width desktop, padding: 3rem 2.5rem
+                    scrollable: true
+
+                    Text("Our Story") {
+                        @ Section label: small caps, 0.85rem, colour: teal, letter-spacing: 0.12em
+                    }
+
+                    Text("For over a decade, DenteClean has been redefining what a dental visit can feel like. Founded by Dr. Elena Vasquez, our practice was built on a simple belief: great oral health should never come at the expense of your comfort.") {
+                        @ Body text: 1.05rem, line-height: 1.75, colour: #5C5C6E
+                    }
+
+                    Text("Our Mission") {
+                        @ Subheading: 1.3rem, font-weight: 700, colour: #1A1A2E, margin-top: 2rem
+                    }
+
+                    column {
+                        @ Highlighted block: left border 4px solid teal (#0D9488)
+                        @ Background: warm cream (#F9F6F0), border-radius: 0 12px 12px 0
+                        @ Padding: 1.5rem 2rem, margin: 1rem 0
+
+                        Text("To provide world-class dental care in an environment that feels less like a clinic and more like a sanctuary. Every tool, every technique, every interaction — designed with your well-being in mind.") {
+                            @ Italic, 1.1rem, line-height: 1.7, colour: #3D3D50
+                        }
+                    }
+
+                    Divider() {
+                        @ 30% opacity, 2rem margin
+                    }
+
+                    Text("Dr. Elena Vasquez, DDS — Founder & Lead Dentist") {
+                        @ Small caps, 0.85rem, colour: #1A1A2E, font-weight: 600
+                    }
+
+                    Text("“I wanted to create a space where patients actually look forward to their dental visits. No fear, no judgment — just exceptional care delivered with genuine kindness.”") {
+                        @ Italic, 1rem, line-height: 1.6, colour: #5C5C6E
+                    }
+
+                    row {
+                        collapse: true
+                        align: (center, left)
+
+                        Image("https://images.unsplash.com/photo-1598256989800-fe5f95da9787?w=100&q=80") {
+                            @ Circular portrait, 48px, border: 2px solid teal, margin-right: 0.75rem
+                        }
+
+                        column {
+                            Text("Sarah M.") {
+                                @ 0.9rem, font-weight: 600, colour: #1A1A2E
+                            }
+                            Text("Patient since 2019") {
+                                @ 0.8rem, colour: #8A8A9A
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        Divider() {
+            @ Full-width, subtle, margin: 3rem 0
+        }
+
+        @* ——————————————————————————————
+            4.  MEET THE TEAM
+               Alternating per-member layouts — each profile has its own visual
+               treatment rather than repeating identical cards.
+               Member 1: Large prominent layout with full-width image
+               Member 2: Compact, text-first with smaller square image
+               Member 3: Offset layout — image not aligned to grid edge
+               A subtle stat counter strip adds depth between members 2 and 3.
+            —————————————————————————————— *@
+        Section("Meet the Team") {
+            column {
+                align: (center, center)
+
+                Text("Your Smile Architects") {
+                    @ Section label: small caps, 0.85rem, colour: teal, letter-spacing: 0.12em
+                }
+
+                Text("Behind every great smile is an extraordinary team. Get to know the people who will care for you.") {
+                    @ Centred, max-width: 560px, colour: #5C5C6E, line-height: 1.6, margin-bottom: 2.5rem
+                }
+
+                @* Team Member 1 — Lead Dentist (large, prominent) *@
+                row {
+                    collapse: true
+                    align: (center, center)
+
+                    Image("https://images.unsplash.com/photo-1611834905996-b30d97dcf651?w=700&q=80") {
+                        @ 60% width desktop, full view, aspect-ratio: 4/5, object-fit: cover
+                        @ Border-radius: 20px, box-shadow: 0 24px 48px -12px rgba(0,0,0,0.2)
+                        weight: horizontal
+                    }
+
+                    column {
+                        @ 40% width desktop, padding-left: 2.5rem
+
+                        Text("Dr. Elena Vasquez") {
+                            @ 2rem, font-weight: 700, colour: #1A1A2E, line-height: 1.2
+                        }
+
+                        Text("Lead Dentist & Founder") {
+                            @ 1rem, colour: #0D9488, font-weight: 500, margin-bottom: 0.75rem
+                        }
+
+                        Text("Specializing in cosmetic and restorative dentistry. 15+ years of experience. Graduate of Harvard School of Dental Medicine. Fellow of the International Congress of Oral Implantologists.") {
+                            @ Line-height: 1.7, colour: #5C5C6E
+                        }
+
+                        row {
+                            collapse: true
+                            Badge("15+ years") { variant: success }
+                            Badge("Harvard trained") { variant: info }
+                            Badge("ICOI Fellow") { variant: success }
+                        }
+                    }
+                }
+
+                Divider() {
+                    @ 30% opacity, 2rem margin
+                }
+
+                @* Team Member 2 — Orthodontist (compact, text-first) *@
+                row {
+                    collapse: true
+                    align: (center, center)
+
+                    column {
+                        @ 55% width desktop, padding-right: 2rem
+
+                        Text("Dr. James Park") {
+                            @ 1.6rem, font-weight: 700, colour: #1A1A2E
+                        }
+
+                        Text("Orthodontics Specialist") {
+                            @ 0.95rem, colour: #0D9488, font-weight: 500, margin-bottom: 0.5rem
+                        }
+
+                        Text("Expert in Invisalign and traditional braces. Certified by the American Board of Orthodontics. Dr. Park has transformed over 1,200 smiles using precision digital planning.") {
+                            @ Line-height: 1.7, colour: #5C5C6E
+                        }
+
+                        Badge("Invisalign Elite Provider") { variant: success }
+                    }
+
+                    Image("https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=400&q=80") {
+                        @ 45% width desktop, aspect-ratio: 1/1, object-fit: cover
+                        @ Border-radius: 20px, box-shadow: 0 16px 32px -8px rgba(0,0,0,0.12)
+                        weight: horizontal
+                    }
+                }
+
+                Divider() {
+                    @ 30% opacity, 2rem margin
+                }
+
+                @* Stats strip — numbers that build credibility *@
+                row {
+                    collapse: true
+                    align: (center, center)
+
+                    column {
+                        align: (center, center)
+                        Text("12+") { @ 2.2rem, font-weight: 800, colour: #0D9488 }
+                        Text("Years Serving") { @ 0.8rem, colour: #8A8A9A, small caps }
+                    }
+
+                    column {
+                        align: (center, center)
+                        Text("8,500+") { @ 2.2rem, font-weight: 800, colour: #0D9488 }
+                        Text("Smiles Transformed") { @ 0.8rem, colour: #8A8A9A, small caps }
+                    }
+
+                    column {
+                        align: (center, center)
+                        Text("4.9★") { @ 2.2rem, font-weight: 800, colour: #0D9488 }
+                        Text("Average Rating") { @ 0.8rem, colour: #8A8A9A, small caps }
+                    }
+
+                    column {
+                        align: (center, center)
+                        Text("98%") { @ 2.2rem, font-weight: 800, colour: #0D9488 }
+                        Text("Would Recommend") { @ 0.8rem, colour: #8A8A9A, small caps }
+                    }
+                }
+
+                Divider() {
+                    @ 30% opacity, 2rem margin
+                }
+
+                @* Team Member 3 — Hygienist (offset layout) *@
+                row {
+                    collapse: true
+                    align: (center, center)
+
+                    Image("https://images.unsplash.com/photo-1598256989800-fe5f95da9787?w=400&q=80") {
+                        @ 35% width desktop, aspect-ratio: 3/4, object-fit: cover
+                        @ Border-radius: 20px, box-shadow: 0 16px 32px -8px rgba(0,0,0,0.12)
+                        @ Implementer: offset this image slightly upward — it should break the horizontal alignment
+                        weight: horizontal
+                    }
+
+                    column {
+                        @ 55% width desktop, padding-left: 2rem
+
+                        Text("Lisa Chen, RDH") {
+                            @ 1.6rem, font-weight: 700, colour: #1A1A2E
+                        }
+
+                        Text("Lead Dental Hygienist") {
+                            @ 0.95rem, colour: #0D9488, font-weight: 500, margin-bottom: 0.5rem
+                        }
+
+                        Text("Gentle care specialist. Known for her calming presence and meticulous cleanings. Lisa has a gift for putting even the most anxious patients at ease — her chairside manner is legendary among our patients.") {
+                            @ Line-height: 1.7, colour: #5C5C6E
+                        }
+
+                        row {
+                            collapse: true
+                            Badge("Patient favourite") { variant: success }
+                            Badge("Gentle specialist") { variant: info }
+                        }
+                    }
+                }
+            }
+        }
+
+        Divider() {
+            @ Full-width, subtle, margin: 3rem 0
+        }
+
+        @* ——————————————————————————————
+            5.  CONTACT
+               Two-column split: contact info with icon list on the left,
+               appointment form on the right.
+               Info cards use the warm cream background for tactile feel.
+               Form uses clean white background with generous padding.
+            —————————————————————————————— *@
+        Section("Get in Touch") {
+            row {
+                collapse: true
+
+                column {
+                    weight: horizontal
+                    @ 45% width desktop, padding-right: 2rem
+
+                    Text("Contact Us") {
+                        @ Section label: small caps, 0.85rem, colour: teal, letter-spacing: 0.12em
+                    }
+
+                    Text("We'd love to hear from you. Whether you're booking your first visit or have a question, we're here to help.") {
+                        @ Line-height: 1.7, colour: #5C5C6E, margin-bottom: 2rem
+                    }
+
+                    @* Info items — each is a small row with icon and text *@
+                    column {
+                        @ Info card: cream background (#F9F6F0), padding: 1.5rem, border-radius: 16px
+
+                        row {
+                            collapse: true
+                            align: (center, left)
+                            Icon("map-pin") { @ Teal, size: 1.2rem, margin-right: 1rem }
+                            column {
+                                Text("Visit Us") { @ 0.85rem, font-weight: 600, colour: #1A1A2E }
+                                Text("123 Serenity Lane, Suite 200\nPortland, OR 97201") { @ 0.9rem, colour: #5C5C6E }
+                            }
+                        }
+
+                        Divider() { @ 1rem margin }
+
+                        row {
+                            collapse: true
+                            align: (center, left)
+                            Icon("phone") { @ Teal, size: 1.2rem, margin-right: 1rem }
+                            column {
+                                Text("Call Us") { @ 0.85rem, font-weight: 600, colour: #1A1A2E }
+                                Text("(503) 555-0142") { @ 0.9rem, colour: #5C5C6E }
+                            }
+                        }
+
+                        Divider() { @ 1rem margin }
+
+                        row {
+                            collapse: true
+                            align: (center, left)
+                            Icon("mail") { @ Teal, size: 1.2rem, margin-right: 1rem }
+                            column {
+                                Text("Email Us") { @ 0.85rem, font-weight: 600, colour: #1A1A2E }
+                                Text("hello@denteclean.com") { @ 0.9rem, colour: #5C5C6E }
+                            }
+                        }
+
+                        Divider() { @ 1rem margin }
+
+                        row {
+                            collapse: true
+                            align: (center, left)
+                            Icon("clock") { @ Teal, size: 1.2rem, margin-right: 1rem }
+                            column {
+                                Text("Office Hours") { @ 0.85rem, font-weight: 600, colour: #1A1A2E }
+                                Text("Mon–Fri: 8:00 AM – 6:00 PM\nSaturday: 9:00 AM – 2:00 PM") { @ 0.9rem, colour: #5C5C6E }
+                            }
+                        }
+                    }
+
+                    Divider() { @ 1.5rem margin }
+
+                    Text("Follow Us") {
+                        @ 0.9rem, font-weight: 600, colour: #1A1A2E, margin-bottom: 0.75rem
+                    }
+
+                    row {
+                        collapse: true
+                        Link("Instagram") {
+                            @ Social link with icon, 0.9rem, teal on hover
+                            on click { Toast("Opening Instagram...") }
+                        }
+                        Text("·") { @ 0.9rem, colour: #C4C4D0, padding: 0 0.5rem }
+                        Link("Facebook") {
+                            on click { Toast("Opening Facebook...") }
+                        }
+                        Text("·") { @ 0.9rem, colour: #C4C4D0, padding: 0 0.5rem }
+                        Link("Twitter") {
+                            on click { Toast("Opening Twitter...") }
+                        }
+                    }
+                }
+
+                Form {
+                    weight: horizontal
+                    @ 55% width desktop, background: white, padding: 2rem, border-radius: 16px
+                    @ Box-shadow: 0 8px 32px rgba(0,0,0,0.06)
+                    on submit {
+                        validate()
+                    }
+
+                    Text("Book an Appointment") {
+                        @ 1.3rem, font-weight: 700, colour: #1A1A2E, margin-bottom: 1.5rem
+                    }
+
+                    Input("Full Name") {
+                        required: true
+                        @ Implementer: full-width, padding: 0.9rem 1rem, border-radius: 10px
+                        @ Border: 1px solid #E2E2EC, focus: border teal
+                    }
+
+                    Input("Email Address") {
+                        required: true
+                        placeholder: "you@example.com"
+                        @ Same styling as name input
+                    }
+
+                    Input("Phone Number") {
+                        placeholder: "+1 (555) 000-0000"
+                        @ Same styling
+                    }
+
+                    Input("Your Message") {
+                        @ Implementer: render this field as a multi-line textarea, 4 rows
+                        placeholder: "Tell us about your needs or questions..."
+                        @ Same styling, taller
+                    }
+
+                    Button("Send Message") {
+                        @ Teal background, white text, full-width, padding: 1rem
+                        @ Border-radius: 12px, font-weight: 600, font-size: 1.05rem
+                        @ Hover: deeper teal (#0F766E), subtle lift
+                        on click {
+                            Toast("Message sent! We'll get back to you within 24 hours. ✨")
+                        }
+                    }
+
+                    Text("We respect your privacy. Your information is protected and never shared.") {
+                        @ 0.78rem, colour: #8A8A9A, margin-top: 0.75rem, text-align: center
+                    }
+                }
+            }
+        }
+
+        Divider() {
+            @ Full-width, subtle
+        }
+
+        @* ——————————————————————————————
+            6.  FOOTER
+               Three-column layout: brand + tagline, quick links, legal + copyright.
+               Dark background (near-black #1A1A2E), light text (#E8E8F0).
+               Bottom bar with copyright centred.
+            —————————————————————————————— *@
+        Section("Footer") {
+            column {
+                row {
+                    collapse: true
+                    align: (center, top)
+
+                    column {
+                        weight: horizontal
+                        @ padding: 1.5rem
+
+                        Text("DenteClean") {
+                            @ 1.4rem, font-weight: 700, colour: white
+                        }
+
+                        Text("Premium dental care in a sanctuary setting. Your smile is our masterpiece.") {
+                            @ 0.85rem, colour: rgba(255,255,255,0.6), max-width: 260px, line-height: 1.5
+                        }
+
+                        Text("© 2026 DenteClean. All rights reserved.") {
+                            @ 0.78rem, colour: rgba(255,255,255,0.35), margin-top: 1rem
+                        }
+                    }
+
+                    column {
+                        weight: horizontal
+                        @ padding: 1.5rem
+
+                        Text("Quick Links") {
+                            @ 0.85rem, font-weight: 600, colour: rgba(255,255,255,0.8), margin-bottom: 0.75rem
+                        }
+
+                        Link("Home") { on click { Toast("Back to top") } }
+                        Link("Services") { on click { Toast("View all services") } }
+                        Link("Team") { on click { Toast("Meet our team") } }
+                        Link("Contact") { on click { Toast("Get in touch") } }
+                    }
+
+                    column {
+                        weight: horizontal
+                        @ padding: 1.5rem
+
+                        Text("Legal") {
+                            @ 0.85rem, font-weight: 600, colour: rgba(255,255,255,0.8), margin-bottom: 0.75rem
+                        }
+
+                        Link("Privacy Policy") { on click { Toast("View privacy policy") } }
+                        Link("Terms of Service") { on click { Toast("View terms of service") } }
+                        Link("HIPAA Compliance") { on click { Toast("View HIPAA notice") } }
+                        Link("Accessibility") { on click { Toast("View accessibility statement") } }
+                    }
+                }
+
+                Divider() {
+                    @ 50% opacity, max-width: 200px centred, margin: 0.5rem auto
+                }
+
+                row {
+                    align: (center, center)
+                    Text("Built with care for our patients. 🦷") {
+                        @ 0.8rem, colour: rgba(255,255,255,0.3), centre
+                    }
+                }
+            }
+        }
+    }
+}

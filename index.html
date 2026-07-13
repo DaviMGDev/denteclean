@@ -1,0 +1,2170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DenteClean — Premium Dental Care</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    /* ============================================================
+       DESIGN TOKENS (from design.md)
+       ============================================================ */
+    :root {
+      /* Colors */
+      --primary: #1B1F22;
+      --primary-hover: #2E3338;
+      --secondary: #6B6D6F;
+      --tertiary: #3A4F41;
+      --accent-gold: #C4A747;
+      --accent-gold-hover: #D4BA5A;
+      --accent-glass: #8BA59B;
+      --neutral-warm: #F5F3EF;
+      --neutral-cool: #F2F4F5;
+      --surface: #FFFFFF;
+      --surface-elevated: #FAFAF8;
+      --surface-muted: #EDEDEA;
+      --border: #DCDAD5;
+      --border-strong: #C4C2BC;
+      --on-primary: #FFFFFF;
+      --on-surface: #1B1F22;
+      --error: #C23B22;
+      --error-light: #FCEEEB;
+      --success: #1F5B3E;
+      --success-light: #EBF5F0;
+      --info: #3B6F8C;
+      --info-light: #EDF3F7;
+
+      /* Typography families */
+      --font-display: 'Playfair Display', Georgia, serif;
+      --font-body: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+
+      /* Spacing */
+      --space-xs: 4px;
+      --space-sm: 8px;
+      --space-md: 16px;
+      --space-lg: 24px;
+      --space-xl: 32px;
+      --space-2xl: 48px;
+      --space-3xl: 64px;
+      --space-4xl: 96px;
+      --space-5xl: 128px;
+
+      /* Border radius */
+      --radius-none: 0px;
+      --radius-xs: 2px;
+      --radius-sm: 4px;
+      --radius-md: 8px;
+      --radius-lg: 12px;
+      --radius-xl: 16px;
+      --radius-arch-sm: 24px;
+      --radius-arch-md: 32px;
+      --radius-arch-lg: 48px;
+      --radius-full: 9999px;
+
+      /* Layout */
+      --max-width: 1200px;
+      --page-safe: 24px;
+
+      /* Z-index */
+      --z-base: 0;
+      --z-overlay: 100;
+      --z-drawer: 200;
+      --z-modal: 300;
+      --z-tooltip: 400;
+      --z-notification: 500;
+
+      /* Transitions */
+      --transition-fast: 200ms ease;
+      --transition-base: 300ms ease;
+      --transition-slow: 500ms ease;
+    }
+
+    /* ============================================================
+       RESET & BASE (Viewport Contract)
+       ============================================================ */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      height: 100dvh;
+      height: 100vh; /* fallback */
+      overflow: hidden;
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.6;
+      color: var(--on-surface);
+      background-color: var(--neutral-warm);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* ============================================================
+       ROOT LAYOUT — viewport-safe scroll container
+       ============================================================ */
+    #root {
+      height: 100%;
+      overflow-y: auto;
+      overflow-x: hidden;
+      -webkit-overflow-scrolling: touch;
+      scroll-behavior: smooth;
+    }
+
+    /* Content wrapper: max-width centered on desktop */
+    .page-content {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 var(--page-safe);
+    }
+
+    /* ============================================================
+       TYPOGRAPHY (from design.md)
+       ============================================================ */
+    .display-xl {
+      font-family: var(--font-display);
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 700;
+      line-height: 1.05;
+      letter-spacing: -0.01em;
+    }
+    .display-lg {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 700;
+      line-height: 1.1;
+      letter-spacing: -0.01em;
+    }
+    .display-md {
+      font-family: var(--font-display);
+      font-size: clamp(1.75rem, 3vw, 2.25rem);
+      font-weight: 600;
+      line-height: 1.15;
+    }
+    .headline-lg {
+      font-family: var(--font-body);
+      font-size: clamp(1.35rem, 2.2vw, 1.75rem);
+      font-weight: 600;
+      line-height: 1.25;
+      letter-spacing: -0.01em;
+    }
+    .headline-md {
+      font-family: var(--font-body);
+      font-size: clamp(1.15rem, 1.8vw, 1.375rem);
+      font-weight: 600;
+      line-height: 1.3;
+    }
+    .headline-sm {
+      font-family: var(--font-body);
+      font-size: 1.125rem;
+      font-weight: 600;
+      line-height: 1.35;
+    }
+    .body-lg {
+      font-family: var(--font-body);
+      font-size: clamp(1rem, 1.3vw, 1.125rem);
+      font-weight: 400;
+      line-height: 1.6;
+    }
+    .body-md {
+      font-family: var(--font-body);
+      font-size: 1rem;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+    .body-sm {
+      font-family: var(--font-body);
+      font-size: 0.875rem;
+      font-weight: 400;
+      line-height: 1.55;
+    }
+    .label-lg {
+      font-family: var(--font-body);
+      font-size: 0.875rem;
+      font-weight: 500;
+      line-height: 1.2;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    .label-md {
+      font-family: var(--font-body);
+      font-size: 0.75rem;
+      font-weight: 500;
+      line-height: 1.2;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+    .label-sm {
+      font-family: var(--font-body);
+      font-size: 0.6875rem;
+      font-weight: 500;
+      line-height: 1.2;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    .overline {
+      font-family: var(--font-body);
+      font-size: 0.625rem;
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    /* ============================================================
+       SECTION LABELS (small caps across the site)
+       ============================================================ */
+    .section-label {
+      font-family: var(--font-body);
+      font-size: 0.8125rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--tertiary);
+      margin-bottom: var(--space-sm);
+    }
+
+    /* ============================================================
+       BUTTONS (from design.md)
+       ============================================================ */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-sm);
+      font-family: var(--font-body);
+      font-size: 0.875rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      line-height: 1.2;
+      padding: 14px 28px;
+      border-radius: var(--radius-md);
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background-color var(--transition-fast),
+                  color var(--transition-fast),
+                  transform var(--transition-fast);
+      min-height: 44px;
+      position: relative;
+    }
+    .btn:focus-visible {
+      outline: 2px solid var(--border-strong);
+      outline-offset: 2px;
+    }
+    .btn:disabled {
+      background-color: var(--surface-muted);
+      color: var(--border-strong);
+      cursor: not-allowed;
+    }
+
+    .btn-accent {
+      background-color: var(--accent-gold);
+      color: var(--primary);
+    }
+    .btn-accent:hover:not(:disabled) {
+      background-color: var(--accent-gold-hover);
+      transform: translateY(-1px);
+    }
+
+    .btn-primary {
+      background-color: var(--primary);
+      color: var(--on-primary);
+    }
+    .btn-primary:hover:not(:disabled) {
+      background-color: var(--primary-hover);
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary {
+      background-color: transparent;
+      color: var(--primary);
+      border: 1px solid var(--border);
+    }
+    .btn-secondary:hover:not(:disabled) {
+      background-color: var(--neutral-cool);
+      border-color: var(--border-strong);
+    }
+
+    .btn-ghost {
+      background-color: transparent;
+      color: var(--primary);
+      padding: 8px 16px;
+      font-size: 0.75rem;
+    }
+    .btn-ghost:hover:not(:disabled) {
+      background-color: var(--neutral-cool);
+    }
+
+    /* ============================================================
+       LINKS
+       ============================================================ */
+    .inline-link {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-xs);
+      font-family: var(--font-body);
+      font-size: 0.9375rem;
+      font-weight: 500;
+      color: var(--primary);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color var(--transition-fast),
+                  color var(--transition-fast),
+                  gap var(--transition-fast);
+      cursor: pointer;
+      background: none;
+      border-top: none;
+      border-left: none;
+      border-right: none;
+      padding: 0;
+    }
+    .inline-link:hover {
+      border-bottom-color: var(--primary);
+      gap: var(--space-sm);
+    }
+    .inline-link .arrow {
+      transition: transform var(--transition-fast);
+    }
+    .inline-link:hover .arrow {
+      transform: translateX(3px);
+    }
+
+    /* ============================================================
+       BADGES (from design.md)
+       ============================================================ */
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      font-family: var(--font-body);
+      font-size: 0.6875rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      line-height: 1.2;
+      padding: 4px 12px;
+      border-radius: var(--radius-full);
+      white-space: nowrap;
+    }
+    .badge-default {
+      background-color: var(--neutral-warm);
+      color: var(--tertiary);
+    }
+    .badge-success {
+      background-color: var(--success-light);
+      color: var(--success);
+    }
+    .badge-info {
+      background-color: var(--info-light);
+      color: var(--info);
+    }
+    .badge-accent {
+      background-color: var(--accent-gold);
+      color: var(--primary);
+    }
+
+    /* ============================================================
+       DIVIDERS (from design.md)
+       ============================================================ */
+    .divider {
+      width: 100%;
+      height: 1px;
+      background-color: var(--border);
+      margin: var(--space-lg) 0;
+      border: none;
+    }
+    .divider-ornament {
+      width: 60px;
+      height: 2px;
+      background-color: var(--accent-gold);
+      margin: var(--space-2xl) auto;
+      border: none;
+    }
+    .divider-glass {
+      width: 100%;
+      height: 1.5px;
+      background-color: var(--accent-glass);
+      margin: var(--space-md) 0;
+      border: none;
+      opacity: 0.5;
+    }
+
+    /* ============================================================
+       SECTION ARCH FRAMES (top-edge arch motif)
+       ============================================================ */
+    .section-arch {
+      position: relative;
+      padding-top: var(--space-2xl);
+      padding-bottom: var(--space-2xl);
+    }
+    .section-arch::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: var(--radius-arch-lg);
+      background: var(--neutral-warm);
+      border-radius: var(--radius-arch-lg) var(--radius-arch-lg) 0 0;
+    }
+
+    /* ============================================================
+       HERO SECTION
+       ============================================================ */
+    .hero {
+      position: relative;
+      height: 100vh;
+      height: 100dvh;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+    .hero-bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 25%;
+      display: block;
+    }
+    .hero-bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(27, 31, 34, 0.30) 0%,
+        rgba(27, 31, 34, 0.65) 60%,
+        rgba(27, 31, 34, 0.85) 100%
+      );
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 720px;
+      width: 100%;
+      padding: 0 var(--page-safe);
+      text-align: center;
+      animation: heroFadeIn 1s ease forwards;
+    }
+
+    @keyframes heroFadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero-label {
+      font-family: var(--font-body);
+      font-size: 0.8125rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.7);
+      margin-bottom: var(--space-lg);
+    }
+
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      font-weight: 700;
+      line-height: 1.05;
+      color: var(--on-primary);
+    }
+    .hero-title-em {
+      color: var(--accent-gold);
+    }
+
+    .hero-subtitle {
+      font-family: var(--font-body);
+      font-size: clamp(0.95rem, 1.3vw, 1.15rem);
+      font-weight: 400;
+      line-height: 1.65;
+      color: rgba(255,255,255,0.85);
+      max-width: 560px;
+      margin: var(--space-lg) auto var(--space-xl);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-lg);
+    }
+
+    .hero-link {
+      font-family: var(--font-body);
+      font-size: 1rem;
+      font-weight: 500;
+      color: rgba(255,255,255,0.9);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(255,255,255,0.3);
+      padding-bottom: 2px;
+      transition: border-color var(--transition-fast),
+                  color var(--transition-fast);
+      cursor: pointer;
+      background: none;
+      border-top: none;
+      border-left: none;
+      border-right: none;
+    }
+    .hero-link:hover {
+      border-bottom-color: var(--accent-gold);
+      color: var(--on-primary);
+    }
+    .hero-link .arrow {
+      display: inline-block;
+      transition: transform var(--transition-fast);
+    }
+    .hero-link:hover .arrow {
+      transform: translateX(4px);
+    }
+
+    /* ============================================================
+       SERVICES SECTION — alternating editorial spread
+       ============================================================ */
+    .services-intro {
+      text-align: center;
+      max-width: 620px;
+      margin: 0 auto var(--space-2xl);
+    }
+    .services-intro p {
+      font-family: var(--font-body);
+      font-size: 1rem;
+      line-height: 1.7;
+      color: var(--secondary);
+    }
+
+    .service-row {
+      display: flex;
+      gap: var(--space-xl);
+      align-items: center;
+      margin-bottom: var(--space-2xl);
+    }
+    .service-text {
+      flex: 0 0 55%;
+    }
+    .service-image {
+      flex: 0 0 45%;
+      position: relative;
+    }
+    .service-image img {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 4/3;
+      object-fit: cover;
+      border-radius: var(--radius-xl);
+      display: block;
+      border: 1px solid var(--border);
+      background-color: var(--surface-elevated);
+    }
+    /* Tonal layering instead of box-shadow */
+    .service-image::before {
+      content: '';
+      position: absolute;
+      inset: -2px;
+      border-radius: calc(var(--radius-xl) + 2px);
+      background: var(--neutral-cool);
+      z-index: -1;
+    }
+
+    .service-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      margin-bottom: var(--space-sm);
+      color: var(--accent-gold);
+    }
+
+    .service-title {
+      font-family: var(--font-body);
+      font-size: 1.375rem;
+      font-weight: 600;
+      color: var(--primary);
+      margin-bottom: 0.35rem;
+      line-height: 1.3;
+    }
+
+    .service-desc {
+      font-family: var(--font-body);
+      font-size: 1rem;
+      line-height: 1.7;
+      color: var(--secondary);
+      margin-bottom: var(--space-md);
+    }
+
+    .service-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+      margin-bottom: var(--space-md);
+    }
+
+    /* Reversed service layout */
+    .service-row-reversed {
+      flex-direction: row-reverse;
+    }
+
+    /* Service 3 — overlapping badge accent */
+    .service-overlap-badge {
+      position: absolute;
+      top: -8px;
+      right: -8px;
+      z-index: 2;
+      background-color: var(--accent-gold);
+      color: var(--primary);
+      font-family: var(--font-body);
+      font-size: 0.6875rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 6px 16px;
+      border-radius: var(--radius-full);
+    }
+
+    /* ============================================================
+       ABOUT US — split screen
+       ============================================================ */
+    .about-section {
+      display: flex;
+      gap: 0;
+      background-color: var(--surface);
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+    .about-image {
+      flex: 0 0 50%;
+      min-height: 500px;
+      overflow: hidden;
+    }
+    .about-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .about-content {
+      flex: 0 0 50%;
+      padding: var(--space-2xl) var(--space-xl);
+      overflow-y: auto;
+    }
+
+    .about-mission {
+      border-left: 4px solid var(--accent-gold);
+      background-color: var(--neutral-warm);
+      border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
+      padding: var(--space-lg) var(--space-xl);
+      margin: var(--space-md) 0;
+    }
+    .about-mission p {
+      font-family: var(--font-body);
+      font-size: 1.0625rem;
+      line-height: 1.7;
+      color: var(--secondary);
+    }
+
+    .about-testimonial {
+      display: flex;
+      align-items: center;
+      gap: var(--space-md);
+      margin-top: var(--space-lg);
+    }
+    .about-avatar {
+      width: 48px;
+      height: 48px;
+      border-radius: var(--radius-full);
+      object-fit: cover;
+      border: 2px solid var(--accent-gold);
+      flex-shrink: 0;
+    }
+    .about-testimonial-text .name {
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--primary);
+    }
+    .about-testimonial-text .since {
+      font-family: var(--font-body);
+      font-size: 0.8rem;
+      color: var(--secondary);
+    }
+
+    /* ============================================================
+       TEAM SECTION — alternating profiles
+       ============================================================ */
+    .team-intro {
+      text-align: center;
+      max-width: 560px;
+      margin: 0 auto var(--space-2xl);
+    }
+    .team-intro p {
+      font-family: var(--font-body);
+      font-size: 1rem;
+      line-height: 1.6;
+      color: var(--secondary);
+    }
+
+    .team-member {
+      display: flex;
+      gap: var(--space-xl);
+      align-items: center;
+      margin-bottom: var(--space-xl);
+    }
+
+    .team-member-image {
+      flex: 0 0 60%;
+      position: relative;
+    }
+    .team-member-image img {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 4/5;
+      object-fit: cover;
+      border-radius: var(--radius-xl);
+      display: block;
+      border: 1px solid var(--border);
+      background-color: var(--surface-elevated);
+    }
+    .team-member-image::before {
+      content: '';
+      position: absolute;
+      inset: -2px;
+      border-radius: calc(var(--radius-xl) + 2px);
+      background: var(--neutral-cool);
+      z-index: -1;
+    }
+
+    .team-member-info {
+      flex: 0 0 40%;
+    }
+    .team-member-name {
+      font-family: var(--font-display);
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: var(--primary);
+      line-height: 1.2;
+    }
+    .team-member-role {
+      font-family: var(--font-body);
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--tertiary);
+      margin-bottom: 0.75rem;
+    }
+    .team-member-desc {
+      font-family: var(--font-body);
+      font-size: 0.9375rem;
+      line-height: 1.7;
+      color: var(--secondary);
+      margin-bottom: var(--space-md);
+    }
+    .team-member-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+    }
+
+    /* Team member 2 — compact, text-first */
+    .team-member-compact .team-member-image {
+      flex: 0 0 40%;
+    }
+    .team-member-compact .team-member-info {
+      flex: 0 0 55%;
+      padding-right: var(--space-lg);
+    }
+    .team-member-compact .team-member-image img {
+      aspect-ratio: 1/1;
+    }
+    .team-member-compact .team-member-name {
+      font-size: 1.375rem;
+    }
+
+    /* Team member 3 — offset layout */
+    .team-member-offset {
+      align-items: flex-start;
+    }
+    .team-member-offset .team-member-image {
+      flex: 0 0 35%;
+      margin-top: -12px; /* offset upward */
+    }
+    .team-member-offset .team-member-image img {
+      aspect-ratio: 3/4;
+    }
+    .team-member-offset .team-member-info {
+      flex: 0 0 55%;
+      padding-left: var(--space-lg);
+    }
+
+    /* Stats strip */
+    .stats-strip {
+      display: flex;
+      justify-content: space-around;
+      padding: var(--space-2xl) 0;
+      margin: var(--space-xl) 0;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .stat-item {
+      text-align: center;
+    }
+    .stat-number {
+      font-family: var(--font-display);
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: var(--accent-gold);
+      line-height: 1.1;
+    }
+    .stat-label {
+      font-family: var(--font-body);
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--secondary);
+      margin-top: var(--space-xs);
+    }
+
+    /* ============================================================
+       CONTACT SECTION — two-column split
+       ============================================================ */
+    .contact-section {
+      display: flex;
+      gap: var(--space-xl);
+    }
+    .contact-info {
+      flex: 0 0 42%;
+    }
+    .contact-form-col {
+      flex: 0 0 55%;
+    }
+
+    .contact-info-card {
+      background-color: var(--neutral-warm);
+      padding: var(--space-lg);
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--border);
+    }
+    .contact-info-item {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-md);
+    }
+    .contact-info-item + .contact-info-item {
+      margin-top: var(--space-md);
+    }
+    .contact-icon {
+      flex-shrink: 0;
+      width: 24px;
+      height: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent-gold);
+      margin-top: 2px;
+    }
+    .contact-icon-label {
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--primary);
+    }
+    .contact-icon-value {
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      color: var(--secondary);
+      white-space: pre-line;
+    }
+
+    .social-links {
+      display: flex;
+      align-items: center;
+      gap: 0;
+    }
+    .social-link {
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--secondary);
+      text-decoration: none;
+      transition: color var(--transition-fast);
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 0;
+    }
+    .social-link:hover {
+      color: var(--accent-gold);
+    }
+    .social-sep {
+      color: var(--border);
+      padding: 0 0.5rem;
+    }
+
+    /* ============================================================
+       FORM (from design.md)
+       ============================================================ */
+    .appointment-form {
+      background-color: var(--surface);
+      padding: var(--space-xl);
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--border);
+    }
+    .form-title {
+      font-family: var(--font-body);
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: var(--primary);
+      margin-bottom: var(--space-lg);
+    }
+    .form-group {
+      margin-bottom: var(--space-md);
+    }
+    .form-label {
+      display: block;
+      font-family: var(--font-body);
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--primary);
+      margin-bottom: var(--space-xs);
+    }
+    .form-input,
+    .form-textarea {
+      width: 100%;
+      padding: 12px 16px;
+      font-family: var(--font-body);
+      font-size: 1rem;
+      font-weight: 400;
+      color: var(--on-surface);
+      background-color: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      transition: border-color var(--transition-fast),
+                  background-color var(--transition-fast);
+      outline: none;
+    }
+    .form-input:focus,
+    .form-textarea:focus {
+      border-color: var(--border-strong);
+      box-shadow: 0 0 0 2px rgba(139, 165, 155, 0.4);
+      background-color: var(--surface);
+    }
+    .form-input.error,
+    .form-textarea.error {
+      background-color: var(--error-light);
+      border-color: var(--error);
+    }
+    .form-textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+    .form-input::placeholder,
+    .form-textarea::placeholder {
+      color: var(--secondary);
+      opacity: 0.7;
+    }
+    .form-submit {
+      width: 100%;
+      padding: 16px;
+      font-family: var(--font-body);
+      font-size: 1rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      background-color: var(--accent-gold);
+      color: var(--primary);
+      border: none;
+      border-radius: var(--radius-md);
+      cursor: pointer;
+      transition: background-color var(--transition-fast),
+                  transform var(--transition-fast);
+      min-height: 44px;
+    }
+    .form-submit:hover {
+      background-color: var(--accent-gold-hover);
+      transform: translateY(-1px);
+    }
+    .form-submit:focus-visible {
+      outline: 2px solid var(--border-strong);
+      outline-offset: 2px;
+    }
+
+    .form-privacy {
+      font-family: var(--font-body);
+      font-size: 0.78rem;
+      color: var(--secondary);
+      text-align: center;
+      margin-top: 0.75rem;
+    }
+
+    /* ============================================================
+       FOOTER — dark background
+       ============================================================ */
+    .footer {
+      background-color: var(--primary);
+      color: rgba(255,255,255,0.85);
+      padding: var(--space-2xl) 0 var(--space-lg);
+      margin-top: var(--space-2xl);
+    }
+    .footer-grid {
+      display: flex;
+      gap: var(--space-xl);
+    }
+    .footer-col {
+      flex: 1;
+      padding: var(--space-lg);
+    }
+    .footer-brand {
+      font-family: var(--font-display);
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--on-primary);
+      margin-bottom: var(--space-sm);
+    }
+    .footer-tagline {
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.6);
+      max-width: 260px;
+      line-height: 1.5;
+    }
+    .footer-copyright {
+      font-family: var(--font-body);
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.35);
+      margin-top: var(--space-md);
+    }
+    .footer-heading {
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: rgba(255,255,255,0.8);
+      margin-bottom: 0.75rem;
+      letter-spacing: 0.02em;
+    }
+    .footer-link {
+      display: block;
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.55);
+      text-decoration: none;
+      padding: 4px 0;
+      transition: color var(--transition-fast);
+      cursor: pointer;
+      background: none;
+      border: none;
+    }
+    .footer-link:hover {
+      color: var(--accent-gold);
+    }
+    .footer-bottom {
+      text-align: center;
+      padding-top: var(--space-md);
+    }
+    .footer-bottom p {
+      font-family: var(--font-body);
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.3);
+    }
+    .footer-divider {
+      width: 200px;
+      height: 1px;
+      background-color: rgba(255,255,255,0.15);
+      margin: var(--space-sm) auto;
+      border: none;
+    }
+
+    /* ============================================================
+       MODAL / DIALOG (fixed positioning, viewport-safe)
+       ============================================================ */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: var(--z-modal);
+      background-color: rgba(27, 31, 34, 0.6);
+      align-items: center;
+      justify-content: center;
+      padding: var(--page-safe);
+      opacity: 0;
+      transition: opacity var(--transition-base);
+    }
+    .modal-overlay.active {
+      display: flex;
+      opacity: 1;
+    }
+    .modal {
+      background-color: var(--surface);
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--border);
+      max-width: 480px;
+      width: 100%;
+      padding: var(--space-xl);
+      position: relative;
+      max-height: 90vh;
+      overflow-y: auto;
+      transform: translateY(20px) scale(0.97);
+      transition: transform var(--transition-base);
+    }
+    .modal-overlay.active .modal {
+      transform: translateY(0) scale(1);
+    }
+    .modal-title {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: var(--space-md);
+    }
+    .modal-body {
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      line-height: 1.6;
+      color: var(--secondary);
+      margin-bottom: var(--space-lg);
+    }
+    .modal-actions {
+      display: flex;
+      gap: var(--space-md);
+      flex-wrap: wrap;
+    }
+    .modal-close {
+      position: absolute;
+      top: var(--space-md);
+      right: var(--space-md);
+      width: 32px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--secondary);
+      border-radius: var(--radius-xs);
+      transition: color var(--transition-fast),
+                  background-color var(--transition-fast);
+      font-size: 1.2rem;
+    }
+    .modal-close:hover {
+      color: var(--primary);
+      background-color: var(--neutral-cool);
+    }
+
+    /* ============================================================
+       TOAST NOTIFICATION
+       ============================================================ */
+    .toast-container {
+      position: fixed;
+      bottom: var(--space-lg);
+      right: var(--space-lg);
+      z-index: var(--z-notification);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-sm);
+      pointer-events: none;
+    }
+    .toast {
+      background-color: var(--primary);
+      color: var(--on-primary);
+      font-family: var(--font-body);
+      font-size: 0.875rem;
+      line-height: 1.4;
+      padding: 14px 20px;
+      border-radius: var(--radius-md);
+      pointer-events: auto;
+      opacity: 0;
+      transform: translateY(10px) scale(0.95);
+      transition: opacity var(--transition-base),
+                  transform var(--transition-base);
+      max-width: 360px;
+    }
+    .toast.show {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+
+    /* ============================================================
+       BOTANICAL MOTIF — subtle SVG watermark
+       ============================================================ */
+    .vine-motif {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      pointer-events: none;
+      overflow: hidden;
+      opacity: 0.04;
+    }
+    .vine-motif svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    /* ============================================================
+       SCROLL REVEAL ANIMATIONS
+       ============================================================ */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s ease,
+                  transform 0.7s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+
+    /* ============================================================
+       RESPONSIVE
+       ============================================================ */
+    @media (max-width: 900px) {
+      .service-row,
+      .team-member,
+      .contact-section,
+      .footer-grid {
+        flex-direction: column;
+      }
+      .service-text,
+      .service-image,
+      .team-member-image,
+      .team-member-info,
+      .contact-info,
+      .contact-form-col,
+      .team-member-compact .team-member-image,
+      .team-member-compact .team-member-info,
+      .team-member-offset .team-member-image,
+      .team-member-offset .team-member-info {
+        flex: 0 0 100%;
+        width: 100%;
+      }
+      .service-image {
+        order: -1;
+      }
+      .service-row-reversed .service-image {
+        order: -1;
+      }
+      .team-member-image::before {
+        display: none;
+      }
+      .team-member-offset .team-member-image {
+        margin-top: 0;
+      }
+      .team-member-offset .team-member-info {
+        padding-left: 0;
+      }
+
+      .about-section {
+        flex-direction: column;
+      }
+      .about-image {
+        flex: 0 0 auto;
+        min-height: 300px;
+      }
+      .about-image img {
+        border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+      }
+      .about-content {
+        flex: 0 0 auto;
+      }
+
+      .stats-strip {
+        flex-wrap: wrap;
+        gap: var(--space-lg);
+      }
+      .stat-item {
+        flex: 0 0 45%;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+        gap: var(--space-md);
+      }
+
+      .modal-actions {
+        flex-direction: column;
+      }
+
+      .footer-col {
+        padding: var(--space-md) 0;
+      }
+    }
+
+    @media (max-width: 600px) {
+      :root {
+        --page-safe: 16px;
+      }
+      .service-row,
+      .team-member {
+        gap: var(--space-md);
+      }
+      .about-content {
+        padding: var(--space-lg) var(--space-md);
+      }
+      .appointment-form {
+        padding: var(--space-lg);
+      }
+      .contact-info-card {
+        padding: var(--space-md);
+      }
+      .stat-number {
+        font-size: 1.8rem;
+      }
+      .team-member-name {
+        font-size: 1.35rem;
+      }
+    }
+
+    /* ============================================================
+       SKIP LINK (accessibility)
+       ============================================================ */
+    .skip-link {
+      position: absolute;
+      top: -100%;
+      left: var(--space-md);
+      z-index: 999;
+      background: var(--primary);
+      color: var(--on-primary);
+      padding: 8px 16px;
+      border-radius: var(--radius-sm);
+      text-decoration: none;
+      font-family: var(--font-body);
+      font-size: 0.875rem;
+    }
+    .skip-link:focus {
+      top: var(--space-md);
+    }
+
+    /* ============================================================
+       UTILITY
+       ============================================================ */
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0,0,0,0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Skip link -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- ============================================================
+       ROOT — viewport-safe scroll container
+       ============================================================ -->
+  <div id="root">
+
+    <main id="main-content">
+
+      <!-- ============================================================
+           H E R O
+           ============================================================ -->
+      <section class="hero" aria-label="Welcome to DenteClean">
+        <div class="hero-bg">
+          <img
+            src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=1600&q=80"
+            alt="Modern dental clinic interior with warm lighting"
+            loading="eager"
+          />
+        </div>
+
+        <!-- Botanical vine motif -->
+        <div class="vine-motif" aria-hidden="true">
+          <svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice">
+            <path d="M0,400 C200,350 350,200 500,300 C650,400 700,250 850,280 C1000,310 1150,150 1300,220 C1400,260 1440,200 1440,200"
+                  fill="none" stroke="var(--accent-glass)" stroke-width="3" opacity="0.3"/>
+            <path d="M0,450 C200,400 350,250 500,350 C650,450 700,300 850,330 C1000,360 1150,200 1300,270 C1400,310 1440,250 1440,250"
+                  fill="none" stroke="var(--accent-gold)" stroke-width="1.5" opacity="0.2"/>
+            <path d="M200,380 Q250,300 320,340 Q380,370 420,300"
+                  fill="none" stroke="var(--accent-glass)" stroke-width="2" opacity="0.25"/>
+            <path d="M900,260 Q960,180 1030,220 Q1080,250 1120,180"
+                  fill="none" stroke="var(--accent-glass)" stroke-width="2" opacity="0.25"/>
+          </svg>
+        </div>
+
+        <div class="hero-content">
+          <p class="hero-label">Welcome to DenteClean</p>
+          <h1 class="hero-title">
+            Your Smile,<br>
+            <span class="hero-title-em">Our Masterpiece</span>
+          </h1>
+          <p class="hero-subtitle">
+            Experience dentistry where precision meets compassion. Modern technology,
+            timeless care — all in a space designed for your comfort.
+          </p>
+          <div class="hero-actions">
+            <button class="btn btn-accent" data-dialog="booking-dialog">
+              Book Your Visit
+            </button>
+            <button class="hero-link" data-toast="Discover our full range of services below">
+              Explore Our Services
+              <span class="arrow">&rarr;</span>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Ornamental divider -->
+      <div class="divider-ornament" role="separator" aria-hidden="true"></div>
+
+      <!-- ============================================================
+           S E R V I C E S
+           ============================================================ -->
+      <section class="page-content section-arch" aria-labelledby="services-heading">
+        <div class="services-intro">
+          <p class="section-label">Premium Dental Care</p>
+          <h2 id="services-heading" class="display-md" style="margin-bottom: var(--space-md);">Every procedure is an art form.</h2>
+          <p>We blend clinical excellence with genuine warmth — because great dentistry starts with trust.</p>
+        </div>
+
+        <!-- Service 1 — image right -->
+        <div class="service-row reveal">
+          <div class="service-text">
+            <div class="service-icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+              </svg>
+            </div>
+            <h3 class="service-title">Professional Cleaning</h3>
+            <p class="service-desc">
+              Our gentle, thorough cleaning removes plaque and tartar buildup, leaving
+              your teeth feeling smooth and looking brilliantly clean. We use ultrasonic
+              technology for a comfortable, anxiety-free experience.
+            </p>
+            <div class="service-badges">
+              <span class="badge badge-success">Painless</span>
+              <span class="badge badge-info">30 min</span>
+              <span class="badge badge-success">Recommended biannually</span>
+            </div>
+            <button class="inline-link" data-dialog="cleaning-dialog">
+              Learn more about cleaning
+              <span class="arrow">&rarr;</span>
+            </button>
+          </div>
+          <div class="service-image">
+            <img
+              src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=800&q=80"
+              alt="Dental cleaning procedure"
+              loading="lazy"
+            />
+          </div>
+        </div>
+
+        <hr class="divider-glass" role="separator" aria-hidden="true">
+
+        <!-- Service 2 — image left (reversed) -->
+        <div class="service-row service-row-reversed reveal">
+          <div class="service-text">
+            <div class="service-icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="8" r="7"/>
+                <polygon points="12,11 9,19 15,19"/>
+              </svg>
+            </div>
+            <h3 class="service-title">Laser Whitening</h3>
+            <p class="service-desc">
+              Transform your smile in just one session. Our advanced laser-activated
+              whitening system is up to 8x more effective than store-bought kits,
+              with zero sensitivity — even on enamel-sensitive teeth.
+            </p>
+            <div class="service-badges">
+              <span class="badge badge-success">1 session</span>
+              <span class="badge badge-info">Zero sensitivity</span>
+              <span class="badge badge-success">Lasts 12+ months</span>
+            </div>
+            <button class="inline-link" data-dialog="whitening-dialog">
+              Learn more about whitening
+              <span class="arrow">&rarr;</span>
+            </button>
+          </div>
+          <div class="service-image">
+            <img
+              src="https://images.unsplash.com/photo-1609840114035-3c981b782dfe?w=800&q=80"
+              alt="Teeth whitening treatment"
+              loading="lazy"
+            />
+          </div>
+        </div>
+
+        <hr class="divider-glass" role="separator" aria-hidden="true">
+
+        <!-- Service 3 — image right with overlap badge -->
+        <div class="service-row reveal">
+          <div class="service-text">
+            <div class="service-icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+              </svg>
+            </div>
+            <h3 class="service-title">Dental Implants</h3>
+            <p class="service-desc">
+              Permanent, natural-looking replacements that restore both function and
+              confidence. Our titanium posts fuse with your jawbone for a solution
+              that feels, looks, and lasts like the real thing — for a lifetime.
+            </p>
+            <div class="service-badges">
+              <span class="badge badge-success">Lifetime warranty</span>
+              <span class="badge badge-info">Natural look</span>
+              <span class="badge badge-success">Same-day option</span>
+            </div>
+            <button class="inline-link" data-dialog="implants-dialog">
+              Learn more about implants
+              <span class="arrow">&rarr;</span>
+            </button>
+          </div>
+          <div class="service-image">
+            <span class="service-overlap-badge">Premium</span>
+            <img
+              src="https://images.unsplash.com/photo-1551076805-e1869033e561?w=800&q=80"
+              alt="Dental implant procedure"
+              loading="lazy"
+            />
+          </div>
+        </div>
+      </section>
+
+      <!-- Full-width divider -->
+      <hr class="divider" role="separator" aria-hidden="true">
+
+      <!-- ============================================================
+           A B O U T   U S
+           ============================================================ -->
+      <section class="page-content section-arch" aria-labelledby="about-heading">
+        <div class="about-section reveal">
+          <div class="about-image">
+            <img
+              src="https://images.unsplash.com/photo-1629909615184-74f495363b67?w=800&q=80"
+              alt="DenteClean clinic interior with modern equipment"
+              loading="lazy"
+            />
+          </div>
+          <div class="about-content">
+            <p class="section-label">Our Story</p>
+            <h2 id="about-heading" class="display-md" style="margin-bottom: var(--space-md);">
+              A decade of redefining dental care.
+            </h2>
+            <p class="body-lg" style="color: var(--secondary); margin-bottom: var(--space-lg);">
+              For over a decade, DenteClean has been redefining what a dental visit
+              can feel like. Founded by Dr. Elena Vasquez, our practice was built on
+              a simple belief: great oral health should never come at the expense of
+              your comfort.
+            </p>
+            <h3 class="headline-md" style="margin-bottom: var(--space-sm);">Our Mission</h3>
+            <div class="about-mission">
+              <p>
+                To provide world-class dental care in an environment that feels less
+                like a clinic and more like a sanctuary. Every tool, every technique,
+                every interaction — designed with your well-being in mind.
+              </p>
+            </div>
+            <hr class="divider-glass" aria-hidden="true">
+            <p style="font-family: var(--font-body); font-size: 0.85rem; font-weight: 600; color: var(--primary); letter-spacing: 0.02em; margin-bottom: var(--space-sm);">
+              Dr. Elena Vasquez, DDS — Founder &amp; Lead Dentist
+            </p>
+            <p style="font-family: var(--font-body); font-size: 1rem; line-height: 1.6; color: var(--secondary); margin-bottom: var(--space-md);">
+              &ldquo;I wanted to create a space where patients actually look forward
+              to their dental visits. No fear, no judgment — just exceptional care
+              delivered with genuine kindness.&rdquo;
+            </p>
+            <div class="about-testimonial">
+              <img
+                class="about-avatar"
+                src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=100&q=80"
+                alt="Sarah M., patient since 2019"
+                loading="lazy"
+              />
+              <div class="about-testimonial-text">
+                <p class="name">Sarah M.</p>
+                <p class="since">Patient since 2019</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <hr class="divider" role="separator" aria-hidden="true">
+
+      <!-- ============================================================
+           M E E T   T H E   T E A M
+           ============================================================ -->
+      <section class="page-content section-arch" aria-labelledby="team-heading">
+        <div class="team-intro">
+          <p class="section-label">Your Smile Architects</p>
+          <h2 id="team-heading" class="display-md" style="margin-bottom: var(--space-sm);">
+            Behind every great smile
+          </h2>
+          <p>is an extraordinary team. Get to know the people who will care for you.</p>
+        </div>
+
+        <!-- Team Member 1 — large prominent -->
+        <div class="team-member reveal">
+          <div class="team-member-image">
+            <img
+              src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=700&q=80"
+              alt="Dr. Elena Vasquez, Lead Dentist"
+              loading="lazy"
+            />
+          </div>
+          <div class="team-member-info">
+            <h3 class="team-member-name">Dr. Elena Vasquez</h3>
+            <p class="team-member-role">Lead Dentist &amp; Founder</p>
+            <p class="team-member-desc">
+              Specializing in cosmetic and restorative dentistry. 15+ years of
+              experience. Graduate of Harvard School of Dental Medicine. Fellow
+              of the International Congress of Oral Implantologists.
+            </p>
+            <div class="team-member-badges">
+              <span class="badge badge-success">15+ years</span>
+              <span class="badge badge-info">Harvard trained</span>
+              <span class="badge badge-success">ICOI Fellow</span>
+            </div>
+          </div>
+        </div>
+
+        <hr class="divider-glass" aria-hidden="true">
+
+        <!-- Team Member 2 — compact, text-first, square image -->
+        <div class="team-member team-member-compact reveal">
+          <div class="team-member-info" style="padding-right: var(--space-lg);">
+            <h3 class="team-member-name">Dr. James Park</h3>
+            <p class="team-member-role">Orthodontics Specialist</p>
+            <p class="team-member-desc">
+              Expert in Invisalign and traditional braces. Certified by the American
+              Board of Orthodontics. Dr. Park has transformed over 1,200 smiles
+              using precision digital planning.
+            </p>
+            <div class="team-member-badges">
+              <span class="badge badge-accent">Invisalign Elite Provider</span>
+            </div>
+          </div>
+          <div class="team-member-image">
+            <img
+              src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=400&q=80"
+              alt="Dr. James Park, Orthodontics Specialist"
+              loading="lazy"
+            />
+          </div>
+        </div>
+
+        <!-- Stats strip -->
+        <div class="stats-strip reveal">
+          <div class="stat-item">
+            <p class="stat-number">12+</p>
+            <p class="stat-label">Years Serving</p>
+          </div>
+          <div class="stat-item">
+            <p class="stat-number">8,500+</p>
+            <p class="stat-label">Smiles Transformed</p>
+          </div>
+          <div class="stat-item">
+            <p class="stat-number">4.9★</p>
+            <p class="stat-label">Average Rating</p>
+          </div>
+          <div class="stat-item">
+            <p class="stat-number">98%</p>
+            <p class="stat-label">Would Recommend</p>
+          </div>
+        </div>
+
+        <!-- Team Member 3 — offset layout -->
+        <div class="team-member team-member-offset reveal">
+          <div class="team-member-image">
+            <img
+              src="https://images.unsplash.com/photo-1582719471384-894fbb16e074?w=400&q=80"
+              alt="Lisa Chen, RDH — Lead Dental Hygienist"
+              loading="lazy"
+            />
+          </div>
+          <div class="team-member-info">
+            <h3 class="team-member-name">Lisa Chen, RDH</h3>
+            <p class="team-member-role">Lead Dental Hygienist</p>
+            <p class="team-member-desc">
+              Gentle care specialist. Known for her calming presence and meticulous
+              cleanings. Lisa has a gift for putting even the most anxious patients
+              at ease — her chairside manner is legendary among our patients.
+            </p>
+            <div class="team-member-badges">
+              <span class="badge badge-success">Patient favourite</span>
+              <span class="badge badge-info">Gentle specialist</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <hr class="divider" role="separator" aria-hidden="true">
+
+      <!-- ============================================================
+           C O N T A C T
+           ============================================================ -->
+      <section class="page-content section-arch" aria-labelledby="contact-heading">
+        <div class="contact-section reveal">
+          <!-- Left: Info -->
+          <div class="contact-info">
+            <p class="section-label">Contact Us</p>
+            <h2 id="contact-heading" class="display-md" style="margin-bottom: var(--space-md);">
+              We'd love to hear from you.
+            </h2>
+            <p style="font-family: var(--font-body); line-height: 1.7; color: var(--secondary); margin-bottom: var(--space-xl);">
+              Whether you're booking your first visit or have a question, we're here to help.
+            </p>
+
+            <div class="contact-info-card">
+              <!-- Address -->
+              <div class="contact-info-item">
+                <div class="contact-icon" aria-hidden="true">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                    <circle cx="12" cy="10" r="3"/>
+                  </svg>
+                </div>
+                <div>
+                  <p class="contact-icon-label">Visit Us</p>
+                  <p class="contact-icon-value">123 Serenity Lane, Suite 200<br>Portland, OR 97201</p>
+                </div>
+              </div>
+
+              <hr class="divider-glass" aria-hidden="true">
+
+              <!-- Phone -->
+              <div class="contact-info-item">
+                <div class="contact-icon" aria-hidden="true">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                  </svg>
+                </div>
+                <div>
+                  <p class="contact-icon-label">Call Us</p>
+                  <p class="contact-icon-value">(503) 555-0142</p>
+                </div>
+              </div>
+
+              <hr class="divider-glass" aria-hidden="true">
+
+              <!-- Email -->
+              <div class="contact-info-item">
+                <div class="contact-icon" aria-hidden="true">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                    <polyline points="22,6 12,13 2,6"/>
+                  </svg>
+                </div>
+                <div>
+                  <p class="contact-icon-label">Email Us</p>
+                  <p class="contact-icon-value">hello@denteclean.com</p>
+                </div>
+              </div>
+
+              <hr class="divider-glass" aria-hidden="true">
+
+              <!-- Hours -->
+              <div class="contact-info-item">
+                <div class="contact-icon" aria-hidden="true">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"/>
+                    <polyline points="12,6 12,12 16,14"/>
+                  </svg>
+                </div>
+                <div>
+                  <p class="contact-icon-label">Office Hours</p>
+                  <p class="contact-icon-value">Mon–Fri: 8:00 AM – 6:00 PM<br>Saturday: 9:00 AM – 2:00 PM</p>
+                </div>
+              </div>
+            </div>
+
+            <hr class="divider-glass" aria-hidden="true" style="margin-top: var(--space-xl);">
+
+            <p style="font-family: var(--font-body); font-size: 0.9rem; font-weight: 600; color: var(--primary); margin-bottom: 0.75rem;">
+              Follow Us
+            </p>
+            <div class="social-links">
+              <button class="social-link" data-toast="Opening Instagram...">Instagram</button>
+              <span class="social-sep">&middot;</span>
+              <button class="social-link" data-toast="Opening Facebook...">Facebook</button>
+              <span class="social-sep">&middot;</span>
+              <button class="social-link" data-toast="Opening Twitter...">Twitter</button>
+            </div>
+          </div>
+
+          <!-- Right: Form -->
+          <div class="contact-form-col">
+            <form class="appointment-form" id="appointment-form" novalidate>
+              <h3 class="form-title">Book an Appointment</h3>
+
+              <div class="form-group">
+                <label for="full-name" class="form-label">Full Name</label>
+                <input
+                  type="text"
+                  id="full-name"
+                  class="form-input"
+                  placeholder="Your full name"
+                  required
+                  autocomplete="name"
+                />
+                <span class="form-error sr-only" role="alert"></span>
+              </div>
+
+              <div class="form-group">
+                <label for="email" class="form-label">Email Address</label>
+                <input
+                  type="email"
+                  id="email"
+                  class="form-input"
+                  placeholder="you@example.com"
+                  required
+                  autocomplete="email"
+                />
+                <span class="form-error sr-only" role="alert"></span>
+              </div>
+
+              <div class="form-group">
+                <label for="phone" class="form-label">Phone Number</label>
+                <input
+                  type="tel"
+                  id="phone"
+                  class="form-input"
+                  placeholder="+1 (555) 000-0000"
+                  autocomplete="tel"
+                />
+                <span class="form-error sr-only" role="alert"></span>
+              </div>
+
+              <div class="form-group">
+                <label for="message" class="form-label">Your Message</label>
+                <textarea
+                  id="message"
+                  class="form-textarea"
+                  rows="4"
+                  placeholder="Tell us about your needs or questions..."
+                ></textarea>
+                <span class="form-error sr-only" role="alert"></span>
+              </div>
+
+              <button type="submit" class="form-submit" id="form-submit-btn">
+                Send Message
+              </button>
+
+              <p class="form-privacy">
+                We respect your privacy. Your information is protected and never shared.
+              </p>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <hr class="divider" role="separator" aria-hidden="true">
+
+      <!-- ============================================================
+           F O O T E R
+           ============================================================ -->
+      <footer class="footer" aria-label="Site footer">
+        <div class="page-content">
+          <div class="footer-grid">
+            <div class="footer-col">
+              <p class="footer-brand">DenteClean</p>
+              <p class="footer-tagline">
+                Premium dental care in a sanctuary setting. Your smile is our masterpiece.
+              </p>
+              <p class="footer-copyright">&copy; 2026 DenteClean. All rights reserved.</p>
+            </div>
+            <div class="footer-col">
+              <p class="footer-heading">Quick Links</p>
+              <button class="footer-link" data-toast="Back to top" data-scroll-top>Home</button>
+              <button class="footer-link" data-toast="View all services">Services</button>
+              <button class="footer-link" data-toast="Meet our team">Team</button>
+              <button class="footer-link" data-toast="Get in touch">Contact</button>
+            </div>
+            <div class="footer-col">
+              <p class="footer-heading">Legal</p>
+              <button class="footer-link" data-toast="View privacy policy">Privacy Policy</button>
+              <button class="footer-link" data-toast="View terms of service">Terms of Service</button>
+              <button class="footer-link" data-toast="View HIPAA notice">HIPAA Compliance</button>
+              <button class="footer-link" data-toast="View accessibility statement">Accessibility</button>
+            </div>
+          </div>
+          <hr class="footer-divider">
+          <div class="footer-bottom">
+            <p>Built with care for our patients. &nbsp;🦷</p>
+          </div>
+        </div>
+      </footer>
+
+    </main>
+  </div>
+
+  <!-- ============================================================
+       M O D A L   O V E R L A Y
+       ============================================================ -->
+  <div class="modal-overlay" id="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal">
+      <button class="modal-close" id="modal-close-btn" aria-label="Close dialog">&times;</button>
+      <h3 class="modal-title" id="modal-title"></h3>
+      <div class="modal-body" id="modal-body"></div>
+      <div class="modal-actions" id="modal-actions"></div>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       T O A S T   C O N T A I N E R
+       ============================================================ -->
+  <div class="toast-container" id="toast-container" aria-live="polite" aria-atomic="true"></div>
+
+  <!-- ============================================================
+       S C R I P T S
+       ============================================================ -->
+  <script>
+    (function() {
+      'use strict';
+
+      // ---- Dialog content store ----
+      const dialogs = {
+        'booking-dialog': {
+          title: 'Book Your Visit',
+          body: 'Ready for your healthiest smile? Call us at (503) 555-0142 or use the contact form below to schedule your first appointment. New patients receive a complimentary consultation.',
+          actions: [
+            { text: 'Go to Contact', type: 'primary', action: 'scroll-to-contact' },
+            { text: 'Close', type: 'ghost', action: 'close' }
+          ]
+        },
+        'cleaning-dialog': {
+          title: 'Professional Cleaning',
+          body: 'Our hygienists use ultrasonic scalers and air-polishing for a deep yet gentle clean. Includes fluoride treatment and oral hygiene coaching. Covered by most insurance plans.',
+          actions: [
+            { text: 'Close', type: 'ghost', action: 'close' }
+          ]
+        },
+        'whitening-dialog': {
+          title: 'Laser Whitening',
+          body: 'Our Zoom! whitening system with LED activation delivers results up to 8 shades brighter in under 90 minutes. Take-home kits also available for touch-ups.',
+          actions: [
+            { text: 'Close', type: 'ghost', action: 'close' }
+          ]
+        },
+        'implants-dialog': {
+          title: 'Dental Implants',
+          body: 'From single-tooth to full-arch restoration. We use 3D CBCT imaging for precision placement and offer sedation options for complex cases. Free consultation for new patients.',
+          actions: [
+            { text: 'Close', type: 'ghost', action: 'close' }
+          ]
+        }
+      };
+
+      // ---- Modal ----
+      const overlay = document.getElementById('modal-overlay');
+      const modalTitle = document.getElementById('modal-title');
+      const modalBody = document.getElementById('modal-body');
+      const modalActions = document.getElementById('modal-actions');
+      const modalCloseBtn = document.getElementById('modal-close-btn');
+
+      function openModal(dialogKey) {
+        const data = dialogs[dialogKey];
+        if (!data) return;
+
+        modalTitle.textContent = data.title;
+        modalBody.textContent = data.body;
+        modalActions.innerHTML = '';
+
+        data.actions.forEach(function(action) {
+          const btn = document.createElement('button');
+          btn.textContent = action.text;
+          btn.className = action.type === 'primary'
+            ? 'btn btn-primary'
+            : 'btn btn-ghost';
+          btn.addEventListener('click', function() {
+            if (action.action === 'close') {
+              closeModal();
+            } else if (action.action === 'scroll-to-contact') {
+              closeModal();
+              document.querySelector('.contact-section').scrollIntoView({ behavior: 'smooth' });
+            }
+          });
+          modalActions.appendChild(btn);
+        });
+
+        overlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+        // Focus the close button
+        setTimeout(function() { modalCloseBtn.focus(); }, 100);
+      }
+
+      function closeModal() {
+        overlay.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+
+      // Open dialog buttons
+      document.querySelectorAll('[data-dialog]').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          openModal(this.dataset.dialog);
+        });
+      });
+
+      // Close modal events
+      modalCloseBtn.addEventListener('click', closeModal);
+      overlay.addEventListener('click', function(e) {
+        if (e.target === overlay) closeModal();
+      });
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && overlay.classList.contains('active')) {
+          closeModal();
+        }
+      });
+
+      // ---- Toast ----
+      const toastContainer = document.getElementById('toast-container');
+
+      function showToast(message) {
+        const toast = document.createElement('div');
+        toast.className = 'toast';
+        toast.textContent = message;
+        toastContainer.appendChild(toast);
+
+        // Trigger animation
+        requestAnimationFrame(function() {
+          toast.classList.add('show');
+        });
+
+        setTimeout(function() {
+          toast.classList.remove('show');
+          setTimeout(function() {
+            toast.remove();
+          }, 300);
+        }, 3000);
+      }
+
+      document.querySelectorAll('[data-toast]').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          showToast(this.dataset.toast);
+        });
+      });
+
+      // Scroll-to-top for footer Home link
+      document.querySelector('[data-scroll-top]')?.addEventListener('click', function() {
+        document.getElementById('root').scrollTo({ top: 0, behavior: 'smooth' });
+      });
+
+      // ---- Form ----
+      const form = document.getElementById('appointment-form');
+      const submitBtn = document.getElementById('form-submit-btn');
+
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        let valid = true;
+        const nameInput = document.getElementById('full-name');
+        const emailInput = document.getElementById('email');
+
+        // Simple validation
+        [nameInput, emailInput].forEach(function(input) {
+          input.classList.remove('error');
+          const errorSpan = input.parentElement.querySelector('.form-error');
+          errorSpan.classList.add('sr-only');
+          errorSpan.textContent = '';
+        });
+
+        if (!nameInput.value.trim()) {
+          nameInput.classList.add('error');
+          const errorSpan = nameInput.parentElement.querySelector('.form-error');
+          errorSpan.textContent = 'Name is required';
+          errorSpan.classList.remove('sr-only');
+          valid = false;
+        }
+
+        if (!emailInput.value.trim() || !emailInput.value.includes('@')) {
+          emailInput.classList.add('error');
+          const errorSpan = emailInput.parentElement.querySelector('.form-error');
+          errorSpan.textContent = 'A valid email is required';
+          errorSpan.classList.remove('sr-only');
+          valid = false;
+        }
+
+        if (valid) {
+          submitBtn.disabled = true;
+          submitBtn.textContent = 'Sending...';
+
+          setTimeout(function() {
+            showToast("Message sent! We'll get back to you within 24 hours. \u2728");
+            form.reset();
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Send Message';
+          }, 800);
+        }
+      });
+
+      // Live validation reset on input
+      form.querySelectorAll('.form-input, .form-textarea').forEach(function(input) {
+        input.addEventListener('input', function() {
+          this.classList.remove('error');
+          const errorSpan = this.parentElement.querySelector('.form-error');
+          if (errorSpan) {
+            errorSpan.classList.add('sr-only');
+            errorSpan.textContent = '';
+          }
+        });
+      });
+
+      // ---- Scroll Reveal (Intersection Observer) ----
+      if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver(function(entries) {
+          entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, {
+          threshold: 0.1,
+          rootMargin: '0px 0px -40px 0px'
+        });
+
+        document.querySelectorAll('.reveal').forEach(function(el) {
+          observer.observe(el);
+        });
+      } else {
+        // Fallback: show all
+        document.querySelectorAll('.reveal').forEach(function(el) {
+          el.classList.add('visible');
+        });
+      }
+
+      // ---- Hero link scroll behavior ----
+      document.querySelector('.hero-link[data-toast]')?.addEventListener('click', function() {
+        const servicesSection = document.querySelector('.services-intro');
+        if (servicesSection) {
+          servicesSection.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+
+    })();
+  </script>
+</body>
+</html>
