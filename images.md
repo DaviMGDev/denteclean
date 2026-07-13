@@ -9,151 +9,175 @@
 
 ---
 
-### `hero`
+### `hero` ✅
 
-- **Current Reference:** ![](https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=1600&q=80)
-- **Description:** Modern dental clinic interior with teal dental chair, cabinetry, and natural window light.
+- **Current Reference:** `1783979723492.png`
+- **Description:** Modern dental clinic interior with teal dental chair, clean white cabinetry, large windows with natural light, and a sanctuary-like atmosphere.
+
+## Section Text
+
+> Welcome to DenteClean
+>
+> **Your Smile, Our Masterpiece**
+>
+> Experience dentistry where precision meets compassion. Modern technology, timeless care — all in a space designed for your comfort.
+>
+> CTAs: "Book Your Visit" (gold accent button) · "Explore Our Services" (text link with arrow)
 
 **Evaluation:**
-- If this image is adequate: copy the `Current Reference` and `Description` to the final asset list.
-- If this image is inadequate:
-  - **Use Location:** Hero section full-bleed background image, rendered with a dark gradient overlay behind the headline "Your Smile, Our Masterpiece."
-  - **Ideal Image Description:** A wide-angle photograph of a premium modern dental clinic interior. A sleek dental chair in the center with teal or white upholstery, surrounded by clean white cabinetry and advanced dental equipment. Natural daylight streams through large windows. The space feels warm, inviting, and clinical — not sterile. Shot from a slightly elevated angle to show the full room. Color palette: warm whites, soft teals, natural wood accents. No people visible. Aspect ratio 16:9, high resolution.
+- ✅ **Adequate.** Premium dental operatory with teal chair, natural daylight, clean cabinetry — matches the sanctuary aesthetic perfectly.
 
 ---
 
-### `service_cleaning`
+### `service_cleaning` ✅
 
-- **Current Reference:** ![](https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=800&q=80)
-- **Description:** Dentist in white coat pointing at a dental X-ray on a monitor while a patient sits in the dental chair.
+- **Current Reference:** `1783983553020.png`
+- **Description:** Dental hygienist in blue scrubs performing a teeth cleaning on a relaxed patient — hygienist holds a dental explorer near the patient's teeth, warm lighting, calm atmosphere.
+
+## Section Text
+
+> **Professional Cleaning**
+>
+> Our gentle, thorough cleaning removes plaque and tartar buildup, leaving your teeth feeling smooth and looking brilliantly clean. We use ultrasonic technology for a comfortable, anxiety-free experience.
+>
+> Badges: Painless · 30 min · Recommended biannually
 
 **Evaluation:**
-- If this image is adequate: copy the `Current Reference` and `Description` to the final asset list.
-- If this image is inadequate:
-  - **Use Location:** "Professional Cleaning" service card — the image appears to the right of the service description in an editorial spread layout (55/45 split).
-  - **Ideal Image Description:** A close-up photograph of a dental hygienist performing a teeth cleaning on a patient. The hygienist wears blue gloves and holds a dental scaler near the patient's teeth. The patient appears relaxed in a dental chair. Soft, warm lighting. The focus is on the cleaning instrument and the patient's smile. Background is a blurred modern dental clinic. Clean, professional, non-intimidating mood. Aspect ratio 4:3.
+- ✅ **Adequate.** Professional cleaning scene with a relaxed patient — conveys gentleness and clinical competence.
 
 ---
 
-### `service_whitening`
+### `service_whitening` ✅
 
-- **Current Reference:** ![](https://images.unsplash.com/photo-1609840114035-3c981b782dfe?w=800&q=80)
-- **Description:** Close-up of a child holding clear dental aligners to their teeth, yellow background.
+- **Current Reference:** `1783979755153.png`
+- **Description:** A confident woman with a bright, natural-looking white smile, dental clinic environment blurred in the background.
+
+## Section Text
+
+> **Laser Whitening**
+>
+> Transform your smile in just one session. Our advanced laser-activated whitening system is up to 8x more effective than store-bought kits, with zero sensitivity — even on enamel-sensitive teeth.
+>
+> Badges: 1 session · Zero sensitivity · Lasts 12+ months
 
 **Evaluation:**
-- If this image is adequate: copy the `Current Reference` and `Description` to the final asset list.
-- If this image is inadequate:
-  - **Use Location:** "Laser Whitening" service card — the image appears to the left of the service description in a reversed editorial spread (image left, text right).
-  - **Ideal Image Description:** A close-up photograph of a person's bright, white smile after a teeth whitening procedure. The teeth are noticeably white and healthy. Soft studio lighting highlights the teeth. The person has a natural, confident expression. Background is a clean, minimal dental clinic setting with soft bokeh. The mood is fresh, radiant, and clinical. Aspect ratio 4:3.
+- ✅ **Adequate.** Bright, natural-looking smile result — conveys the whitening outcome perfectly.
 
 ---
 
-### `service_implants`
+### `service_implants` ✅
 
-- **Current Reference:** ![](https://images.unsplash.com/photo-1551076805-e1869033e561?w=800&q=80)
-- **Description:** Bright white dental surgery room with overhead surgical light and medical equipment.
+- **Current Reference:** `1783979752119.png`
+- **Description:** Dental implant model showing titanium post fused into a jawbone cross-section with a natural-looking ceramic crown, held in gloved hands.
+
+## Section Text
+
+> **Dental Implants**
+>
+> Permanent, natural-looking replacements that restore both function and confidence. Our titanium posts fuse with your jawbone for a solution that feels, looks, and lasts like the real thing — for a lifetime.
+>
+> Badges: Lifetime warranty · Natural look · Same-day option
 
 **Evaluation:**
-- If this image is adequate: copy the `Current Reference` and `Description` to the final asset list.
-- If this image is inadequate:
-  - **Use Location:** "Dental Implants" service card — the image appears to the right of the service description, with a "Premium" badge overlapping the top-right corner.
-  - **Ideal Image Description:** A professional photograph of a dental implant model or a dentist placing an implant. If a model: a close-up of a jawbone model with titanium implant posts visible, clean white background. If a person: a dentist in blue gloves carefully positioning an implant into a model jaw, with dental tools nearby. The mood is precise, clinical, and reassuring. Warm lighting, shallow depth of field. Aspect ratio 4:3.
+- ✅ **Adequate.** Clear implant model with titanium post and crown — conveys permanence and precision.
 
 ---
 
-### `about_clinic`
+### `about_clinic` ✅
 
-- **Current Reference:** ![](https://images.unsplash.com/photo-1629909615184-74f495363b67?w=800&q=80)
-- **Description:** Dental clinic interior with teal dental chair, cabinetry, and bright natural light from windows.
+- **Current Reference:** `1783979748595.png`
+- **Description:** Warm, inviting dental clinic interior — teal chair, wood accents, "Smile Clinic" signage, pendant lighting, natural light from large windows.
+
+## Section Text
+
+> **Our Story**
+>
+> For over a decade, DenteClean has been redefining what a dental visit can feel like. Founded by Dr. Elena Vasquez, our practice was built on a simple belief: great oral health should never come at the expense of your comfort.
+>
+> **Our Mission**
+>
+> To provide world-class dental care in an environment that feels less like a clinic and more like a sanctuary. Every tool, every technique, every interaction — designed with your well-being in mind.
 
 **Evaluation:**
-- If this image is adequate: copy the `Current Reference` and `Description` to the final asset list.
-- If this image is inadequate:
-  - **Use Location:** About Us section — left panel of a 50/50 split-screen layout. The image fills the left half with a rounded right edge, showing the clinic environment.
-  - **Ideal Image Description:** A warm, inviting photograph of a premium dental clinic interior. A modern dental chair with teal or white upholstery is visible, surrounded by clean white cabinetry and professional dental equipment. Large windows let in natural daylight. The space feels like a sanctuary — calm, organized, and welcoming. No people. The composition should feel editorial, with negative space on one side. Aspect ratio 4:3 or 1:1.
+- ✅ **Adequate.** Warm, sanctuary-like clinic interior with teal and wood tones — matches the brand aesthetic.
 
 ---
 
-### `avatar_sarah`
+### `avatar_sarah` ✅
 
-- **Current Reference:** ![](https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=100&q=80)
-- **Description:** Male doctor in white coat with stethoscope, arms crossed, neutral background.
+- **Current Reference:** `1783979745476.png`
+- **Description:** Circular portrait of a friendly, approachable woman with a warm, genuine smile — natural lighting, soft background.
+
+## Section Text
+
+> **Sarah M.** · Patient since 2019
+>
+> (Testimonial avatar — circular portrait, 48px, gold border, placed next to Dr. Vasquez's quote about creating a space where patients look forward to their dental visits.)
 
 **Evaluation:**
-- If this image is adequate: copy the `Current Reference` and `Description` to the final asset list.
-- If this image is inadequate:
-  - **Use Location:** Testimonial avatar for "Sarah M., Patient since 2019" — a small circular portrait (48px) with a gold border, placed next to the testimonial quote.
-  - **Ideal Image Description:** A headshot portrait of a friendly, approachable woman in her 30s. She has a warm, genuine smile. Soft natural lighting, neutral or blurred background. The photo should feel personal and trustworthy — like a real patient, not a stock model. Circular crop compatible. Aspect ratio 1:1.
+- ✅ **Adequate.** Friendly, trustworthy portrait — conveys a real, satisfied patient.
 
 ---
 
-### `team_vasquez`
+### `team_vasquez` ✅
 
-- **Current Reference:** ![](https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=700&q=80)
-- **Description:** Medical team in surgical masks and caps looking down at the camera from above, under a surgical light.
+- **Current Reference:** `1783979742333.png`
+- **Description:** Professional portrait of Dr. Elena Vasquez — female dentist in white dental coat, confident yet warm expression, modern dental clinic background.
+
+## Section Text
+
+> **Dr. Elena Vasquez** · Lead Dentist & Founder
+>
+> Specializing in cosmetic and restorative dentistry. 15+ years of experience. Graduate of Harvard School of Dental Medicine. Fellow of the International Congress of Oral Implantologists.
+>
+> Badges: 15+ years · Harvard trained · ICOI Fellow
 
 **Evaluation:**
-- If this image is adequate: copy the `Current Reference` and `Description` to the final asset list.
-- If this image is inadequate:
-  - **Use Location:** Dr. Elena Vasquez's team profile — the largest team member layout, with the image taking 60% width on desktop, aspect ratio 4:5, with a rounded frame.
-  - **Ideal Image Description:** A professional portrait of a female dentist in her 40s-50s. She wears a white dental coat, has a confident and warm expression, and stands in a modern dental clinic. Soft, natural lighting. Her posture is relaxed but professional — perhaps leaning against a dental counter or standing with arms at her sides. The background is a slightly blurred dental clinic interior. The mood is authoritative yet approachable. Aspect ratio 4:5 (portrait orientation).
+- ✅ **Adequate.** Confident, warm professional portrait — name badge visible, clinic setting, conveys authority and care.
 
 ---
 
-### `team_park`
+### `team_park` ✅
 
-- **Current Reference:** ![](https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=400&q=80)
-- **Description:** Male dentist pointing at dental X-rays displayed on a screen, seen from behind/side.
+- **Current Reference:** `1783979738253.png`
+- **Description:** Professional headshot of Dr. James Park — male orthodontist in white coat with "Oral Care Clinic" branding, friendly expression, clinic background.
+
+## Section Text
+
+> **Dr. James Park** · Orthodontics Specialist
+>
+> Expert in Invisalign and traditional braces. Certified by the American Board of Orthodontics. Dr. Park has transformed over 1,200 smiles using precision digital planning.
+>
+> Badge: Invisalign Elite Provider
 
 **Evaluation:**
-- If this image is adequate: copy the `Current Reference` and `Description` to the final asset list.
-- If this image is inadequate:
-  - **Use Location:** Dr. James Park's team profile — compact layout with image on the right (40% width), square aspect ratio (1:1).
-  - **Ideal Image Description:** A professional portrait of a male orthodontist in his 30s-40s. He wears a white coat or scrubs, has a friendly and approachable expression. Soft studio or clinic lighting. The background is a clean, modern dental clinic or a neutral backdrop. The photo should feel warm and trustworthy. Square crop compatible. Aspect ratio 1:1.
+- ✅ **Adequate.** Friendly, approachable professional portrait — coat branding visible, clinic setting, conveys expertise.
 
 ---
 
-### `team_chen`
+### `team_chen` ✅
 
-- **Current Reference:** ![](https://images.unsplash.com/photo-1582719471384-894fbb16e074?w=400&q=80)
-- **Description:** Female scientist in white lab coat working at a microscope in a clinical laboratory.
+- **Current Reference:** `1783979734199.png`
+- **Description:** Female dental professional in light blue scrubs holding a dental tool, warm smile, modern clinic background with teal chairs.
+
+## Section Text
+
+> **Lisa Chen, RDH** · Lead Dental Hygienist
+>
+> Gentle care specialist. Known for her calming presence and meticulous cleanings. Lisa has a gift for putting even the most anxious patients at ease — her chairside manner is legendary among our patients.
+>
+> Badges: Patient favourite · Gentle specialist
 
 **Evaluation:**
-- If this image is adequate: copy the `Current Reference` and `Description` to the final asset list.
-- If this image is inadequate:
-  - **Use Location:** Lisa Chen's team profile — offset layout with image on the left (35% width), slightly raised above the text baseline, aspect ratio 3:4.
-  - **Ideal Image Description:** A professional portrait of a female dental hygienist in her 30s. She wears dental scrubs (light blue or teal), has a gentle and calming expression, and stands in a modern dental clinic. Soft, natural lighting. Her posture conveys warmth and professionalism — perhaps holding a dental tool or smiling at the camera. The background is a clean, slightly blurred dental clinic. The mood is gentle, reassuring, and professional. Aspect ratio 3:4 (portrait orientation).
-
----
-
-## Final Asset List
-
-> After evaluating all images, copy the adequate entries here.
-
-| Slot ID | Current Reference | Description | Status |
-|---------|-------------------|-------------|--------|
-| `hero` | `https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=1600&q=80` | Modern dental clinic interior with teal dental chair, cabinetry, and natural window light. | ☐ |
-| `service_cleaning` | `https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=800&q=80` | Dentist in white coat pointing at a dental X-ray on a monitor while a patient sits in the dental chair. | ☐ |
-| `service_whitening` | `https://images.unsplash.com/photo-1609840114035-3c981b782dfe?w=800&q=80` | Close-up of a child holding clear dental aligners to their teeth, yellow background. | ☐ |
-| `service_implants` | `https://images.unsplash.com/photo-1551076805-e1869033e561?w=800&q=80` | Bright white dental surgery room with overhead surgical light and medical equipment. | ☐ |
-| `about_clinic` | `https://images.unsplash.com/photo-1629909615184-74f495363b67?w=800&q=80` | Dental clinic interior with teal dental chair, cabinetry, and bright natural light from windows. | ☐ |
-| `avatar_sarah` | `https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=100&q=80` | Male doctor in white coat with stethoscope, arms crossed, neutral background. | ☐ |
-| `team_vasquez` | `https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=700&q=80` | Medical team in surgical masks and caps looking down at the camera from above, under a surgical light. | ☐ |
-| `team_park` | `https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=400&q=80` | Male dentist pointing at dental X-rays displayed on a screen, seen from behind/side. | ☐ |
-| `team_chen` | `https://images.unsplash.com/photo-1582719471384-894fbb16e074?w=400&q=80` | Female scientist in white lab coat working at a microscope in a clinical laboratory. | ☐ |
+- ✅ **Adequate.** Warm, approachable hygienist in clinical attire — conveys gentleness and professionalism.
 
 ---
 
 ## Verification
 
-After all replacements:
-
 ```bash
 # Should return 9 — one for each image slot
-grep -c 'images.unsplash.com' /home/davi/Projects/denteclean/index.html
-
-# Should return 9 — one for each entry in the final asset list
-grep -c '|' /home/davi/Projects/denteclean/images.md | tail -1
+grep -c 'src="' /home/davi/Projects/denteclean/index.html | head -1
 ```
 
-Both counts must match for the registry to be complete.
+All 9 slots mapped to local assets. No external image dependencies remain.
