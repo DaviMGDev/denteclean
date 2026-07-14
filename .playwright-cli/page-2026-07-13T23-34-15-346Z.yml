@@ -1,0 +1,37 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - generic [ref=e3]: 1 — Bottom Gradient
+    - img "Clinic" [ref=e4]
+    - generic [ref=e5]:
+      - heading "Your Smile, Our Masterpiece" [level=1] [ref=e6]:
+        - text: Your Smile,
+        - emphasis [ref=e7]: Our Masterpiece
+      - paragraph [ref=e8]: Experience dentistry where precision meets compassion. Modern technology, timeless care — all in a space designed for your comfort.
+      - button "Book Your Visit" [ref=e9] [cursor=pointer]
+  - generic [ref=e10]:
+    - generic [ref=e11]: 2 — Full Dim Overlay
+    - img "Clinic" [ref=e12]
+    - generic [ref=e13]:
+      - heading "Your Smile, Our Masterpiece" [level=1] [ref=e14]:
+        - text: Your Smile,
+        - emphasis [ref=e15]: Our Masterpiece
+      - paragraph [ref=e16]: Experience dentistry where precision meets compassion. Modern technology, timeless care — all in a space designed for your comfort.
+      - button "Book Your Visit" [ref=e17] [cursor=pointer]
+  - generic [ref=e18]:
+    - generic [ref=e19]: 3 — Text Shadow Only
+    - img "Clinic" [ref=e20]
+    - generic [ref=e21]:
+      - heading "Your Smile, Our Masterpiece" [level=1] [ref=e22]:
+        - text: Your Smile,
+        - emphasis [ref=e23]: Our Masterpiece
+      - paragraph [ref=e24]: Experience dentistry where precision meets compassion. Modern technology, timeless care — all in a space designed for your comfort.
+      - button "Book Your Visit" [ref=e25] [cursor=pointer]
+  - generic [ref=e26]:
+    - generic [ref=e27]: 4 — Panel Behind Text
+    - img "Clinic" [ref=e28]
+    - generic [ref=e29]:
+      - heading "Your Smile, Our Masterpiece" [level=1] [ref=e30]:
+        - text: Your Smile,
+        - emphasis [ref=e31]: Our Masterpiece
+      - paragraph [ref=e32]: Experience dentistry where precision meets compassion. Modern technology, timeless care — all in a space designed for your comfort.
+      - button "Book Your Visit" [ref=e33] [cursor=pointer]

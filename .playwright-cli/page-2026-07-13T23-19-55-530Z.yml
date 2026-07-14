@@ -1,0 +1,221 @@
+- generic [active] [ref=e1]:
+  - link "Skip to main content" [ref=e2] [cursor=pointer]:
+    - /url: "#main-content"
+  - main [ref=e4]:
+    - region "Welcome to DenteClean" [ref=e5]:
+      - img "Modern dental clinic interior with warm lighting" [ref=e7]
+      - generic:
+        - img
+      - generic [ref=e8]:
+        - paragraph [ref=e9]: Welcome to DenteClean
+        - heading "Your Smile, Our Masterpiece" [level=1] [ref=e10]:
+          - text: Your Smile,
+          - text: Our Masterpiece
+        - paragraph [ref=e11]: Experience dentistry where precision meets compassion. Modern technology, timeless care — all in a space designed for your comfort.
+        - generic [ref=e12]:
+          - button "Book Your Visit" [ref=e13] [cursor=pointer]
+          - button "Explore Our Services →" [ref=e14] [cursor=pointer]:
+            - text: Explore Our Services
+            - generic [ref=e15]: →
+    - separator [ref=e16]
+    - region "Every procedure is an art form." [ref=e17]:
+      - generic [ref=e18]:
+        - paragraph [ref=e19]: Premium Dental Care
+        - heading "Every procedure is an art form." [level=2] [ref=e20]
+        - paragraph [ref=e21]: We blend clinical excellence with genuine warmth — because great dentistry starts with trust.
+      - generic [ref=e22]:
+        - generic [ref=e23]:
+          - img [ref=e25]
+          - heading "Professional Cleaning" [level=3] [ref=e27]
+          - paragraph [ref=e28]: Our gentle, thorough cleaning removes plaque and tartar buildup, leaving your teeth feeling smooth and looking brilliantly clean. We use ultrasonic technology for a comfortable, anxiety-free experience.
+          - generic [ref=e29]:
+            - generic [ref=e30]: Painless
+            - generic [ref=e31]: 30 min
+            - generic [ref=e32]: Recommended biannually
+          - button "Learn more about cleaning →" [ref=e33] [cursor=pointer]:
+            - text: Learn more about cleaning
+            - generic [ref=e34]: →
+        - img "Dental cleaning procedure" [ref=e36]
+      - separator [ref=e37]
+      - generic [ref=e38]:
+        - generic [ref=e39]:
+          - img [ref=e41]
+          - heading "Laser Whitening" [level=3] [ref=e44]
+          - paragraph [ref=e45]: Transform your smile in just one session. Our advanced laser-activated whitening system is up to 8x more effective than store-bought kits, with zero sensitivity — even on enamel-sensitive teeth.
+          - generic [ref=e46]:
+            - generic [ref=e47]: 1 session
+            - generic [ref=e48]: Zero sensitivity
+            - generic [ref=e49]: Lasts 12+ months
+          - button "Learn more about whitening →" [ref=e50] [cursor=pointer]:
+            - text: Learn more about whitening
+            - generic [ref=e51]: →
+        - img "Teeth whitening treatment" [ref=e53]
+      - separator [ref=e54]
+      - generic [ref=e55]:
+        - generic [ref=e56]:
+          - img [ref=e58]
+          - heading "Dental Implants" [level=3] [ref=e60]
+          - paragraph [ref=e61]: Permanent, natural-looking replacements that restore both function and confidence. Our titanium posts fuse with your jawbone for a solution that feels, looks, and lasts like the real thing — for a lifetime.
+          - generic [ref=e62]:
+            - generic [ref=e63]: Lifetime warranty
+            - generic [ref=e64]: Natural look
+            - generic [ref=e65]: Same-day option
+          - button "Learn more about implants →" [ref=e66] [cursor=pointer]:
+            - text: Learn more about implants
+            - generic [ref=e67]: →
+        - generic [ref=e68]:
+          - generic [ref=e69]: Premium
+          - img "Dental implant procedure" [ref=e70]
+    - separator [ref=e71]
+    - region "A decade of redefining dental care." [ref=e72]:
+      - generic [ref=e73]:
+        - img "DenteClean clinic interior with modern equipment" [ref=e75]
+        - generic [ref=e76]:
+          - paragraph [ref=e77]: Our Story
+          - heading "A decade of redefining dental care." [level=2] [ref=e78]
+          - paragraph [ref=e79]: "For over a decade, DenteClean has been redefining what a dental visit can feel like. Founded by Dr. Elena Vasquez, our practice was built on a simple belief: great oral health should never come at the expense of your comfort."
+          - heading "Our Mission" [level=3] [ref=e80]
+          - paragraph [ref=e82]: To provide world-class dental care in an environment that feels less like a clinic and more like a sanctuary. Every tool, every technique, every interaction — designed with your well-being in mind.
+          - separator [ref=e83]
+          - paragraph [ref=e84]: Dr. Elena Vasquez, DDS — Founder & Lead Dentist
+          - paragraph [ref=e85]: “I wanted to create a space where patients actually look forward to their dental visits. No fear, no judgment — just exceptional care delivered with genuine kindness.”
+          - generic [ref=e86]:
+            - img "Sarah M., patient since 2019" [ref=e87]
+            - generic [ref=e88]:
+              - paragraph [ref=e89]: Sarah M.
+              - paragraph [ref=e90]: Patient since 2019
+    - separator [ref=e91]
+    - region "Behind every great smile" [ref=e92]:
+      - generic [ref=e93]:
+        - paragraph [ref=e94]: Your Smile Architects
+        - heading "Behind every great smile" [level=2] [ref=e95]
+        - paragraph [ref=e96]: is an extraordinary team. Get to know the people who will care for you.
+      - generic [ref=e97]:
+        - img "Dr. Elena Vasquez, Lead Dentist" [ref=e99]
+        - generic [ref=e100]:
+          - heading "Dr. Elena Vasquez" [level=3] [ref=e101]
+          - paragraph [ref=e102]: Lead Dentist & Founder
+          - paragraph [ref=e103]: Specializing in cosmetic and restorative dentistry. 15+ years of experience. Graduate of Harvard School of Dental Medicine. Fellow of the International Congress of Oral Implantologists.
+          - generic [ref=e104]:
+            - generic [ref=e105]: 15+ years
+            - generic [ref=e106]: Harvard trained
+            - generic [ref=e107]: ICOI Fellow
+      - separator [ref=e108]
+      - generic [ref=e109]:
+        - generic [ref=e110]:
+          - heading "Dr. James Park" [level=3] [ref=e111]
+          - paragraph [ref=e112]: Orthodontics Specialist
+          - paragraph [ref=e113]: Expert in Invisalign and traditional braces. Certified by the American Board of Orthodontics. Dr. Park has transformed over 1,200 smiles using precision digital planning.
+          - generic [ref=e115]: Invisalign Elite Provider
+        - img "Dr. James Park, Orthodontics Specialist" [ref=e117]
+      - generic [ref=e118]:
+        - generic [ref=e119]:
+          - paragraph [ref=e120]: 12+
+          - paragraph [ref=e121]: Years Serving
+        - generic [ref=e122]:
+          - paragraph [ref=e123]: 8,500+
+          - paragraph [ref=e124]: Smiles Transformed
+        - generic [ref=e125]:
+          - paragraph [ref=e126]: 4.9★
+          - paragraph [ref=e127]: Average Rating
+        - generic [ref=e128]:
+          - paragraph [ref=e129]: 98%
+          - paragraph [ref=e130]: Would Recommend
+      - generic [ref=e131]:
+        - img "Lisa Chen, RDH — Lead Dental Hygienist" [ref=e133]
+        - generic [ref=e134]:
+          - heading "Lisa Chen, RDH" [level=3] [ref=e135]
+          - paragraph [ref=e136]: Lead Dental Hygienist
+          - paragraph [ref=e137]: Gentle care specialist. Known for her calming presence and meticulous cleanings. Lisa has a gift for putting even the most anxious patients at ease — her chairside manner is legendary among our patients.
+          - generic [ref=e138]:
+            - generic [ref=e139]: Patient favourite
+            - generic [ref=e140]: Gentle specialist
+    - separator [ref=e141]
+    - region "We'd love to hear from you." [ref=e142]:
+      - generic [ref=e143]:
+        - generic [ref=e144]:
+          - paragraph [ref=e145]: Contact Us
+          - heading "We'd love to hear from you." [level=2] [ref=e146]
+          - paragraph [ref=e147]: Whether you're booking your first visit or have a question, we're here to help.
+          - generic [ref=e148]:
+            - generic [ref=e149]:
+              - img [ref=e151]
+              - generic [ref=e154]:
+                - paragraph [ref=e155]: Visit Us
+                - paragraph [ref=e156]:
+                  - text: 123 Serenity Lane, Suite 200
+                  - text: Portland, OR 97201
+            - separator [ref=e157]
+            - generic [ref=e158]:
+              - img [ref=e160]
+              - generic [ref=e162]:
+                - paragraph [ref=e163]: Call Us
+                - paragraph [ref=e164]: (503) 555-0142
+            - separator [ref=e165]
+            - generic [ref=e166]:
+              - img [ref=e168]
+              - generic [ref=e171]:
+                - paragraph [ref=e172]: Email Us
+                - paragraph [ref=e173]: hello@denteclean.com
+            - separator [ref=e174]
+            - generic [ref=e175]:
+              - img [ref=e177]
+              - generic [ref=e180]:
+                - paragraph [ref=e181]: Office Hours
+                - paragraph [ref=e182]:
+                  - text: "Mon–Fri: 8:00 AM – 6:00 PM"
+                  - text: "Saturday: 9:00 AM – 2:00 PM"
+          - separator [ref=e183]
+          - paragraph [ref=e184]: Follow Us
+          - generic [ref=e185]:
+            - button "Instagram" [ref=e186] [cursor=pointer]
+            - generic [ref=e187]: ·
+            - button "Facebook" [ref=e188] [cursor=pointer]
+            - generic [ref=e189]: ·
+            - button "Twitter" [ref=e190] [cursor=pointer]
+        - generic [ref=e192]:
+          - heading "Book an Appointment" [level=3] [ref=e193]
+          - generic [ref=e194]:
+            - generic [ref=e195]: Full Name
+            - textbox "Full Name" [ref=e196]:
+              - /placeholder: Your full name
+            - alert [ref=e197]
+          - generic [ref=e198]:
+            - generic [ref=e199]: Email Address
+            - textbox "Email Address" [ref=e200]:
+              - /placeholder: you@example.com
+            - alert [ref=e201]
+          - generic [ref=e202]:
+            - generic [ref=e203]: Phone Number
+            - textbox "Phone Number" [ref=e204]:
+              - /placeholder: +1 (555) 000-0000
+            - alert [ref=e205]
+          - generic [ref=e206]:
+            - generic [ref=e207]: Your Message
+            - textbox "Your Message" [ref=e208]:
+              - /placeholder: Tell us about your needs or questions...
+            - alert [ref=e209]
+          - button "Send Message" [ref=e210] [cursor=pointer]
+          - paragraph [ref=e211]: We respect your privacy. Your information is protected and never shared.
+    - separator [ref=e212]
+    - generic "Site footer" [ref=e213]:
+      - generic [ref=e214]:
+        - generic [ref=e215]:
+          - generic [ref=e216]:
+            - paragraph [ref=e217]: DenteClean
+            - paragraph [ref=e218]: Premium dental care in a sanctuary setting. Your smile is our masterpiece.
+            - paragraph [ref=e219]: © 2026 DenteClean. All rights reserved.
+          - generic [ref=e220]:
+            - paragraph [ref=e221]: Quick Links
+            - button "Home" [ref=e222] [cursor=pointer]
+            - button "Services" [ref=e223] [cursor=pointer]
+            - button "Team" [ref=e224] [cursor=pointer]
+            - button "Contact" [ref=e225] [cursor=pointer]
+          - generic [ref=e226]:
+            - paragraph [ref=e227]: Legal
+            - button "Privacy Policy" [ref=e228] [cursor=pointer]
+            - button "Terms of Service" [ref=e229] [cursor=pointer]
+            - button "HIPAA Compliance" [ref=e230] [cursor=pointer]
+            - button "Accessibility" [ref=e231] [cursor=pointer]
+        - separator [ref=e232]
+        - paragraph [ref=e234]: Built with care for our patients. 🦷

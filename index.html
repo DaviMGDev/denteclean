@@ -437,18 +437,12 @@
       object-position: center 25%;
       display: block;
     }
-    .hero-bg::after {
-      content: '';
+    .hero-vignette {
       position: absolute;
       inset: 0;
-      z-index: 1;
+      z-index: 10;
       pointer-events: none;
-      background: radial-gradient(
-        ellipse 70% 60% at 50% 50%,
-        rgba(27, 31, 34, 0.55) 0%,
-        rgba(27, 31, 34, 0.30) 40%,
-        rgba(27, 31, 34, 0.0) 100%
-      );
+      background: rgba(0, 0, 0, 0.40);
     }
 
     .hero-content {
@@ -1398,6 +1392,7 @@
             alt="Modern dental clinic interior with warm lighting"
             loading="eager"
           />
+          <div class="hero-vignette"></div>
         </div>
 
         <!-- Botanical vine motif -->
