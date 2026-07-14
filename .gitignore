@@ -1,0 +1,32 @@
+# --- Dependencies ---
+node_modules/
+
+# --- Environment ---
+.env
+.env.local
+.env.*.local
+
+# --- Build output ---
+dist/
+build/
+coverage/
+
+# --- Playwright ---
+.playwright-cli/
+
+# --- OS files ---
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# --- Editor ---
+*.swp
+*.swo
+*~
+.vscode/
+.idea/
+*.sublime-*
+
+# --- Logs ---
+*.log
+npm-debug.log*
