@@ -37,10 +37,8 @@ The visual language reconciles **Art Nouveau structural elegance** with **clinic
 | **Markup** | HTML5 (semantic, ARIA landmarks) |
 | **Styling** | CSS3 (custom properties, `clamp()`, flexbox, `dvh` units) |
 | **Interactivity** | JavaScript (ES6, Intersection Observer, IIFE pattern) |
-| **Images** | WebP (converted from PNG via ImageMagick) |
+| **Images** | WebP |
 | **Design docs** | DESIGN.md + InterSpec |
-| **Testing** | Playwright (directory scaffolded) |
-| **Version control** | Git + GitHub |
 
 **Zero runtime dependencies.** No npm, no bundlers, no frameworks.
 
@@ -59,8 +57,6 @@ denteclean/
 │   └── index.is            # InterSpec wireframe
 ├── assets/
 │   └── images/             # 9 WebP images (optimized)
-├── tests/
-│   └── playwright/         # E2E test scaffold
 └── .gitignore
 ```
 
@@ -80,15 +76,15 @@ Or simply serve the directory with any static file server:
 
 ```bash
 npx serve denteclean/
-# or
-python3 -m http.server -d denteclean/
 ```
 
 ---
 
-## Image Optimization
+## Preview
 
-All raster images were converted from PNG to **WebP** using ImageMagick (quality 85, metadata stripped), achieving a **93% size reduction** (3.8 MB → 268 KB total).
+| Desktop | Tablet | Mobile |
+|:---:|:---:|:---:|
+| ![Desktop screenshot](screenshots/desktop-full.png) | ![Tablet screenshot](screenshots/tablet-full.png) | ![Mobile screenshot](screenshots/mobile-full.png) |
 
 ---
 
