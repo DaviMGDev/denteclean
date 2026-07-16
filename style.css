@@ -403,51 +403,45 @@
     }
 
     /* ============================================================
-       HERO SECTION
+       HERO SECTION — action-first split layout
        ============================================================ */
     .hero {
-      position: relative;
-      height: 100vh;
-      height: 100dvh;
-      overflow: hidden;
+      background-color: var(--primary);
+      padding: var(--space-5xl) 0 var(--space-3xl);
+    }
+
+    .hero-split {
       display: flex;
       align-items: center;
-      justify-content: center;
+      gap: var(--space-3xl);
     }
 
-    .hero-bg {
-      position: absolute;
-      inset: 0;
-      z-index: 0;
-    }
-    .hero-bg img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center 25%;
-      display: block;
-    }
-    .hero-vignette {
-      position: absolute;
-      inset: 0;
-      z-index: 10;
-      pointer-events: none;
-      background: rgba(0, 0, 0, 0.50);
+    .hero-text {
+      flex: 1;
     }
 
-    .hero-content {
+    .hero-visual {
+      flex: 0 0 45%;
       position: relative;
-      z-index: 2;
-      max-width: 720px;
-      width: 100%;
-      padding: 0 var(--page-safe);
-      text-align: center;
-      animation: heroFadeIn 1s ease forwards;
     }
-
-    @keyframes heroFadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to   { opacity: 1; transform: translateY(0); }
+    .hero-visual img {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--border);
+      display: block;
+      background-color: var(--surface-elevated);
+    }
+    /* Tonal layering instead of box-shadow */
+    .hero-visual::before {
+      content: '';
+      position: absolute;
+      inset: -2px;
+      border-radius: calc(var(--radius-xl) + 2px);
+      background: var(--neutral-cool);
+      z-index: -1;
     }
 
     .hero-label {
@@ -478,14 +472,13 @@
       line-height: 1.65;
       color: rgba(255,255,255,0.85);
       max-width: 560px;
-      margin: var(--space-lg) auto var(--space-xl);
+      margin: var(--space-lg) 0 var(--space-xl);
     }
 
     .hero-actions {
       display: flex;
       flex-wrap: wrap;
       align-items: center;
-      justify-content: center;
       gap: var(--space-lg);
     }
 
@@ -515,6 +508,34 @@
     }
     .hero-link:hover .arrow {
       transform: translateX(4px);
+    }
+
+    /* Trust signals — social proof above the fold */
+    .hero-trust {
+      display: flex;
+      gap: var(--space-xl);
+      margin-top: var(--space-xl);
+      padding-top: var(--space-lg);
+      border-top: 1px solid rgba(255,255,255,0.12);
+    }
+    .hero-trust-item {
+      text-align: center;
+    }
+    .hero-trust-number {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--accent-gold);
+      line-height: 1.1;
+    }
+    .hero-trust-label {
+      font-family: var(--font-body);
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.45);
+      margin-top: var(--space-xs);
     }
 
     /* ============================================================
@@ -1190,22 +1211,6 @@
     }
 
     /* ============================================================
-       BOTANICAL MOTIF — subtle SVG watermark
-       ============================================================ */
-    .vine-motif {
-      position: absolute;
-      inset: 0;
-      z-index: 1;
-      pointer-events: none;
-      overflow: hidden;
-      opacity: 0.04;
-    }
-    .vine-motif svg {
-      width: 100%;
-      height: 100%;
-    }
-
-    /* ============================================================
        SCROLL REVEAL ANIMATIONS
        ============================================================ */
     .reveal {
@@ -1282,6 +1287,24 @@
       }
       .stat-item {
         flex: 0 0 45%;
+      }
+
+      .hero-split {
+        flex-direction: column;
+        gap: var(--space-xl);
+      }
+      .hero-visual {
+        display: none;
+      }
+      .hero-visual::before {
+        display: none;
+      }
+      .hero-trust {
+        flex-wrap: wrap;
+        gap: var(--space-lg);
+      }
+      .hero-trust-item {
+        flex: 0 0 auto;
       }
 
       .hero-actions {

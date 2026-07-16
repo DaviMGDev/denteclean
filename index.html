@@ -22,52 +22,52 @@
     <main id="main-content">
 
       <!-- ============================================================
-           H E R O
+           H E R O — action-first split layout
            ============================================================ -->
       <section class="hero" aria-label="Bem-vindo à DenteClean">
-        <div class="hero-bg">
-          <img
-            src="assets/images/hero.webp"
-            alt="Interior moderno de clínica odontológica com iluminação acolhedora"
-            width="1920"
-            height="1080"
-            loading="eager"
-          />
-          <div class="hero-vignette"></div>
-        </div>
-
-        <!-- Botanical vine motif -->
-        <div class="vine-motif" aria-hidden="true">
-          <svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice">
-            <path d="M0,400 C200,350 350,200 500,300 C650,400 700,250 850,280 C1000,310 1150,150 1300,220 C1400,260 1440,200 1440,200"
-                  fill="none" stroke="var(--accent-glass)" stroke-width="3" opacity="0.3"/>
-            <path d="M0,450 C200,400 350,250 500,350 C650,450 700,300 850,330 C1000,360 1150,200 1300,270 C1400,310 1440,250 1440,250"
-                  fill="none" stroke="var(--accent-gold)" stroke-width="1.5" opacity="0.2"/>
-            <path d="M200,380 Q250,300 320,340 Q380,370 420,300"
-                  fill="none" stroke="var(--accent-glass)" stroke-width="2" opacity="0.25"/>
-            <path d="M900,260 Q960,180 1030,220 Q1080,250 1120,180"
-                  fill="none" stroke="var(--accent-glass)" stroke-width="2" opacity="0.25"/>
-          </svg>
-        </div>
-
-        <div class="hero-content">
-          <p class="hero-label">Bem-vindo à DenteClean</p>
-          <h1 class="hero-title">
-            Seu Sorriso,<br>
-            <span class="hero-title-em">Nossa Obra-Prima</span>
-          </h1>
-          <p class="hero-subtitle">
-            Viva uma odontologia onde a precisão encontra a compaixão. Tecnologia moderna,
-            cuidado atemporal — tudo em um espaço pensado para o seu conforto.
-          </p>
-          <div class="hero-actions">
-            <button class="btn btn-accent" data-dialog="booking-dialog">
-              Agende sua Consulta
-            </button>
-            <button class="hero-link" data-toast="Descubra todos os nossos serviços abaixo">
-              Conheça nossos Serviços
-              <span class="arrow">&rarr;</span>
-            </button>
+        <div class="page-content hero-split">
+          <div class="hero-text">
+            <p class="hero-label">Bem-vindo à DenteClean</p>
+            <h1 class="hero-title">
+              Seu Sorriso,<br>
+              <span class="hero-title-em">Nossa Obra-Prima</span>
+            </h1>
+            <p class="hero-subtitle">
+              Viva uma odontologia onde a precisão encontra a compaixão. Tecnologia moderna,
+              cuidado atemporal — tudo em um espaço pensado para o seu conforto.
+            </p>
+            <div class="hero-actions">
+              <button class="btn btn-accent" data-dialog="booking-dialog">
+                Agende sua Consulta
+              </button>
+              <button class="hero-link" data-toast="Descubra todos os nossos serviços abaixo">
+                Conheça nossos Serviços
+                <span class="arrow">&rarr;</span>
+              </button>
+            </div>
+            <div class="hero-trust">
+              <div class="hero-trust-item">
+                <p class="hero-trust-number">4.9★</p>
+                <p class="hero-trust-label">Avaliação Média</p>
+              </div>
+              <div class="hero-trust-item">
+                <p class="hero-trust-number">8.500+</p>
+                <p class="hero-trust-label">Sorrisos Transformados</p>
+              </div>
+              <div class="hero-trust-item">
+                <p class="hero-trust-number">12+</p>
+                <p class="hero-trust-label">Anos de Atuação</p>
+              </div>
+            </div>
+          </div>
+          <div class="hero-visual">
+            <img
+              src="assets/images/hero.webp"
+              alt="Interior moderno de clínica odontológica com iluminação acolhedora"
+              width="800"
+              height="600"
+              loading="eager"
+            />
           </div>
         </div>
       </section>
