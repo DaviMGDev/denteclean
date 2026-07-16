@@ -93,6 +93,21 @@
       -moz-osx-font-smoothing: grayscale;
     }
 
+    /* Background grain texture — material treatment, not decoration.
+       SVG feTurbulence filter applied as a full-viewport overlay at low opacity.
+       Uniform across dark hero and light content sections. */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      z-index: var(--z-notification);
+      pointer-events: none;
+      opacity: 0.035;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='grain'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23grain)'/%3E%3C/svg%3E");
+      background-repeat: repeat;
+      background-size: 256px 256px;
+    }
+
     /* ============================================================
        ROOT LAYOUT — viewport-safe scroll container
        ============================================================ */
@@ -381,6 +396,163 @@
       margin: var(--space-md) 0;
       border: none;
       opacity: 0.5;
+    }
+
+    /* ============================================================
+       NAVBAR — sticky, transparent → solid on scroll
+       ============================================================ */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: var(--z-overlay);
+      padding: var(--space-md) 0;
+      transition: background-color var(--transition-base),
+                  box-shadow var(--transition-base),
+                  padding var(--transition-base);
+      background-color: transparent;
+    }
+    .navbar.scrolled {
+      background-color: var(--surface);
+      box-shadow: 0 1px 0 var(--border);
+      padding: var(--space-sm) 0;
+    }
+
+    .navbar-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-lg);
+    }
+
+    .navbar-brand {
+      font-family: var(--font-display);
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--on-primary);
+      text-decoration: none;
+      transition: color var(--transition-base);
+      flex-shrink: 0;
+    }
+    .navbar.scrolled .navbar-brand {
+      color: var(--primary);
+    }
+
+    .navbar-links {
+      display: flex;
+      align-items: center;
+      gap: var(--space-xs);
+    }
+
+    .navbar-link {
+      font-family: var(--font-body);
+      font-size: 0.8125rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      color: rgba(255,255,255,0.75);
+      text-decoration: none;
+      padding: 8px 16px;
+      border-radius: var(--radius-sm);
+      transition: color var(--transition-fast),
+                  background-color var(--transition-fast);
+      cursor: pointer;
+      background: none;
+      border: none;
+    }
+    .navbar-link:hover {
+      color: var(--on-primary);
+      background-color: rgba(255,255,255,0.1);
+    }
+    .navbar.scrolled .navbar-link {
+      color: var(--secondary);
+    }
+    .navbar.scrolled .navbar-link:hover {
+      color: var(--primary);
+      background-color: var(--neutral-cool);
+    }
+
+    .navbar-cta {
+      flex-shrink: 0;
+      font-size: 0.75rem;
+      padding: 8px 20px;
+    }
+
+    /* Hamburger toggle (mobile) */
+    .navbar-toggle {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      width: 36px;
+      height: 36px;
+      padding: 6px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+    .navbar-toggle-bar {
+      display: block;
+      width: 100%;
+      height: 2px;
+      background-color: var(--on-primary);
+      border-radius: 2px;
+      transition: transform var(--transition-fast),
+                  opacity var(--transition-fast),
+                  background-color var(--transition-base);
+    }
+    .navbar.scrolled .navbar-toggle-bar {
+      background-color: var(--primary);
+    }
+    .navbar-toggle[aria-expanded="true"] .navbar-toggle-bar:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+    .navbar-toggle[aria-expanded="true"] .navbar-toggle-bar:nth-child(2) {
+      opacity: 0;
+    }
+    .navbar-toggle[aria-expanded="true"] .navbar-toggle-bar:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+
+    @media (max-width: 900px) {
+      .navbar-links {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        flex-direction: column;
+        justify-content: center;
+        gap: var(--space-sm);
+        background-color: var(--surface);
+        z-index: calc(var(--z-overlay) - 1);
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity var(--transition-base);
+        padding: var(--space-3xl) var(--page-safe);
+      }
+      .navbar-links.open {
+        opacity: 1;
+        pointer-events: auto;
+      }
+      .navbar-links .navbar-link {
+        color: var(--primary);
+        font-size: 1.125rem;
+        padding: var(--space-md);
+        text-align: center;
+        width: 100%;
+      }
+      .navbar-links .navbar-link:hover {
+        background-color: var(--neutral-cool);
+      }
+
+      .navbar-toggle {
+        display: flex;
+      }
+      .navbar-cta {
+        display: none;
+      }
     }
 
     /* ============================================================

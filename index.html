@@ -15,6 +15,32 @@
   <a href="#main-content" class="skip-link">Ir para o conteúdo principal</a>
 
   <!-- ============================================================
+       NAVBAR — sticky, transparent → solid on scroll
+       ============================================================ -->
+  <header class="navbar" id="navbar">
+    <div class="navbar-inner page-content">
+      <a href="#" class="navbar-brand" aria-label="DenteClean — voltar ao topo">DenteClean</a>
+
+      <nav class="navbar-links" id="navbar-links" aria-label="Navegação principal">
+        <button class="navbar-link" data-nav="services">Serviços</button>
+        <button class="navbar-link" data-nav="about">Sobre</button>
+        <button class="navbar-link" data-nav="team">Equipe</button>
+        <button class="navbar-link" data-nav="contact">Contato</button>
+      </nav>
+
+      <button class="btn btn-accent navbar-cta" data-dialog="booking-dialog">
+        Agendar
+      </button>
+
+      <button class="navbar-toggle" id="navbar-toggle" aria-label="Abrir menu" aria-expanded="false">
+        <span class="navbar-toggle-bar"></span>
+        <span class="navbar-toggle-bar"></span>
+        <span class="navbar-toggle-bar"></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ============================================================
        ROOT — viewport-safe scroll container
        ============================================================ -->
   <div id="root">

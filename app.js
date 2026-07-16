@@ -1,7 +1,59 @@
     (function() {
       'use strict';
 
-      // ---- Dialog content store ----
+      // ---- Navbar — scroll transition & mobile toggle ----
+      const navbar = document.getElementById('navbar');
+      const navbarToggle = document.getElementById('navbar-toggle');
+      const navbarLinks = document.getElementById('navbar-links');
+
+      // Scroll listener: add .scrolled class when past hero
+      function updateNavbar() {
+        const scrollY = document.getElementById('root').scrollTop || window.scrollY;
+        navbar.classList.toggle('scrolled', scrollY > 60);
+      }
+      document.getElementById('root').addEventListener('scroll', updateNavbar, { passive: true });
+      window.addEventListener('scroll', updateNavbar, { passive: true });
+      updateNavbar(); // initial state
+
+      // Mobile hamburger toggle
+      navbarToggle.addEventListener('click', function() {
+        const expanded = this.getAttribute('aria-expanded') === 'true';
+        this.setAttribute('aria-expanded', String(!expanded));
+        this.setAttribute('aria-label', expanded ? 'Abrir menu' : 'Fechar menu');
+        navbarLinks.classList.toggle('open', !expanded);
+        document.body.style.overflow = expanded ? '' : 'hidden';
+      });
+
+      // Close mobile menu when a link is clicked
+      function closeMobileMenu() {
+        navbarToggle.setAttribute('aria-expanded', 'false');
+        navbarToggle.setAttribute('aria-label', 'Abrir menu');
+        navbarLinks.classList.remove('open');
+        document.body.style.overflow = '';
+      }
+
+      // Nav link click → smooth scroll to section
+      document.querySelectorAll('[data-nav]').forEach(function(link) {
+        link.addEventListener('click', function() {
+          closeMobileMenu();
+          const target = this.dataset.nav;
+          const sectionMap = {
+            services: '.section-arch',
+            about: '.about-section',
+            team: '.team-intro',
+            contact: '.contact-section'
+          };
+          const selector = sectionMap[target];
+          if (selector) {
+            const el = document.querySelector(selector);
+            if (el) {
+              el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+          }
+        });
+      });
+
+      // Dialog content store ----
       const dialogs = {
         'booking-dialog': {
           title: 'Agende sua Consulta',

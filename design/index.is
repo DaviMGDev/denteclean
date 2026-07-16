@@ -20,6 +20,48 @@ page Main() {
     state dialogTitle = ""
     state dialogBody = ""
 
+    @* ——————————————————————————————
+        NAVBAR — sticky, page-level
+        Fixed at top of viewport. Brand left, nav links center, CTA right.
+        Transparent background over hero, solid white on scroll.
+        Collapses to hamburger menu on mobile.
+       —————————————————————————————— *@
+    row {
+        @ role: primary-navigation
+        @ constraint: sticky-header
+
+        Text("DenteClean") {
+            @ role: brand-name
+            weight: horizontal
+        }
+
+        row {
+            collapse: true
+            @ responsive: collapse to hamburger menu on mobile
+
+            Link("Services") {
+                on click { Toast("Scrolling to services section") }
+            }
+            Link("About") {
+                on click { Toast("Scrolling to about section") }
+            }
+            Link("Team") {
+                on click { Toast("Scrolling to team section") }
+            }
+            Link("Contact") {
+                on click { Toast("Scrolling to contact section") }
+            }
+        }
+
+        Button("Book Now") {
+            @ role: primary-action
+            on click {
+                dialogTitle = "Book Your Visit"
+                dialogBody = "Ready for your healthiest smile? Call us at (503) 555-0142 or use the contact form below to schedule your first appointment. New patients receive a complimentary consultation."
+            }
+        }
+    }
+
     column {
         scrollable: true
         align: (center, top)
