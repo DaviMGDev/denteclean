@@ -437,6 +437,13 @@ that structure should be visible through surface rather than cast in silhouette.
 4. **No box-shadow tokens exist.** If an implementation framework requires one,
    use `0px 0px 0px 0px transparent`. Depth is achieved through color,
    not simulated light.
+5. **Background texture:** A subtle grain texture is applied across the entire
+   page background. This is a material treatment — not a decorative overlay.
+   It gives the `neutral-warm` surface a tactile, paper-like quality without
+   introducing visible pattern. Implementation uses an SVG `<filter>` with
+   `feTurbulence` at 3–4% opacity, applied as a full-viewport pseudo-element
+   with `pointer-events: none`. The grain is uniform across both light content
+   sections and the dark hero — it adds depth without calling attention to itself.
 
 ### Z-Index Scale (Implementation Reference)
 
