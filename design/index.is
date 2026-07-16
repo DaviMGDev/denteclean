@@ -744,4 +744,19 @@ page Main() {
             }
         }
     }
+
+    @* ——————————————————————————————
+        PAGE-LEVEL WHATSAPP BUTTON
+        Fixed bottom-right, always visible. Opens WhatsApp with
+        pre-filled message for lead conversion.
+        WhatsApp green (#25D366), pulse animation every 5s.
+       —————————————————————————————— *@
+    Link("Chat on WhatsApp") {
+        @ role: whatsapp-float
+        @ constraint: fixed-bottom-right
+        @ a11y: opens-external-chat
+        @ Implementer: link to https://wa.me/5575992738917?text=Olá! Gostaria de agendar uma consulta.
+          Use WhatsApp brand green (#25D366), circular shape,
+          WhatsApp SVG icon, subtle pulse animation.
+    }
 }

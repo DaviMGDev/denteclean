@@ -10,6 +10,17 @@
       function updateNavbar() {
         const scrollY = document.getElementById('root').scrollTop || window.scrollY;
         navbar.classList.toggle('scrolled', scrollY > 60);
+
+        // Dynamic scrollbar: gold over dark hero, dark over light content
+        const root = document.getElementById('root');
+        const heroHeight = document.querySelector('.hero').offsetHeight;
+        if (scrollY < heroHeight - 80) {
+          root.style.setProperty('--scrollbar-thumb', 'var(--accent-gold)');
+          root.style.setProperty('--scrollbar-thumb-hover', 'var(--accent-gold-hover)');
+        } else {
+          root.style.setProperty('--scrollbar-thumb', 'var(--primary)');
+          root.style.setProperty('--scrollbar-thumb-hover', 'var(--primary-hover)');
+        }
       }
       document.getElementById('root').addEventListener('scroll', updateNavbar, { passive: true });
       window.addEventListener('scroll', updateNavbar, { passive: true });
@@ -31,6 +42,12 @@
         navbarLinks.classList.remove('open');
         document.body.style.overflow = '';
       }
+
+      // Brand logo → scroll to top
+      document.querySelector('.navbar-brand').addEventListener('click', function(e) {
+        e.preventDefault();
+        document.getElementById('root').scrollTo({ top: 0, behavior: 'smooth' });
+      });
 
       // Nav link click → smooth scroll to section
       document.querySelectorAll('[data-nav]').forEach(function(link) {

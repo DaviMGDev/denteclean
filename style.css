@@ -110,13 +110,42 @@
 
     /* ============================================================
        ROOT LAYOUT — viewport-safe scroll container
+       Background is transparent so the scrollbar track doesn't
+       show a colored strip — only the thumb is visible.
        ============================================================ */
     #root {
       height: 100%;
+      background: transparent;
       overflow-y: auto;
       overflow-x: hidden;
       -webkit-overflow-scrolling: touch;
       scroll-behavior: smooth;
+
+      /* Firefox */
+      scrollbar-width: thin;
+      scrollbar-color: var(--scrollbar-thumb, var(--accent-gold)) transparent;
+    }
+
+    /* WebKit scrollbar — only the thumb is visible */
+    #root::-webkit-scrollbar {
+      width: 6px;
+      background: none;
+    }
+    #root::-webkit-scrollbar-track,
+    #root::-webkit-scrollbar-track-piece,
+    #root::-webkit-scrollbar-corner,
+    #root::-webkit-scrollbar-button {
+      background: none;
+      border: none;
+      box-shadow: none;
+    }
+    #root::-webkit-scrollbar-thumb {
+      background: var(--scrollbar-thumb, var(--accent-gold));
+      border-radius: 3px;
+      transition: background 400ms ease;
+    }
+    #root::-webkit-scrollbar-thumb:hover {
+      background: var(--scrollbar-thumb-hover, var(--accent-gold-hover));
     }
 
     /* Content wrapper: max-width centered on desktop */
@@ -379,7 +408,7 @@
       width: 100%;
       height: 1px;
       background-color: var(--border);
-      margin: var(--space-lg) 0;
+      margin: var(--space-2xl) 0;
       border: none;
     }
     .divider-ornament {
@@ -560,8 +589,8 @@
        ============================================================ */
     .section-arch {
       position: relative;
-      padding-top: var(--space-2xl);
-      padding-bottom: var(--space-2xl);
+      padding-top: var(--space-3xl);
+      padding-bottom: var(--space-3xl);
     }
     .section-arch::before {
       content: '';
@@ -576,10 +605,15 @@
 
     /* ============================================================
        HERO SECTION — action-first split layout
+       Full viewport height so the next section never peeks.
+       Content is vertically centered within the hero.
        ============================================================ */
     .hero {
       background-color: var(--primary);
-      padding: var(--space-5xl) 0 var(--space-3xl);
+      min-height: 100dvh;
+      display: flex;
+      align-items: center;
+      padding: 80px 0 var(--space-2xl);
     }
 
     .hero-split {
@@ -1401,6 +1435,52 @@
     .reveal-delay-4 { transition-delay: 0.4s; }
 
     /* ============================================================
+       WHATSAPP FLOATING BUTTON
+       Fixed bottom-right. WhatsApp green for instant recognition.
+       Gentle pulse animation every 5s.
+       ============================================================ */
+    .whatsapp-float {
+      position: fixed;
+      bottom: var(--space-lg);
+      right: var(--space-lg);
+      z-index: var(--z-drawer);
+      width: 60px;
+      height: 60px;
+      border-radius: var(--radius-full);
+      background-color: #25D366;
+      color: #FFFFFF;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 16px rgba(37, 211, 102, 0.35);
+      transition: transform var(--transition-fast),
+                  box-shadow var(--transition-fast);
+      animation: whatsappPulse 5s ease-in-out infinite;
+    }
+    .whatsapp-float:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 24px rgba(37, 211, 102, 0.45);
+      animation: none;
+    }
+    .whatsapp-float:focus-visible {
+      outline: 2px solid var(--border-strong);
+      outline-offset: 2px;
+    }
+
+    .whatsapp-icon {
+      width: 32px;
+      height: 32px;
+    }
+
+    @keyframes whatsappPulse {
+      0%, 100% { transform: scale(1); }
+      2%  { transform: scale(1.08); }
+      4%  { transform: scale(1); }
+      6%  { transform: scale(1.05); }
+      8%  { transform: scale(1); }
+    }
+
+    /* ============================================================
        RESPONSIVE
        ============================================================ */
     @media (max-width: 900px) {
@@ -1515,6 +1595,17 @@
       }
       .team-member-name {
         font-size: 1.35rem;
+      }
+
+      .whatsapp-float {
+        width: 52px;
+        height: 52px;
+        bottom: var(--space-md);
+        right: var(--space-md);
+      }
+      .whatsapp-icon {
+        width: 28px;
+        height: 28px;
       }
     }
 
