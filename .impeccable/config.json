@@ -1,0 +1,17 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "cream-palette",
+        "value": "*",
+        "files": [
+          "index.html"
+        ],
+        "createdAt": "2026-10-29T02:18:29.897Z",
+        "reason": "Agent: #F5F3EF is the documented neutral-warm token in design/design.md; this page follows the existing palette"
+      }
+    ]
+  }
+}

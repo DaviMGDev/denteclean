@@ -66,7 +66,7 @@
               <button class="btn btn-accent" data-dialog="booking-dialog">
                 Agende sua Consulta
               </button>
-              <button class="hero-link" data-toast="Descubra todos os nossos serviços abaixo">
+              <button class="hero-link" data-nav="services">
                 Conheça nossos Serviços
                 <span class="arrow">&rarr;</span>
               </button>
@@ -90,10 +90,10 @@
             <!-- TODO: Replace hero.webp with a higher-resolution image (≥1200px wide)
                  for sharp display on 2× DPR mobile viewports. Current image is 512×286. -->
             <img
-              src="assets/images/hero.webp"
+              src="assets/images/stitch-hero.jpg"
               alt="Interior moderno de clínica odontológica com iluminação acolhedora"
-              width="800"
-              height="600"
+              width="512"
+              height="382"
               loading="eager"
               fetchpriority="high"
             />
@@ -114,7 +114,8 @@
           <p>Unimos excelência clínica com calor genuíno — porque uma ótima odontologia começa com confiança.</p>
         </div>
 
-        <!-- Service 1 — image right -->
+        <div class="services-grid">
+        <!-- Service 1 -->
         <div class="service-row reveal">
           <div class="service-text">
             <div class="service-icon" aria-hidden="true">
@@ -146,8 +147,6 @@
             />
           </div>
         </div>
-
-        <hr class="divider-glass" role="separator" aria-hidden="true">
 
         <!-- Service 2 — image left (reversed) -->
         <div class="service-row service-row-reversed reveal">
@@ -183,8 +182,6 @@
           </div>
         </div>
 
-        <hr class="divider-glass" role="separator" aria-hidden="true">
-
         <!-- Service 3 — image right with overlap badge -->
         <div class="service-row reveal">
           <div class="service-text">
@@ -217,6 +214,7 @@
               loading="lazy"
             />
           </div>
+        </div>
         </div>
       </section>
 
@@ -288,6 +286,7 @@
           <p>existe uma equipe extraordinária. Conheça as pessoas que vão cuidar de você.</p>
         </div>
 
+        <div class="team-grid">
         <!-- Team Member 1 — large prominent -->
         <div class="team-member reveal">
           <div class="team-member-image">
@@ -313,8 +312,6 @@
           </div>
         </div>
 
-        <hr class="divider-glass" aria-hidden="true">
-
         <!-- Team Member 2 — compact, text-first, square image -->
         <div class="team-member team-member-compact reveal">
           <div class="team-member-info" style="padding-right: var(--space-lg);">
@@ -335,26 +332,6 @@
               height="512"
               loading="lazy"
             />
-          </div>
-        </div>
-
-        <!-- Stats strip -->
-        <div class="stats-strip reveal">
-          <div class="stat-item">
-            <p class="stat-number">12+</p>
-            <p class="stat-label">Anos de Atuação</p>
-          </div>
-          <div class="stat-item">
-            <p class="stat-number">8.500+</p>
-            <p class="stat-label">Sorrisos Transformados</p>
-          </div>
-          <div class="stat-item">
-            <p class="stat-number">4.9★</p>
-            <p class="stat-label">Avaliação Média</p>
-          </div>
-          <div class="stat-item">
-            <p class="stat-number">98%</p>
-            <p class="stat-label">Recomendariam</p>
           </div>
         </div>
 
@@ -379,6 +356,27 @@
               <span class="badge badge-success">Favorita dos pacientes</span>
               <span class="badge badge-info">Especialista gentil</span>
             </div>
+          </div>
+        </div>
+        </div>
+
+        <!-- Stats strip -->
+        <div class="stats-strip reveal">
+          <div class="stat-item">
+            <p class="stat-number">12+</p>
+            <p class="stat-label">Anos de Atuação</p>
+          </div>
+          <div class="stat-item">
+            <p class="stat-number">8.500+</p>
+            <p class="stat-label">Sorrisos Transformados</p>
+          </div>
+          <div class="stat-item">
+            <p class="stat-number">4.9★</p>
+            <p class="stat-label">Avaliação Média</p>
+          </div>
+          <div class="stat-item">
+            <p class="stat-number">98%</p>
+            <p class="stat-label">Recomendariam</p>
           </div>
         </div>
       </section>
