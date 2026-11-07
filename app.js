@@ -131,20 +131,38 @@
       updateNavbar(); // initial state
 
       // Mobile hamburger toggle
+      // The page scrolls inside #root, so locking <body> never actually froze it.
+      const rootScroller = document.getElementById('root');
+
+      function setMobileMenu(open) {
+        navbarToggle.setAttribute('aria-expanded', String(open));
+        navbarToggle.setAttribute('aria-label', open ? ui('menuClose') : ui('menuOpen'));
+        navbarLinks.classList.toggle('open', open);
+        rootScroller.style.overflow = open ? 'hidden' : '';
+
+        if (open) {
+          const firstLink = navbarLinks.querySelector('.navbar-link');
+          if (firstLink) firstLink.focus();
+        } else if (navbarLinks.contains(document.activeElement)) {
+          navbarToggle.focus();
+        }
+      }
+
       navbarToggle.addEventListener('click', function() {
-        const expanded = this.getAttribute('aria-expanded') === 'true';
-        this.setAttribute('aria-expanded', String(!expanded));
-        this.setAttribute('aria-label', expanded ? 'Abrir menu' : 'Fechar menu');
-        navbarLinks.classList.toggle('open', !expanded);
-        document.body.style.overflow = expanded ? '' : 'hidden';
+        setMobileMenu(this.getAttribute('aria-expanded') !== 'true');
+      });
+
+      // Escape closes the menu, same as pressing the close (X) control
+      document.addEventListener('keydown', function(event) {
+        if (event.key !== 'Escape') return;
+        if (navbarToggle.getAttribute('aria-expanded') !== 'true') return;
+        setMobileMenu(false);
+        navbarToggle.focus();
       });
 
       // Close mobile menu when a link is clicked
       function closeMobileMenu() {
-        navbarToggle.setAttribute('aria-expanded', 'false');
-        navbarToggle.setAttribute('aria-label', 'Abrir menu');
-        navbarLinks.classList.remove('open');
-        document.body.style.overflow = '';
+        setMobileMenu(false);
       }
 
       // Brand logo → scroll to top

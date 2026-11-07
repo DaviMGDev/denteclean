@@ -554,11 +554,22 @@
         justify-content: center;
         gap: var(--space-sm);
         background-color: var(--surface);
-        z-index: calc(var(--z-overlay) - 1);
+        /* Must stay below the brand, CTA and toggle: they live in the same
+           stacking context (.navbar), so a positive z-index here painted the
+           overlay on top of the close (X) control and trapped the user. */
+        z-index: 0;
         opacity: 0;
         pointer-events: none;
         transition: opacity var(--transition-base);
         padding: var(--space-3xl) var(--page-safe);
+      }
+
+      /* Keep the header controls above the open menu overlay */
+      .navbar-brand,
+      .navbar-cta,
+      .navbar-toggle {
+        position: relative;
+        z-index: 1;
       }
       .navbar-links.open {
         opacity: 1;
@@ -573,6 +584,15 @@
       }
       .navbar-links .navbar-link:hover {
         background-color: var(--neutral-cool);
+      }
+
+      /* The menu is keyboard reachable; show where focus is */
+      .navbar-brand:focus-visible,
+      .navbar-links .navbar-link:focus-visible,
+      .navbar-toggle:focus-visible {
+        outline: 2px solid var(--border-strong);
+        outline-offset: 2px;
+        border-radius: var(--radius-sm);
       }
 
       .navbar-toggle {
