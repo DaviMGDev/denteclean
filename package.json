@@ -1,0 +1,6 @@
+{
+  "name": "denteclean-template",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {"preview": "node scripts/serve.js", "build": "node scripts/build.js", "setup": "node scripts/setup.js"}
+}

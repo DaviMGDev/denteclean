@@ -1896,4 +1896,154 @@
       background: var(--primary-hover);
       color: var(--on-primary);
     }
-  
+
+    /* Neutral loading state while the clinic content config is fetched. */
+    body.config-loading > :not(#loading-skeleton) { visibility: hidden; }
+    .loading-skeleton {
+      position: fixed;
+      z-index: 10000;
+      inset: 0;
+      overflow: hidden;
+      background: var(--neutral-warm);
+      color: transparent;
+    }
+    .skeleton-header {
+      width: min(calc(100% - 48px), var(--max-width));
+      height: 84px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid rgb(27 31 34 / 8%);
+    }
+    .skeleton-block, .skeleton-nav i, .skeleton-lines i,
+    .skeleton-actions i, .skeleton-cards i {
+      display: block;
+      border-radius: var(--radius-md);
+      background: linear-gradient(100deg, #e8e6e1 25%, #f2f0eb 42%, #e8e6e1 62%);
+      background-size: 300% 100%;
+      animation: skeleton-shimmer 1.5s ease-in-out infinite;
+    }
+    .skeleton-brand { width: 132px; height: 22px; }
+    .skeleton-nav { display: flex; gap: 30px; }
+    .skeleton-nav i { width: 48px; height: 12px; }
+    .skeleton-header-action { width: 106px; height: 40px; border-radius: var(--radius-full); }
+    .skeleton-content { width: min(calc(100% - 48px), var(--max-width)); margin: 64px auto 0; }
+    .skeleton-hero { display: grid; grid-template-columns: 1fr 0.9fr; gap: 64px; align-items: center; }
+    .skeleton-hero-copy { padding: 24px 0; }
+    .skeleton-eyebrow { width: 138px; height: 12px; margin-bottom: 24px; }
+    .skeleton-title { width: min(100%, 410px); height: 42px; margin-bottom: 12px; }
+    .skeleton-title-short { width: min(78%, 330px); }
+    .skeleton-lines { display: grid; gap: 10px; margin-top: 28px; }
+    .skeleton-lines i { width: min(100%, 440px); height: 11px; }
+    .skeleton-lines i:last-child { width: 64%; }
+    .skeleton-actions { display: flex; gap: 14px; margin-top: 30px; }
+    .skeleton-actions i { width: 148px; height: 44px; border-radius: var(--radius-full); }
+    .skeleton-actions i:last-child { width: 126px; background: #e8e6e1; animation: none; }
+    .skeleton-hero-image { width: 100%; aspect-ratio: 1.13; border-radius: var(--radius-arch-lg); }
+    .skeleton-section-heading { margin: 68px auto 28px; text-align: center; }
+    .skeleton-section-heading .skeleton-eyebrow { margin-inline: auto; }
+    .skeleton-heading { width: min(420px, 70%); height: 28px; margin: auto; }
+    .skeleton-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .skeleton-cards i { height: 118px; border-radius: var(--radius-lg); }
+    @keyframes skeleton-shimmer { to { background-position: -150% 0; } }
+    @media (max-width: 700px) {
+      .skeleton-header { width: calc(100% - 40px); height: 70px; }
+      .skeleton-nav, .skeleton-header-action { display: none; }
+      .skeleton-header::after { content: ''; width: 34px; height: 34px; border-radius: 50%; background: #e8e6e1; }
+      .skeleton-content { width: calc(100% - 40px); margin-top: 32px; }
+      .skeleton-hero { grid-template-columns: 1fr; gap: 22px; }
+      .skeleton-hero-copy { padding: 10px 0 0; }
+      .skeleton-title { height: 32px; }
+      .skeleton-hero-image { aspect-ratio: 1.5; grid-row: 1; border-radius: var(--radius-arch-md); }
+      .skeleton-section-heading { margin-top: 42px; }
+      .skeleton-cards { grid-template-columns: 1fr 1fr; gap: 12px; }
+      .skeleton-cards i { height: 78px; }
+      .skeleton-cards i:last-child { display: none; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .skeleton-block, .skeleton-nav i, .skeleton-lines i,
+      .skeleton-actions i, .skeleton-cards i { animation: none; }
+    }
+
+    /* One horizontal profile per row; alternate image side on wide screens. */
+    .team-grid {
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      gap: clamp(24px, 3.5vw, 44px);
+    }
+    .team-grid .team-member {
+      display: flex;
+      flex-direction: row;
+      align-items: stretch;
+      gap: 0;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xl);
+      background: var(--surface);
+    }
+    .team-grid .team-member:nth-child(even) { flex-direction: row-reverse; }
+    .team-grid .team-member-image,
+    .team-grid .team-member-compact .team-member-image,
+    .team-grid .team-member-offset .team-member-image {
+      flex: 0 0 min(36%, 380px);
+      width: auto;
+      max-width: 380px;
+      margin: 0;
+    }
+    .team-grid .team-member-image::before { display: none; }
+    .team-grid .team-member-image img,
+    .team-grid .team-member-compact .team-member-image img,
+    .team-grid .team-member-offset .team-member-image img {
+      width: 100%;
+      height: 100%;
+      min-height: 360px;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      border: 0;
+      border-radius: 0;
+    }
+    .team-grid .team-member-info,
+    .team-grid .team-member-compact .team-member-info,
+    .team-grid .team-member-offset .team-member-info {
+      flex: 1 1 auto;
+      width: auto;
+      min-width: 0;
+      align-self: center;
+      padding: clamp(24px, 4vw, 56px);
+    }
+    .team-grid .team-member-info > * { max-width: 58ch; }
+    .team-grid .team-member-name { font-size: clamp(1.5rem, 2.3vw, 2rem); }
+
+    @media (max-width: 600px) {
+      .team-grid { gap: 18px; }
+      .team-grid .team-member,
+      .team-grid .team-member:nth-child(even) {
+        flex-direction: column;
+        gap: 0;
+      }
+      .team-grid .team-member-image,
+      .team-grid .team-member-compact .team-member-image,
+      .team-grid .team-member-offset .team-member-image {
+        flex: 0 0 auto;
+        width: 100%;
+        max-width: none;
+        order: 0;
+      }
+      .team-grid .team-member-image img,
+      .team-grid .team-member-compact .team-member-image img,
+      .team-grid .team-member-offset .team-member-image img {
+        height: auto;
+        min-height: 0;
+        aspect-ratio: 16 / 10;
+      }
+      .team-grid .team-member-info,
+      .team-grid .team-member-compact .team-member-info,
+      .team-grid .team-member-offset .team-member-info {
+        order: 1;
+        padding: 22px;
+      }
+    }

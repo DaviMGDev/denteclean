@@ -9,7 +9,33 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="config-loading" aria-busy="true">
+
+  <div class="loading-skeleton" id="loading-skeleton" role="status" aria-label="Carregando conteúdo">
+    <span class="sr-only">Carregando conteúdo</span>
+    <div class="skeleton-header">
+      <div class="skeleton-block skeleton-brand"></div>
+      <div class="skeleton-nav"><i></i><i></i><i></i><i></i></div>
+      <div class="skeleton-block skeleton-header-action"></div>
+    </div>
+    <div class="skeleton-content">
+      <div class="skeleton-hero">
+        <div class="skeleton-hero-copy">
+          <div class="skeleton-block skeleton-eyebrow"></div>
+          <div class="skeleton-block skeleton-title"></div>
+          <div class="skeleton-block skeleton-title skeleton-title-short"></div>
+          <div class="skeleton-lines"><i></i><i></i><i></i></div>
+          <div class="skeleton-actions"><i></i><i></i></div>
+        </div>
+        <div class="skeleton-block skeleton-hero-image"></div>
+      </div>
+      <div class="skeleton-section-heading">
+        <div class="skeleton-block skeleton-eyebrow"></div>
+        <div class="skeleton-block skeleton-heading"></div>
+      </div>
+      <div class="skeleton-cards"><i></i><i></i><i></i></div>
+    </div>
+  </div>
 
   <!-- Skip link -->
   <a href="#main-content" class="skip-link">Ir para o conteúdo principal</a>
@@ -312,18 +338,8 @@
           </div>
         </div>
 
-        <!-- Team Member 2 — compact, text-first, square image -->
-        <div class="team-member team-member-compact reveal">
-          <div class="team-member-info" style="padding-right: var(--space-lg);">
-            <h3 class="team-member-name">Dr. James Park</h3>
-            <p class="team-member-role">Especialista em Orodontia</p>
-            <p class="team-member-desc">
-              Especialista em Invisalign e aparelhos ortodônticos tradicionais. Certificado pelo Conselho Americano de Orodontia. Dr. Park já transformou mais de 1.200 sorrisos usando planejamento digital de precisão.
-            </p>
-            <div class="team-member-badges">
-              <span class="badge badge-accent">Provedor Elite Invisalign</span>
-            </div>
-          </div>
+        <!-- Team Member 2 — alternate the photo side on wide screens -->
+        <div class="team-member reveal">
           <div class="team-member-image">
             <img
               src="assets/images/team-park.webp"
@@ -333,10 +349,20 @@
               loading="lazy"
             />
           </div>
+          <div class="team-member-info">
+            <h3 class="team-member-name">Dr. James Park</h3>
+            <p class="team-member-role">Especialista em Orodontia</p>
+            <p class="team-member-desc">
+              Especialista em Invisalign e aparelhos ortodônticos tradicionais. Certificado pelo Conselho Americano de Orodontia. Dr. Park já transformou mais de 1.200 sorrisos usando planejamento digital de precisão.
+            </p>
+            <div class="team-member-badges">
+              <span class="badge badge-accent">Provedor Elite Invisalign</span>
+            </div>
+          </div>
         </div>
 
-        <!-- Team Member 3 — offset layout -->
-        <div class="team-member team-member-offset reveal">
+        <!-- Team Member 3 -->
+        <div class="team-member reveal">
           <div class="team-member-image">
             <img
               src="assets/images/team-chen.webp"
@@ -479,6 +505,7 @@
           <div class="contact-form-col">
             <form class="appointment-form" id="appointment-form" novalidate>
               <h3 class="form-title">Agende uma Consulta</h3>
+              <p class="form-note">Demonstração: este formulário não envia dados. Entre em contato por telefone ou WhatsApp para agendar.</p>
 
               <div class="form-group">
                 <label for="full-name" class="form-label">Nome Completo</label>
