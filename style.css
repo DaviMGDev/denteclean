@@ -1887,17 +1887,119 @@
       .about-image img { min-height: 340px; }
     }
     @media (max-width: 600px) {
-      .hero { padding: 104px 0 54px; }
-      .hero-split { gap: 34px; }
-      .hero-text { order: 1; }
-      .hero-visual { order: 2; width: 86%; }
-      .hero-visual img { aspect-ratio: 4 / 3.8; }
-      .hero-actions { align-items: stretch; }
-      .hero-link { align-self: flex-start; }
-      .hero-trust { gap: 10px; }
-      .hero-trust-number { font-size: 1.15rem; }
-      .hero-trust-label { font-size: .72rem; }
-      .section-arch { padding-top: 64px; padding-bottom: 64px; }
+      /* The desktop custom scrollbar renders as a 6px gold strip on Android
+         Chrome, which reads as a broken edge at phone widths. */
+      #root { scrollbar-width: none; }
+      #root::-webkit-scrollbar { width: 0; height: 0; }
+
+      /* Navbar: brand + CTA + hamburger share one narrow row. The hero CTA owns
+         the emphasis, so the navbar action reads as a secondary outlined control
+         and only fills in once the navbar turns solid on scroll. */
+      .navbar-inner { gap: 12px; }
+      .navbar-cta {
+        font-size: .7rem;
+        letter-spacing: .06em;
+        padding: 8px 14px;
+        background-color: transparent;
+        border: 1px solid var(--accent-gold);
+        color: var(--primary);
+      }
+      .navbar.scrolled .navbar-cta {
+        background-color: var(--accent-gold);
+        border-color: var(--accent-gold);
+      }
+
+      /* Hero: single column, action-first. The row order is copy -> action ->
+         image -> proof so the primary CTA stays above the fold; leading with
+         the image pushed it out of view on short phones. */
+      .hero { padding: 88px 0 28px; }
+      .hero-split {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr);
+        align-items: start;
+        gap: 0;
+      }
+      .hero-text { display: contents; }
+
+      .hero-label {
+        grid-row: 1;
+        margin: 0 0 10px;
+        font-size: .68rem;
+        letter-spacing: .14em;
+      }
+      .hero-title {
+        grid-row: 2;
+        max-width: none;
+        margin: 0 0 12px;
+        font-size: clamp(2.05rem, 9.2vw, 2.75rem);
+        line-height: 1.07;
+        text-wrap: balance;
+      }
+      .hero-subtitle {
+        grid-row: 3;
+        max-width: 46ch;
+        margin: 0;
+        font-size: .92rem;
+        line-height: 1.6;
+      }
+
+      .hero-actions {
+        grid-row: 4;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 2px;
+        margin: 22px 0 0;
+      }
+      .hero-actions .btn-accent {
+        width: 100%;
+        min-height: 52px;
+        font-size: .9375rem;
+      }
+      .hero-link {
+        align-self: center;
+        margin: 0;
+        padding: 13px 0;
+        font-size: .9rem;
+        border-bottom-width: 1px;
+      }
+
+      .hero-visual {
+        grid-row: 5;
+        width: 100%;
+        max-width: none;
+        margin: 18px 0 0;
+      }
+      .hero-visual img {
+        aspect-ratio: 1.4 / 1;
+        border-radius: 46% 46% var(--radius-lg) var(--radius-lg);
+      }
+      /* Same offset-frame detail as desktop: the glass arc is a shifted
+         duplicate of the image edge, not a concentric outline. */
+      .hero-visual::before {
+        inset: 10px -10px -10px 10px;
+        border-radius: 46% 46% calc(var(--radius-lg) + 10px) calc(var(--radius-lg) + 10px);
+      }
+
+      .hero-trust {
+        grid-row: 6;
+        gap: 0;
+        margin-top: 28px;
+        padding-top: 16px;
+      }
+      .hero-trust-item { min-width: 0; padding: 0 6px; text-align: center; }
+      .hero-trust-item + .hero-trust-item { border-left: 1px solid var(--border); }
+      .hero-trust-number { font-size: 1.25rem; }
+      .hero-trust-label {
+        margin-top: 2px;
+        font-size: .7rem;
+        line-height: 1.3;
+        text-wrap: balance;
+      }
+
+      /* Desktop divider margins plus the hero's bottom padding leave a dead
+         band before the next section at phone widths. */
+      .divider-ornament { margin: 26px auto 30px; }
+      .section-arch { padding-top: 56px; padding-bottom: 56px; }
       .services-grid, .team-grid { grid-template-columns: 1fr; gap: 18px; }
       .services-grid .service-row { border-radius: 56px 56px 14px 14px; }
       .services-grid .service-image img { aspect-ratio: 1.35 / 1; }
