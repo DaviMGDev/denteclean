@@ -2062,6 +2062,8 @@
     @media (prefers-reduced-motion: reduce) {
       .skeleton-block, .skeleton-nav i, .skeleton-lines i,
       .skeleton-actions i, .skeleton-cards i { animation: none; }
+      /* Scroll reveals resolve instantly instead of translating 24px. */
+      .reveal { opacity: 1; transform: none; transition: none; }
     }
 
     /* One horizontal profile per row; alternate image side on wide screens. */
