@@ -444,6 +444,9 @@ that structure should be visible through surface rather than cast in silhouette.
    `feTurbulence` at 3–4% opacity, applied as a full-viewport pseudo-element
    with `pointer-events: none`. The grain is uniform across both light content
    sections and the dark hero — it adds depth without calling attention to itself.
+   It paints at the base layer (`--z-base`) so it sits above section fills but
+   below the header, drawers, dialogs and toasts: raising the opacity can never
+   paint grain over a modal.
 
 ### Z-Index Scale (Implementation Reference)
 
