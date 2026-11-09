@@ -500,12 +500,6 @@
       background-color: var(--neutral-cool);
     }
 
-    .navbar-cta {
-      flex-shrink: 0;
-      font-size: 0.75rem;
-      padding: 8px 20px;
-    }
-
     /* Hamburger toggle (mobile) */
     .navbar-toggle {
       display: none;
@@ -554,7 +548,7 @@
         justify-content: center;
         gap: var(--space-sm);
         background-color: var(--surface);
-        /* Must stay below the brand, CTA and toggle: they live in the same
+        /* Must stay below the brand and toggle: they live in the same
            stacking context (.navbar), so a positive z-index here painted the
            overlay on top of the close (X) control and trapped the user. */
         z-index: 0;
@@ -566,7 +560,6 @@
 
       /* Keep the header controls above the open menu overlay */
       .navbar-brand,
-      .navbar-cta,
       .navbar-toggle {
         position: relative;
         z-index: 1;
@@ -597,9 +590,6 @@
 
       .navbar-toggle {
         display: flex;
-      }
-      .navbar-cta {
-        display: inline-flex;
       }
     }
 
@@ -1892,22 +1882,9 @@
       #root { scrollbar-width: none; }
       #root::-webkit-scrollbar { width: 0; height: 0; }
 
-      /* Navbar: brand + CTA + hamburger share one narrow row. The hero CTA owns
-         the emphasis, so the navbar action reads as a secondary outlined control
-         and only fills in once the navbar turns solid on scroll. */
+      /* Navbar: brand and hamburger share one narrow row at every width. The
+         hero CTA owns the emphasis — no second booking control in the header. */
       .navbar-inner { gap: 12px; }
-      .navbar-cta {
-        font-size: .7rem;
-        letter-spacing: .06em;
-        padding: 8px 14px;
-        background-color: transparent;
-        border: 1px solid var(--accent-gold);
-        color: var(--primary);
-      }
-      .navbar.scrolled .navbar-cta {
-        background-color: var(--accent-gold);
-        border-color: var(--accent-gold);
-      }
 
       /* Hero: single column, action-first. The row order is copy -> action ->
          image -> proof so the primary CTA stays above the fold; leading with
@@ -2049,7 +2026,6 @@
     .skeleton-brand { width: 132px; height: 22px; }
     .skeleton-nav { display: flex; gap: 30px; }
     .skeleton-nav i { width: 48px; height: 12px; }
-    .skeleton-header-action { width: 106px; height: 40px; border-radius: var(--radius-full); }
     .skeleton-content { width: min(calc(100% - 48px), var(--max-width)); margin: 64px auto 0; }
     .skeleton-hero { display: grid; grid-template-columns: 1fr 0.9fr; gap: 64px; align-items: center; }
     .skeleton-hero-copy { padding: 24px 0; }
@@ -2071,7 +2047,7 @@
     @keyframes skeleton-shimmer { to { background-position: -150% 0; } }
     @media (max-width: 700px) {
       .skeleton-header { width: calc(100% - 40px); height: 70px; }
-      .skeleton-nav, .skeleton-header-action { display: none; }
+      .skeleton-nav { display: none; }
       .skeleton-header::after { content: ''; width: 34px; height: 34px; border-radius: 50%; background: #e8e6e1; }
       .skeleton-content { width: calc(100% - 40px); margin-top: 32px; }
       .skeleton-hero { grid-template-columns: 1fr; gap: 22px; }
