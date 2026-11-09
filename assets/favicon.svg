@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="DenteClean">
+  <!-- Brand motif: a gold arch on the primary ink field, drawn from the same
+       arch-topped silhouette the hero image and sections use. -->
+  <rect width="32" height="32" rx="7" fill="#1B1F22"/>
+  <path d="M16 6.5c4.4 0 7.5 3.1 7.5 7.6v11.4h-3.6V14.4c0-2.6-1.6-4.2-3.9-4.2s-3.9 1.6-3.9 4.2v11.1H8.5V14.1c0-4.5 3.1-7.6 7.5-7.6Z" fill="#C4A747"/>
+</svg>
