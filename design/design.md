@@ -1,113 +1,113 @@
 ---
 version: alpha
 name: Denteclean Design System
-description: A dental clinic design language blending Art Nouveau structural elegance with clinical minimalism — organic arches, botanical restraint, and gilded accents against crisp whites and a neutral palette.
+description: "A dental clinic design language: clinical minimalism carried by one arch motif, enamel near-whites, green-black ink and a single deep surgical green accent."
 colors:
-  primary: "#1B1F22"
-  primary-hover: "#2E3338"
-  secondary: "#6B6D6F"
-  tertiary: "#3A4F41"
-  accent-gold: "#C4A747"
-  accent-gold-hover: "#D4BA5A"
-  accent-glass: "#8BA59B"
-  neutral-warm: "#F5F3EF"
-  neutral-cool: "#F2F4F5"
+  primary: "#14251F"
+  primary-hover: "#22402F"
+  secondary: "#4A5A52"
+  muted: "#55655C"
+  tertiary: "#0E6B52"
+  accent: "#0E6B52"
+  accent-hover: "#0A5744"
+  accent-soft: "#7FBFA8"
+  paper: "#F7F9F8"
   surface: "#FFFFFF"
-  surface-elevated: "#FAFAF8"
-  surface-muted: "#EDEDEA"
-  border: "#DCDAD5"
-  border-strong: "#C4C2BC"
-  on-primary: "#FFFFFF"
-  on-surface: "#1B1F22"
-  error: "#C23B22"
-  error-light: "#FCEEEB"
-  success: "#1F5B3E"
-  success-light: "#EBF5F0"
-  info: "#3B6F8C"
-  info-light: "#EDF3F7"
+  surface-elevated: "#FBFCFB"
+  surface-muted: "#EDF1EF"
+  border: "#D7DEDA"
+  border-strong: "#7F8C86"
+  on-primary: "#F7F9F8"
+  on-surface: "#14251F"
+  error: "#A3341E"
+  error-light: "#F7E7E3"
+  success: "#16694F"
+  success-light: "#E4F0EA"
+  info: "#35586B"
+  info-light: "#E6EEF2"
 typography:
   display-xl:
-    fontFamily: Playfair Display
+    fontFamily: Newsreader
     fontSize: 64px
-    fontWeight: 700
+    fontWeight: 400
     lineHeight: 1.05
     letterSpacing: -0.01em
   display-lg:
-    fontFamily: Playfair Display
+    fontFamily: Newsreader
     fontSize: 48px
-    fontWeight: 700
+    fontWeight: 400
     lineHeight: 1.1
     letterSpacing: -0.01em
   display-md:
-    fontFamily: Playfair Display
+    fontFamily: Newsreader
     fontSize: 36px
-    fontWeight: 600
+    fontWeight: 500
     lineHeight: 1.15
     letterSpacing: 0em
   headline-lg:
-    fontFamily: DM Sans
+    fontFamily: Instrument Sans
     fontSize: 28px
-    fontWeight: 600
+    fontWeight: 500
     lineHeight: 1.25
     letterSpacing: -0.01em
   headline-md:
-    fontFamily: DM Sans
+    fontFamily: Instrument Sans
     fontSize: 22px
-    fontWeight: 600
+    fontWeight: 500
     lineHeight: 1.3
     letterSpacing: 0em
   headline-sm:
-    fontFamily: DM Sans
+    fontFamily: Instrument Sans
     fontSize: 18px
-    fontWeight: 600
+    fontWeight: 500
     lineHeight: 1.35
     letterSpacing: 0em
   body-lg:
-    fontFamily: DM Sans
+    fontFamily: Instrument Sans
     fontSize: 18px
     fontWeight: 400
     lineHeight: 1.6
     letterSpacing: 0em
   body-md:
-    fontFamily: DM Sans
+    fontFamily: Instrument Sans
     fontSize: 16px
     fontWeight: 400
     lineHeight: 1.6
     letterSpacing: 0em
   body-sm:
-    fontFamily: DM Sans
+    fontFamily: Instrument Sans
     fontSize: 14px
     fontWeight: 400
     lineHeight: 1.55
     letterSpacing: 0em
   label-lg:
-    fontFamily: DM Sans
+    fontFamily: Instrument Sans
     fontSize: 14px
     fontWeight: 500
     lineHeight: 1.2
     letterSpacing: 0.04em
   label-md:
-    fontFamily: DM Sans
+    fontFamily: Instrument Sans
     fontSize: 12px
     fontWeight: 500
     lineHeight: 1.2
     letterSpacing: 0.05em
   label-sm:
-    fontFamily: DM Sans
+    fontFamily: Instrument Sans
     fontSize: 11px
     fontWeight: 500
     lineHeight: 1.2
     letterSpacing: 0.06em
   caption:
-    fontFamily: DM Sans
+    fontFamily: Instrument Sans
     fontSize: 12px
     fontWeight: 400
     lineHeight: 1.4
     letterSpacing: 0.02em
   overline:
-    fontFamily: DM Sans
+    fontFamily: Instrument Sans
     fontSize: 10px
-    fontWeight: 600
+    fontWeight: 500
     lineHeight: 1.2
     letterSpacing: 0.1em
 rounded:
@@ -144,30 +144,36 @@ components:
     backgroundColor: "{colors.surface-muted}"
     textColor: "{colors.secondary}"
   button-secondary:
-    backgroundColor: transparent
+    backgroundColor: "{colors.paper}"
     textColor: "{colors.primary}"
     rounded: "{rounded.md}"
     typography: "{typography.label-lg}"
     padding: 14px 28px
   button-secondary-hover:
-    backgroundColor: "{colors.neutral-cool}"
+    backgroundColor: "{colors.surface-muted}"
   button-accent:
-    backgroundColor: "{colors.accent-gold}"
-    textColor: "{colors.primary}"
+    backgroundColor: "{colors.primary}"
+    textColor: "{colors.on-primary}"
     rounded: "{rounded.md}"
     typography: "{typography.label-lg}"
     padding: 14px 28px
   button-accent-hover:
-    backgroundColor: "{colors.accent-gold-hover}"
-    textColor: "{colors.primary}"
+    backgroundColor: "{colors.primary-hover}"
+    textColor: "{colors.on-primary}"
   button-ghost:
-    backgroundColor: transparent
+    backgroundColor: "{colors.paper}"
     textColor: "{colors.primary}"
     rounded: "{rounded.md}"
     typography: "{typography.label-md}"
     padding: 8px 16px
   button-ghost-hover:
-    backgroundColor: "{colors.neutral-cool}"
+    backgroundColor: "{colors.surface-muted}"
+  input-placeholder:
+    backgroundColor: "{colors.surface}"
+    textColor: "{colors.muted}"
+    rounded: "{rounded.sm}"
+    typography: "{typography.body-md}"
+    padding: 12px 16px
   input:
     backgroundColor: "{colors.surface}"
     textColor: "{colors.on-surface}"
@@ -180,6 +186,11 @@ components:
     rounded: "{rounded.sm}"
     typography: "{typography.body-md}"
     padding: 12px 16px
+  link-hover:
+    backgroundColor: "{colors.paper}"
+    textColor: "{colors.accent-hover}"
+    rounded: "{rounded.xs}"
+    typography: "{typography.label-lg}"
   focus-ring:
     backgroundColor: transparent
     textColor: "{colors.border-strong}"
@@ -193,19 +204,19 @@ components:
     rounded: "{rounded.lg}"
     padding: "{spacing.xl}"
   badge:
-    backgroundColor: "{colors.neutral-warm}"
-    textColor: "{colors.tertiary}"
+    backgroundColor: "{colors.paper}"
+    textColor: "{colors.secondary}"
     rounded: "{rounded.full}"
     typography: "{typography.label-sm}"
     padding: 4px 12px
   badge-accent:
-    backgroundColor: "{colors.accent-gold}"
-    textColor: "{colors.primary}"
+    backgroundColor: "{colors.surface-muted}"
+    textColor: "{colors.secondary}"
     rounded: "{rounded.full}"
     typography: "{typography.label-sm}"
     padding: 4px 12px
   chip:
-    backgroundColor: "{colors.neutral-cool}"
+    backgroundColor: "{colors.surface-muted}"
     textColor: "{colors.on-surface}"
     rounded: "{rounded.full}"
     typography: "{typography.label-sm}"
@@ -226,10 +237,10 @@ components:
     backgroundColor: "{colors.border}"
     height: 1px
   divider-ornament:
-    backgroundColor: "{colors.accent-gold}"
+    backgroundColor: "{colors.accent}"
     height: 2px
   divider-glass:
-    backgroundColor: "{colors.accent-glass}"
+    backgroundColor: "{colors.accent-soft}"
     height: 1.5px
   input-error:
     backgroundColor: "{colors.error-light}"
@@ -255,17 +266,15 @@ components:
 
 ## Overview
 
-Denteclean's visual language reconciles two seemingly opposed traditions: the
-organic, flowing structuralism of Art Nouveau and the disciplined restraint of
-clinical minimalism. The result is a design system that feels **calm, trustworthy,
-and human** — never cold, never ornamental for its own sake.
+Denteclean's visual language is a treatment room, not a spa: sterile enamel
+near-whites, green-black ink, and one deep surgical green used like an instrument
+marking. The result should feel **exact, quiet and clinical** — not luxurious, not
+warm, and never ornamental for its own sake.
 
-The Art Nouveau influence is **structural, not decorative**. Arched frames,
-curving section dividers, and botanical line motifs replace conventional
-rectangular containers. Gold and stained-glass accent colors appear sparingly —
-as one-pixel rules, as hover-state transitions, as the single accent element on
-an otherwise neutral screen. Together they signal care, heritage, and precision
-without overwhelming the patient with visual noise.
+The arch is the **structural** motif, not a decoration. The logo mark, the
+section frames, the hero image and every eyebrow label use the same half-round
+arch. The accent appears in one-pixel rules, small marks and hover states — never
+as a surface fill. Together they signal care and precision without visual noise.
 
 The system is designed for a dental clinic environment: patient-facing screens
 (appointment booking, treatment information), in-office displays, and
@@ -274,114 +283,123 @@ accessibility, and a sense of calm**.
 
 ## Colors
 
-The palette is rooted in a deep ink primary paired with warm, architectural
-neutrals. Gold and botanical green serve as accent signals — never both on the
-same component, and never exceeding 5% of a screen's surface area.
+Enamel and surgical green. The field is a sterile near-white with the faintest
+green cast, taken from the enamel and plaster in the clinic's own photographs.
+Text is a green-black ink and one deep surgical green carries the accent. Warmth
+is the wrong signal for a treatment room, and the cream + gold + sage trio it
+shipped with is the palette nearly every dental template lands on.
 
-- **Primary (`#1B1F22`):** Deep charcoal ink. Used for headlines, body text, and
-  filled button backgrounds. Avoids pure black's harshness while maintaining
-  WCAG AAA contrast against surface white (ratio 15.4:1).
+- **Primary (`#14251F`):** Green-black ink. Headlines, body text, filled button
+  backgrounds. 15.1:1 against `paper`, well past WCAG AAA.
 
-- **Primary Hover (`#2E3338`):** Slightly lifted ink for interactive states.
-  Used only on hover/active backgrounds.
+- **Primary Hover (`#22402F`):** Lifted ink for hover/active backgrounds.
 
-- **Secondary (`#6B6D6F`):** Muted slate for supporting text, captions, placeholder
-  copy, and secondary metadata. Passes WCAG AA at 4.7:1 against white at 16px.
+- **Secondary (`#4A5A52`):** Secondary text, captions, supporting copy. 6.9:1 on
+  `paper` — passes AA at any size.
 
-- **Tertiary (`#3A4F41`):** Deep sage green for botanical motif elements,
-  success-related labels, and subtle organic accents in line work. Never used as
-  a background fill larger than a badge.
+- **Muted (`#55655C`):** Metadata, eyebrow labels, placeholders. 5.8:1 on `paper`.
 
-- **Accent Gold (`#C4A747`):** The Art Nouveau gilded accent. Reserved for the
-  single highest-priority action per screen, decorative rules, and the brand
-  mark. On white, passes WCAG AA large text at 3.0:1 — pair with dark ink for
-  body-sized text. Use only as a foreground, never a text color against light
-  backgrounds.
+- **Accent / Tertiary (`#0E6B52`):** Deep surgical green. The system's only
+  chromatic signal: the emphasis line of the hero headline, the arch in the logo
+  mark, the eyebrow arches, contact icons, link hovers, the focus tint and the
+  divider ornament. 6.1:1 on `paper`, 5.7:1 on `surface-muted`, so it may carry
+  text anywhere. Never a surface fill larger than a mark.
 
-- **Accent Gold Hover (`#D4BA5A`):** Lifted gold for hover/active states.
+- **Accent Hover (`#0A5744`):** Deeper green for hover/active states.
 
-- **Accent Glass (`#8BA59B`):** Muted stained-glass green for subtle structural
-  accents, selected-state highlights, and botanical illustration tints. Use at
-  low opacity (8–15%) for background washes; at full strength only for icons
-  and decorative rules.
+- **Accent Soft (`#7FBFA8`):** The accent lifted for dark surfaces. 7.6:1 on
+  `primary` — the only accent permitted on the ink panel.
 
-- **Neutral Warm (`#F5F3EF`):** Warm off-white with a whisper of ochre. The
-  default page background. Warmer than pure gray to feel welcoming rather than
-  clinical.
+- **Paper (`#F7F9F8`):** The page background. Near-white with a green-grey cast,
+  matched to the enamel and plaster in the photography.
 
-- **Neutral Cool (`#F2F4F5`):** Cool off-white for alternating surfaces — table
-  stripes, secondary panels, disabled state backgrounds. The subtle temperature
-  shift distinguishes functional zones without relying on borders.
+- **Surface (`#FFFFFF`):** Cards, form panels, modals. A full step above `paper`,
+  so depth comes from tone and a hairline rather than from shadow.
 
-- **Surface (`#FFFFFF`):** Pure white for cards, modals, and elevated containers.
-  Always paired with neutral-warm surroundings to create depth through tonal
-  contrast.
+- **Surface Elevated (`#FBFCFB`):** Nested containers and skeleton highlights.
 
-- **Surface Elevated (`#FAFAF8`):** Slightly warm white for layered cards and
-  nested containers.
+- **Surface Muted (`#EDF1EF`):** Alternating section band, input wells, disabled
+  surfaces.
 
-- **Surface Muted (`#EDEDEA`):** Disabled surface backgrounds and skeleton
-  loading states.
+- **Border (`#D7DEDA`):** The default hairline. Card edges, dividers, table
+  rules. Decorative only — it sits below 3:1 and must never be the sole edge of
+  an interactive control.
 
-- **Border (`#DCDAD5`):** The default hairline rule. Visible but unobtrusive.
-  Used for card edges, input borders, and table dividers.
+- **Border Strong (`#7F8C86`):** 3.3:1 against `paper`. Focus rings and any edge
+  that has to meet WCAG 1.4.11.
 
-- **Border Strong (`#C4C2BC`):** Emphasized borders for active inputs, focus
-  rings, and section dividers.
-
-- **State Colors:** `error` (`#C23B22`), `success` (`#2E7D5B`), `info` (`#3B6F8C`),
-  each with a tinted `-light` variant for backgrounds. All meet WCAG AA for
-  their respective text-on-background pairings.
+- **State Colors:** `error` (`#A3341E`), `success` (`#16694F`), `info` (`#35586B`),
+  each with a tinted `-light` variant, all meeting WCAG AA for their
+  text-on-background pairings. State colour is never the only carrier of a state
+  — pair it with text or an icon (WCAG 1.4.1).
 
 ### Color Application Rules
 
-1. No screen shall use more than three distinct hues simultaneously (counting
-   the warm/cool neutral pair as one).
-2. Gold accent must appear on **at most one interactive element per viewport**.
-3. Botanical green and accent glass must never exceed 5% of a screen's pixel area.
+1. No screen shall use more than two hues: the ink/paper neutral ramp and the
+   surgical green.
+2. The accent must appear on **at most one interactive element per viewport**,
+   and never as a surface fill.
+3. Accent text or icons must meet 4.5:1 against their surface; use `accent-soft`
+   on ink surfaces.
 4. Error red shall never be used for non-error emphasis or decoration.
-5. Backgrounds must always be drawn from the neutral/surface family — never
-   from the accent or state palettes at full strength.
+5. Backgrounds must always be drawn from the neutral/surface family — never from
+   the accent or state palettes at full strength.
+6. No hue gradients, gradient text, coloured glows or coloured shadows. A
+   gradient is permitted only as a small tonal shift inside one neutral.
 
 ## Typography
 
-Two type families serve distinct roles: **Playfair Display** for editorial
-presence and **DM Sans** for clinical readability. The pairing creates a
-controlled tension — the display face carries Art Nouveau's elegance in large
-headlines and the brand wordmark, while the body face ensures every patient form
-and treatment detail is legible at a glance.
+Two families, both outside the Playfair Display / DM Sans default the page
+shipped with. **Newsreader** (an editorial serif with an optical-size axis)
+carries the editorial voice: the hero headline, the brand wordmark, team names
+and the figures in the stat panel. A high-contrast Didone was tried first and
+rejected: its hyphens, plus signs and hairline joins disappear at display sizes,
+and the page's Portuguese copy needs both. **Instrument Sans** carries the interface:
+navigation, buttons, form labels, body copy and every small label. The tension
+is high-contrast display against a low-contrast grotesque — a drawing pair, not
+a template pair.
+
+`font-size-adjust: from-font` is set on `body` so the Georgia serif fallback and
+any system sans hold the web fonts' x-height while they load. Baseline since
+July 2024; browsers without support ignore the declaration.
 
 ### Type Scale
 
 | Token | Family | Size | Weight | Line | Spacing | Use |
 |-------|--------|------|--------|------|---------|-----|
-| `display-xl` | Playfair Display | 64px | 700 | 1.05 | -0.01em | Hero headings, brand statements |
-| `display-lg` | Playfair Display | 48px | 700 | 1.1 | -0.01em | Page titles, section heroes |
-| `display-md` | Playfair Display | 36px | 600 | 1.15 | 0 | Sub-page titles, feature headers |
-| `headline-lg` | DM Sans | 28px | 600 | 1.25 | -0.01em | Card titles, modal headings |
-| `headline-md` | DM Sans | 22px | 600 | 1.3 | 0 | Section headers, form group labels |
-| `headline-sm` | DM Sans | 18px | 600 | 1.35 | 0 | List group headers, sidebar titles |
-| `body-lg` | DM Sans | 18px | 400 | 1.6 | 0 | Lead paragraphs, treatment descriptions |
-| `body-md` | DM Sans | 16px | 400 | 1.6 | 0 | Default body, form labels, table cells |
-| `body-sm` | DM Sans | 14px | 400 | 1.55 | 0 | Secondary text, metadata, legal |
-| `label-lg` | DM Sans | 14px | 500 | 1.2 | 0.04em | Button text, navigation, tab labels |
-| `label-md` | DM Sans | 12px | 500 | 1.2 | 0.05em | Input labels, table headers, badges |
-| `label-sm` | DM Sans | 11px | 500 | 1.2 | 0.06em | Chips, tags, micro-labels |
-| `caption` | DM Sans | 12px | 400 | 1.4 | 0.02em | Image captions, footnotes, timestamps |
-| `overline` | DM Sans | 10px | 600 | 1.2 | 0.1em | Section overlines, category markers |
+| `display-xl` | Newsreader | 64px | 400 | 1.05 | -0.01em | Hero headings, brand statements |
+| `display-lg` | Newsreader | 48px | 400 | 1.1 | -0.01em | Page titles, section heroes |
+| `display-md` | Newsreader | 36px | 400 | 1.15 | 0 | Sub-page titles, feature headers |
+| `headline-lg` | Instrument Sans | 28px | 500 | 1.25 | -0.01em | Card titles, modal headings |
+| `headline-md` | Instrument Sans | 22px | 500 | 1.3 | 0 | Section headers, form group labels |
+| `headline-sm` | Instrument Sans | 18px | 500 | 1.35 | 0 | List group headers, sidebar titles |
+| `body-lg` | Instrument Sans | 18px | 400 | 1.6 | 0 | Lead paragraphs, treatment descriptions |
+| `body-md` | Instrument Sans | 16px | 400 | 1.6 | 0 | Default body, form labels, table cells |
+| `body-sm` | Instrument Sans | 14px | 400 | 1.55 | 0 | Secondary text, metadata, legal |
+| `label-lg` | Instrument Sans | 14px | 500 | 1.2 | 0 | Button text, navigation, tab labels |
+| `label-md` | Instrument Sans | 12px | 500 | 1.2 | 0 | Input labels, table headers, badges |
+| `label-sm` | Instrument Sans | 11px | 500 | 1.2 | 0 | Chips, tags, micro-labels |
+| `caption` | Instrument Sans | 12px | 400 | 1.4 | 0.02em | Image captions, footnotes, timestamps |
+| `overline` | Instrument Sans | 10px | 500 | 1.2 | 0.02em | Section overlines, category markers |
 
 ### Typography Rules
 
-1. **Playfair Display** must never appear below 28px. It is a display-only face.
-2. A single screen shall use at most three sizes from the scale (e.g., `display-lg`
-   + `headline-md` + `body-md`).
+1. **Newsreader** is display only: 20px and above, except the wordmark lockup,
+   which sets it at 1.35rem beside the logo mark.
+2. Hierarchy comes from size and colour, not weight. Nothing above weight 500,
+   with 600 at most for a single rare emphasis.
 3. Body text shall never be set lighter than `body-sm` (14px) at any breakpoint.
-4. Label tokens must always carry `text-transform: uppercase` in implementation.
+4. Labels are sentence case with normal tracking. No `text-transform: uppercase`
+   and no wide letter-spacing — that combination is the clearest template tell.
 5. Line-height for body tokens is unitless and always `1.5` or above — never
    compressed for aesthetic effect.
-6. Font weight on DM Sans shall never drop below 400. No light or thin weights.
+6. Font weight on Instrument Sans shall never drop below 400. No light or thin
+   weights.
 7. No italic styles shall be used in this system. Emphasis is conveyed through
-   weight and size shifts only.
+   colour and size instead.
+8. Small text never carries negative letter-spacing. Tight tracking belongs to
+   display sizes only.
+9. Figures use `font-variant-numeric: tabular-nums` where they sit in a column.
 
 ## Layout
 
@@ -425,21 +443,23 @@ that structure should be visible through surface rather than cast in silhouette.
 
 ### Depth Cues
 
-1. **Tonal contrast:** Cards sit on `surface` white against a `neutral-warm`
-   page background. Elevated cards use `surface-elevated` (`#FAFAF8`) nested
+1. **Tonal contrast:** Cards sit on `surface` against a `paper`
+   page background. Elevated cards use `surface-elevated` (`#F7F7F2`) nested
    inside `surface` — a 1% luminosity shift that reads as a physical layer
    without perceptible shadow.
-2. **Ornamental rules:** A 2px gold line (`divider-ornament`) marks the
+2. **Ornamental rules:** A 1px accent line (`divider-ornament`) marks the
    boundary between major page zones (hero/body, header/content). It functions
    as a structural seam, not decoration.
 3. **Border layers:** Modals and drawers use a 1px `border` on all sides,
    distinguishing them from shadowless surfaces below.
-4. **No box-shadow tokens exist.** If an implementation framework requires one,
+4. **No box-shadow tokens exist.** Depth is a surface step plus a hairline. The
+   one exception is a neutral, soft shadow under the hero image frame, which
+   lifts it off the paper.
    use `0px 0px 0px 0px transparent`. Depth is achieved through color,
    not simulated light.
 5. **Background texture:** A subtle grain texture is applied across the entire
    page background. This is a material treatment — not a decorative overlay.
-   It gives the `neutral-warm` surface a tactile, paper-like quality without
+   It gives the `paper` surface a tactile, paper-like quality without
    introducing visible pattern. Implementation uses an SVG `<filter>` with
    `feTurbulence` at 3–4% opacity, applied as a full-viewport pseudo-element
    with `pointer-events: none`. The grain is uniform across both light content
@@ -500,11 +520,11 @@ A single botanical line motif — a continuous, single-stroke vine or stem path 
 may appear as a structural accent in these locations only:
 
 - As a decorative rule beneath the primary page heading (replacing `divider-ornament`
-  when a warmer tone is desired). Stroke: 1.5px, color: `accent-glass` at 30%
+  when a warmer tone is desired). Stroke: 1.5px, color: `accent-soft` at 30%
   opacity.
 - As a subtle background watermark on hero sections. Opacity: 4–6%, color:
-  `tertiary` or `accent-glass`.
-- As a corner detail on large image frames. Stroke: 2px, color: `accent-gold`
+  `tertiary` or `accent-soft`.
+- As a corner detail on large image frames. Stroke: 2px, color: `accent`
   at 50% opacity, limited to one corner per frame.
 
 The motif itself shall be a simplified, geometric interpretation of a vine —
@@ -519,12 +539,12 @@ references in implementation to guarantee consistency.
 ### Buttons
 
 Three tiers of button, differentiated by visual weight. Only one primary
-(accent-gold) action per screen.
+(ink-filled) action per screen; the accent is never a button fill in this system.
 
 | Variant | Background | Text | Use |
 |---------|------------|------|-----|
-| `button-accent` | Gold filled | Ink | Single highest-priority action per screen |
-| `button-primary` | Ink filled | White | Default primary action when gold is absent |
+| `button-accent` | Ink filled | `on-primary` | Single highest-priority action per screen |
+| `button-primary` | Ink filled | `on-primary` | Default primary action |
 | `button-secondary` | Transparent with 1px `border` | Ink | Paired alternative, form cancellation |
 | `button-ghost` | Transparent | Ink | Tertiary actions, nav items, icon buttons |
 
@@ -534,18 +554,18 @@ for ghost.
 
 **States:** Each variant defines `-hover` backgrounds. Focus state uses a 2px
 `border-strong` outline offset 2px from the button edge. Disabled state uses
-`surface-muted` background with `border-strong` text.
+`surface-muted` background with `secondary` text.
 
 ### Form Controls
 
-- **Input/Textarea:** `surface` background, 1px `border`, `rounded: sm` (4px),
-  `typography: body-md`, padding 12px/16px. On focus: border shifts to
-  `border-strong` with a 2px `accent-glass` glow (box-shadow, 0 0 0 2px at
-  40% opacity — the single permitted shadow in the system, and only on focus).
+- **Input/Textarea:** `surface` background, 1px `border-strong` (3.2:1, so the
+  control edge meets WCAG 1.4.11), `rounded: sm` (4px), `typography: body-md`,
+  padding 12px/16px. On focus the border shifts to `accent` with a green tint
+  ring at 26% opacity.
 - **Select/Dropdown:** Matches input styling. Custom chevron icon: 1.5px stroke
   weight, 16×16px, color `secondary`.
 - **Checkbox/Radio:** 20×20px hit area. Unchecked: 1.5px `border` stroke,
-  `rounded: xs` (2px). Checked: `primary` fill, white checkmark, 2px stroke.
+  `rounded: xs` (2px). Checked: `primary` fill, `paper` checkmark, 2px stroke.
   Radio uses `rounded: full`.
 - **Label:** `typography: label-md`, color `primary`, sits 4px above the input.
 
@@ -558,30 +578,32 @@ Two levels of card elevation:
 | `card` | `surface` | `lg` (12px) | `xl` (32px) | 1px `border` |
 | `card-elevated` | `surface-elevated` | `lg` (12px) | `xl` (32px) | 1px `border` |
 
-Card headers use `headline-lg` with an optional gold ornamental rule (2px,
-`accent-gold`, 48px wide, left-aligned) placed 8px below the title. Cards
+Card headers use `headline-lg` with an optional accent rule (1px, `accent`,
+48px wide, left-aligned) placed 8px below the title. Cards
 shall never carry the arch corner radius — arch frames are structural page
 elements, not container treatments.
 
 ### Badges & Chips
 
 - **Badge:** `rounded: full`, `typography: label-sm`, 4px/12px padding.
-  Default uses `neutral-warm` background with `tertiary` text. The accent
-  variant uses `accent-gold` background — reserved for appointment statuses
-  requiring patient attention.
+  In this build badges are quiet text facts: no fill, no pill, no border —
+  `body-sm` in `secondary`, separated by a middle dot. Colour is reserved for
+  states that genuinely need attention.
 - **Chip:** `rounded: full`, `typography: label-sm`, 6px/14px padding.
-  Default uses `neutral-cool` background. Selected state uses `primary`
+  Default uses `surface-muted` background. Selected state uses `primary`
   background with white text. Used for filter tags and multi-select options.
 
 ### Dividers & Ornaments
 
 - **Standard divider:** 1px `border`, full width, 16px vertical margin.
-- **Ornamental divider:** 2px `accent-gold`, full width, 24px vertical margin.
+- **Ornamental divider:** 1px `accent` at 70% opacity, full width, used once
+  between the hero and the first section.
   Limited to one per page section transition.
-- **Glass divider:** 1.5px `accent-glass`, full width, 16px vertical margin.
+- **Soft divider:** 1.5px `accent-soft` at 50% opacity, full width, 16px
+  vertical margin.
   Used for subtle separation within card bodies or form sections.
 - **Section arch rule:** A semi-elliptical SVG path, 2px stroke in
-  `accent-glass` at 25% opacity, spanning the content column width. Used to
+  `accent-soft` at 25% opacity, spanning the content column width. Used to
   separate hero from body content on landing pages only.
 
 ### Form State Variants
@@ -597,10 +619,9 @@ elements, not container treatments.
 
 ### Navigation
 
-Primary navigation items use `typography: label-lg`, color `secondary`, with
-an 8px underline indicator in `accent-gold` on the active item. Hover state
-shifts color to `primary`. No background fill on hover — the system relies on
-typographic weight, not surface changes, to indicate interactivity.
+Primary navigation items use `typography: label-lg`, color `secondary`. Hover
+shifts colour to `primary` over a 7% ink tint; there is no underline indicator
+and no coloured fill.
 
 ### Tooltip
 
@@ -612,7 +633,7 @@ No arrow/pointer — the rounded rectangle alone provides sufficient affordance.
 
 Several components (`button-secondary`, `button-ghost`) specify `transparent`
 as their background color. In practice, they inherit the background of their
-parent container (typically `surface`, `neutral-warm`, or `neutral-cool`),
+parent container (typically `surface`, `paper`, or `surface-muted`),
 against which their `primary` ink text meets WCAG AAA standards. When placing
 these components on any non-standard background, verify the resulting text
 contrast against the actual rendered surface.
@@ -665,7 +686,7 @@ utility** — precise enough for clinical use, warm enough for patient comfort.
 |---------|-------------|
 | Default, inactive | `secondary` |
 | Active, selected | `primary` |
-| On dark backgrounds (primary, accent-gold) | `on-primary` |
+| On dark backgrounds (primary ink) | `on-primary` |
 | Error states | `error` |
 | Success states | `success` |
 | Disabled | `border` |
@@ -677,10 +698,9 @@ human** tone. Patients are the subject; the clinic is the context.
 
 ### Photography Guidelines
 
-1. **Color treatment:** All photography must carry a warm-neutral color grade.
-   Cool clinical blues are prohibited. Apply a subtle warming filter (+200K
-   color temperature shift) and reduce saturation by 15% to harmonize with the
-   `neutral-warm` palette.
+1. **Color treatment:** Leave the photographs as shot. The palette was moved to
+   a near-white enamel paper precisely so the blues and greens in the imagery
+   sit beside it instead of fighting it. Do not warm-grade them.
 2. **Composition:** Subjects (patients, practitioners, facilities) must occupy
    no more than 60% of the frame. The remaining 40% is negative space — a clean
    wall, a soft-focus background, an architectural detail. This breathing room
@@ -702,9 +722,10 @@ human** tone. Patients are the subject; the clinic is the context.
 Botanical line illustrations (simplified vines, leaf forms, stem paths) may
 appear in these contexts only:
 
-- Hero section watermarks (SVG, 4–6% opacity, `tertiary` or `accent-glass` color)
-- Decorative section rules (SVG path, 1.5px stroke, `accent-glass` at 30%)
-- Corner details on image frames (SVG, 2px stroke, `accent-gold` at 50%)
+- Not used in this build. The arch, not the vine, is the motif; botanical
+  watermarks were removed as decoration.
+- Decorative section rules (SVG path, 1.5px stroke, `accent-soft` at 30%)
+- Corner details on image frames (SVG, 2px stroke, `accent` at 50%)
 
 These illustrations must be **geometrically reduced** — a vine should read as
 three to five connected arcs, not a botanical study. The goal is a structural
@@ -720,8 +741,8 @@ Nouveau structure:
   edge only), framed by a 1px `border` rule. The arch ascends; the base is
   flat. This is the system's defining spatial gesture.
 - **Card images:** `rounded: md` (8px) on all corners with a 1px `border`.
-- **Portrait images:** Circular crop (`rounded: full`) with a 2px `accent-gold`
-  ring — the only permitted use of gold as a full perimeter border.
+- **Portrait images:** Circular crop (`rounded: full`) with a 2px `accent`
+  ring — the only place the accent forms a full perimeter.
 - **No image shall appear without a containing frame.** Unbounded imagery is
   the single fastest way to erode the system's structural voice.
 
@@ -732,11 +753,13 @@ Nouveau structure:
 - Do use the arch corner radius tokens (`arch-sm` through `arch-lg`) as
   top-edge-only arches on structural page elements — they are the system's
   signature gesture.
-- Do let the `neutral-warm` page background (not a card or border) carry the
+- Do let the `paper` page background (not a card or border) carry the
   majority of every screen's surface area. White space is the system's primary
   material.
-- Do place exactly one gold accent per viewport — on the single most important
-  action, rule, or brand mark. No more.
+- Do place the accent on marks, rules and single figures — never on more
+  than one interactive element per viewport.
+- Do let the arch carry the identity: logo mark, section frames, hero image and
+  eyebrow bullets all use the same half-round.
 - Do use the `label-*` token family for all buttons, navigation, tabs, and
   form inputs. UI chrome text should never use a `body-*` token.
 - Do maintain the 24px viewport safe area on all sides, at all breakpoints.
@@ -750,14 +773,16 @@ Nouveau structure:
   Depth is tonal, not luminous.
 - Don't apply the `arch-*` corner radius to cards, buttons, inputs, or badges.
   Arch tokens belong to structural frames and page sections only.
-- Don't use the gold accent as a text color against white or light backgrounds.
-  Gold text fails WCAG contrast requirements at all sizes.
+- Don't use the accent below 4.5:1. On `paper` it measures 6.1:1 and is safe at
+  any size; on `surface-muted` it is 5.7:1. On ink use `accent-soft`, never the
+  accent itself.
 - Don't place more than one botanical motif on a single viewport. One vine
   watermark or one ornamental rule is structural; two is decoration.
 - Don't use italic, oblique, light (300), or thin (100) font weights anywhere
-  in the system. DM Sans at 400 and 500; Playfair Display at 600 and 700 only.
-- Don't let the display face (Playfair Display) appear below 28px or in
-  sentence-case body copy. It is a heading and brand face only.
+  in the system. Instrument Sans at 400–500 (600 for a rare emphasis); Bodoni
+  Moda at 400–500 only.
+- Don't let the display face (Newsreader) run in body copy, or below 20px
+  outside the wordmark lockup.
 - Don't combine `rounded: none` elements with `arch-*` elements in the same
   visual zone — the contrast between sharp data tables and soft arches must
   be mediated by spatial distance (at least `2xl`, 48px).
