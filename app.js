@@ -57,7 +57,8 @@
         }
         document.querySelectorAll('[aria-label], img[alt]').forEach(el => { for (const attr of ['aria-label','alt']) if (el.hasAttribute(attr)) el.setAttribute(attr, el.getAttribute(attr).replaceAll('DenteClean', clinic.name)); });
         if (data.attributeText) document.querySelectorAll('*').forEach(el => { for (const attr of ['alt','aria-label','placeholder','title','data-toast']) if (el.hasAttribute(attr)) { const value = el.getAttribute(attr); if (data.attributeText[value] !== undefined) el.setAttribute(attr, data.attributeText[value].replaceAll('DenteClean', clinic.name).replaceAll('{name}', clinic.name).replaceAll('{phone}', clinic.phone)); } });
-        document.querySelector('.navbar-brand').textContent = clinic.name;
+        const brandName = document.querySelector('.navbar-brand .brand-name') || document.querySelector('.navbar-brand');
+        brandName.textContent = clinic.name;
         document.querySelector('.navbar-brand').setAttribute('aria-label', clinic.name + ' — voltar ao topo');
         document.querySelectorAll('.hero-trust-number')[1].textContent = data.stats[1]?.value || '';
         document.querySelectorAll('.hero-trust-number')[2].textContent = data.stats[0]?.value || '';

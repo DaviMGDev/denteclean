@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 205 40" width="205" height="40" role="img" aria-label="DenteClean">
+  <title>DenteClean</title>
+  <!-- Primary lockup: the arch mark plus the wordmark.
+       The arch is the same half-round the section frames and the hero image
+       use. Flat and single-colour, never gradient or glazed.
+       The site renders the wordmark as live text in Newsreader; this file
+       carries the same stack so exports degrade to a serif, not a system sans.
+       Outline the text before rasterising. -->
+  <path fill="none" stroke="#0E6B52" stroke-width="2.6" stroke-linecap="round"
+        transform="translate(-6.2 2.6) scale(1.18)"
+        d="M7 26V15a9 9 0 0 1 18 0v11"/>
+  <text x="38" y="28.5" font-family="Newsreader, 'Iowan Old Style', Georgia, serif" font-size="24" font-weight="400" letter-spacing="-0.2" fill="#14251F">DenteClean</text>
+</svg>

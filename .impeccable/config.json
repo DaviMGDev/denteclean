@@ -10,7 +10,7 @@
           "index.html"
         ],
         "createdAt": "2026-10-29T02:18:29.897Z",
-        "reason": "Agent: #F5F3EF is the documented neutral-warm token in design/design.md; this page follows the existing palette"
+        "reason": "Agent: the page surface is the documented `paper` token (#F7F9F8, enamel near-white) in design/design.md; the cream + gold + sage palette was retired for enamel + surgical green."
       }
     ]
   }

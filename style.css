@@ -1,34 +1,48 @@
     /* ============================================================
        DESIGN TOKENS (from design.md)
+       Enamel and surgical green. The field is a sterile near-white with
+       the faintest green cast, taken from the enamel and plaster in the
+       clinic's own photographs. Text is a green-black ink, and one deep
+       surgical green carries the accent. No cream, no gold, no sage: the
+       warm cream + gold trio is the palette every dental template lands
+       on, and warmth is the wrong signal for a treatment room.
        ============================================================ */
     :root {
-      /* Colors */
-      --primary: #1B1F22;
-      --primary-hover: #2E3338;
-      --secondary: #6B6D6F;
-      --tertiary: #3A4F41;
-      --accent-gold: #C4A747;
-      --accent-gold-hover: #D4BA5A;
-      --accent-glass: #8BA59B;
-      --neutral-warm: #F5F3EF;
-      --neutral-cool: #F2F4F5;
-      --surface: #FFFFFF;
-      --surface-elevated: #FAFAF8;
-      --surface-muted: #EDEDEA;
-      --border: #DCDAD5;
-      --border-strong: #C4C2BC;
-      --on-primary: #FFFFFF;
-      --on-surface: #1B1F22;
-      --error: #C23B22;
-      --error-light: #FCEEEB;
-      --success: #1F5B3E;
-      --success-light: #EBF5F0;
-      --info: #3B6F8C;
-      --info-light: #EDF3F7;
+      /* Ink ramp */
+      --primary: #14251F;          /* green-black ink: text and dark surfaces */
+      --primary-hover: #22402F;
+      --secondary: #4A5A52;        /* secondary text, 6.9:1 on paper */
+      --muted: #55655C;            /* meta and captions, 5.8:1 on paper */
+      --on-primary: #F7F9F8;
+      --on-surface: #14251F;
+
+      /* Surfaces */
+      --paper: #F7F9F8;            /* page */
+      --surface: #FFFFFF;          /* cards, form panels */
+      --surface-elevated: #FBFCFB;
+      --surface-muted: #EDF1EF;    /* alternating band, input wells */
+
+      /* Lines — hairlines for structure, strong for control edges */
+      --border: #D7DEDA;
+      --border-strong: #7F8C86;    /* 3.3:1 on paper: input edges, focus */
+
+      /* Accent — deep surgical green, used rarely */
+      --accent: #0E6B52;           /* 6.1:1 on paper */
+      --accent-hover: #0A5744;
+      --accent-soft: #7FBFA8;      /* 7.6:1 on the ink panel */
+      --tertiary: var(--accent);   /* existing name for "emphasis" */
+
+      /* Semantic */
+      --error: #A3341E;
+      --error-light: #F7E7E3;
+      --success: #16694F;
+      --success-light: #E4F0EA;
+      --info: #35586B;
+      --info-light: #E6EEF2;
 
       /* Typography families */
-      --font-display: 'Playfair Display', Georgia, serif;
-      --font-body: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-display: 'Newsreader', 'Iowan Old Style', Georgia, serif;
+      --font-body: 'Instrument Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 
       /* Spacing */
       --space-xs: 4px;
@@ -87,8 +101,12 @@
       font-family: var(--font-body);
       font-size: 16px;
       line-height: 1.6;
-      color: var(--on-surface);
-      background-color: var(--neutral-warm);
+      /* Keeps Georgia / system fallbacks on the same x-height while the
+         two web fonts load, so the swap does not reflow the page.
+         Baseline since July 2024; older browsers simply ignore it. */
+      font-size-adjust: from-font;
+      color: var(--primary);
+      background-color: var(--paper);
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
     }
@@ -127,7 +145,7 @@
 
       /* Firefox */
       scrollbar-width: thin;
-      scrollbar-color: var(--scrollbar-thumb, var(--accent-gold)) transparent;
+      scrollbar-color: var(--scrollbar-thumb, var(--accent)) transparent;
     }
 
     /* WebKit scrollbar — only the thumb is visible */
@@ -144,12 +162,12 @@
       box-shadow: none;
     }
     #root::-webkit-scrollbar-thumb {
-      background: var(--scrollbar-thumb, var(--accent-gold));
+      background: var(--scrollbar-thumb, var(--accent));
       border-radius: 3px;
       transition: background 400ms ease;
     }
     #root::-webkit-scrollbar-thumb:hover {
-      background: var(--scrollbar-thumb-hover, var(--accent-gold-hover));
+      background: var(--scrollbar-thumb-hover, var(--accent-hover));
     }
 
     /* Content wrapper: max-width centered on desktop */
@@ -165,40 +183,40 @@
     .display-xl {
       font-family: var(--font-display);
       font-size: clamp(2.5rem, 5vw, 4rem);
-      font-weight: 700;
+      font-weight: 400;
       line-height: 1.05;
       letter-spacing: -0.01em;
     }
     .display-lg {
       font-family: var(--font-display);
       font-size: clamp(2rem, 4vw, 3rem);
-      font-weight: 700;
+      font-weight: 400;
       line-height: 1.1;
       letter-spacing: -0.01em;
     }
     .display-md {
       font-family: var(--font-display);
       font-size: clamp(1.75rem, 3vw, 2.25rem);
-      font-weight: 600;
+      font-weight: 500;
       line-height: 1.15;
     }
     .headline-lg {
       font-family: var(--font-body);
       font-size: clamp(1.35rem, 2.2vw, 1.75rem);
-      font-weight: 600;
+      font-weight: 500;
       line-height: 1.25;
       letter-spacing: -0.01em;
     }
     .headline-md {
       font-family: var(--font-body);
       font-size: clamp(1.15rem, 1.8vw, 1.375rem);
-      font-weight: 600;
+      font-weight: 500;
       line-height: 1.3;
     }
     .headline-sm {
       font-family: var(--font-body);
       font-size: 1.125rem;
-      font-weight: 600;
+      font-weight: 500;
       line-height: 1.35;
     }
     .body-lg {
@@ -246,23 +264,39 @@
     .overline {
       font-family: var(--font-body);
       font-size: 0.625rem;
-      font-weight: 600;
+      font-weight: 500;
       line-height: 1.2;
       letter-spacing: 0.1em;
       text-transform: uppercase;
     }
 
     /* ============================================================
-       SECTION LABELS (small caps across the site)
+       SECTION LABELS
        ============================================================ */
     .section-label {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-sm);
       font-family: var(--font-body);
       font-size: 0.8125rem;
       font-weight: 500;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--tertiary);
+      letter-spacing: 0.02em;
+      color: var(--secondary);
       margin-bottom: var(--space-sm);
+    }
+
+    /* Signature detail: a half-round arch opens every eyebrow. It is the
+       same shape as the logo mark, the hero frame and the section tops,
+       and the only accent that sits in the page chrome. */
+    .section-label::before,
+    .hero-label::before {
+      content: '';
+      width: 11px;
+      height: 6px;
+      flex: none;
+      border: 1.5px solid var(--accent);
+      border-bottom: 0;
+      border-radius: 7px 7px 0 0;
     }
 
     /* ============================================================
@@ -300,12 +334,14 @@
       cursor: not-allowed;
     }
 
+    /* The highest-priority action is ink on paper. Clay never fills a
+       button: ink on clay measures 2.8:1 and would fail AA. */
     .btn-accent {
-      background-color: var(--accent-gold);
-      color: var(--primary);
+      background-color: var(--primary);
+      color: var(--on-primary);
     }
     .btn-accent:hover:not(:disabled) {
-      background-color: var(--accent-gold-hover);
+      background-color: var(--primary-hover);
       transform: translateY(-1px);
     }
 
@@ -324,7 +360,7 @@
       border: 1px solid var(--border);
     }
     .btn-secondary:hover:not(:disabled) {
-      background-color: var(--neutral-cool);
+      background-color: var(--surface-muted);
       border-color: var(--border-strong);
     }
 
@@ -335,7 +371,7 @@
       font-size: 0.75rem;
     }
     .btn-ghost:hover:not(:disabled) {
-      background-color: var(--neutral-cool);
+      background-color: var(--surface-muted);
     }
 
     /* ============================================================
@@ -389,7 +425,7 @@
       white-space: nowrap;
     }
     .badge-default {
-      background-color: var(--neutral-warm);
+      background-color: var(--paper);
       color: var(--tertiary);
     }
     .badge-success {
@@ -401,8 +437,8 @@
       color: var(--info);
     }
     .badge-accent {
-      background-color: var(--accent-gold);
-      color: var(--primary);
+      background-color: var(--surface-muted);
+      color: var(--secondary);
     }
 
     /* ============================================================
@@ -418,14 +454,14 @@
     .divider-ornament {
       width: 60px;
       height: 2px;
-      background-color: var(--accent-gold);
+      background-color: var(--accent);
       margin: var(--space-2xl) auto;
       border: none;
     }
     .divider-glass {
       width: 100%;
       height: 1.5px;
-      background-color: var(--accent-glass);
+      background-color: var(--accent-soft);
       margin: var(--space-md) 0;
       border: none;
       opacity: 0.5;
@@ -459,13 +495,26 @@
     }
 
     .navbar-brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
       font-family: var(--font-display);
-      font-size: 1.3rem;
-      font-weight: 700;
+      font-size: 1.35rem;
+      font-weight: 400;
+      letter-spacing: -0.01em;
+      line-height: 1;
       color: var(--primary);
       text-decoration: none;
       transition: color var(--transition-base);
       flex-shrink: 0;
+    }
+    /* Flat arch glyph, one solid colour, no tile and no gradient. It is
+       the arch the favicon, the hero frame and the section tops use. */
+    .brand-mark {
+      width: 24px;
+      height: 24px;
+      flex: none;
+      color: var(--accent);
     }
     .navbar.scrolled .navbar-brand {
       color: var(--primary);
@@ -493,15 +542,15 @@
       border: none;
     }
     .navbar-link:hover {
-      color: var(--tertiary);
-      background-color: rgba(58,79,65,0.06);
+      color: var(--primary);
+      background-color: color-mix(in oklab, var(--primary) 7%, transparent);
     }
     .navbar.scrolled .navbar-link {
       color: var(--secondary);
     }
     .navbar.scrolled .navbar-link:hover {
       color: var(--primary);
-      background-color: var(--neutral-cool);
+      background-color: var(--surface-muted);
     }
 
     /* Hamburger toggle (mobile) */
@@ -580,7 +629,7 @@
         width: 100%;
       }
       .navbar-links .navbar-link:hover {
-        background-color: var(--neutral-cool);
+        background-color: var(--surface-muted);
       }
 
       /* The menu is keyboard reachable; show where focus is */
@@ -612,7 +661,7 @@
       left: 0;
       right: 0;
       height: var(--radius-arch-lg);
-      background: var(--neutral-warm);
+      background: var(--paper);
       border-radius: var(--radius-arch-lg) var(--radius-arch-lg) 0 0;
     }
 
@@ -622,7 +671,7 @@
        Content is vertically centered within the hero.
        ============================================================ */
     .hero {
-      background: var(--neutral-warm);
+      background: var(--paper);
       min-height: 100dvh;
       display: flex;
       align-items: center;
@@ -658,26 +707,30 @@
       content: '';
       position: absolute;
       inset: 12px -12px -12px 12px;
-      border: 1px solid var(--accent-gold);
+      border: 1px solid var(--accent);
       border-radius: 48% 48% var(--radius-xl) var(--radius-xl);
+      opacity: 0.45;
       pointer-events: none;
     }
 
     .hero-label {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-sm);
       font-family: var(--font-body);
-      font-size: 0.9375rem;
+      font-size: 0.8125rem;
       font-weight: 500;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--tertiary);
+      letter-spacing: 0.02em;
+      color: var(--secondary);
       margin-bottom: var(--space-lg);
     }
 
     .hero-title {
       font-family: var(--font-display);
       font-size: clamp(2.5rem, 6vw, 4rem);
-      font-weight: 700;
-      line-height: 1.12;
+      font-weight: 500;
+      line-height: 1.08;
+      letter-spacing: -0.015em;
       color: var(--primary);
       margin-bottom: var(--space-xl);
     }
@@ -703,11 +756,11 @@
     }
 
     .hero .btn-accent {
-      background-color: var(--tertiary);
+      background-color: var(--primary);
       color: var(--on-primary);
     }
     .hero .btn-accent:hover {
-      background-color: #2d4034;
+      background-color: var(--primary-hover);
     }
 
     .hero-link {
@@ -716,7 +769,7 @@
       font-weight: 500;
       color: var(--primary);
       text-decoration: none;
-      border-bottom: 1.5px solid var(--accent-gold);
+      border-bottom: 1.5px solid var(--accent);
       padding-bottom: 3px;
       transition: border-color var(--transition-fast),
                   color var(--transition-fast);
@@ -727,7 +780,7 @@
       border-right: none;
     }
     .hero-link:hover {
-      border-bottom-color: var(--accent-gold);
+      border-bottom-color: var(--accent);
       color: var(--tertiary);
     }
     .hero-link .arrow {
@@ -752,7 +805,8 @@
     .hero-trust-number {
       font-family: var(--font-display);
       font-size: 1.5rem;
-      font-weight: 800;
+      font-weight: 400;
+      font-variant-numeric: tabular-nums;
       color: var(--tertiary);
       line-height: 1.1;
     }
@@ -810,7 +864,7 @@
       position: absolute;
       inset: -2px;
       border-radius: calc(var(--radius-xl) + 2px);
-      background: var(--neutral-cool);
+      background: var(--surface-muted);
       z-index: -1;
     }
 
@@ -821,13 +875,13 @@
       width: 40px;
       height: 40px;
       margin-bottom: var(--space-sm);
-      color: var(--accent-gold);
+      color: var(--accent);
     }
 
     .service-title {
       font-family: var(--font-body);
       font-size: 1.375rem;
-      font-weight: 600;
+      font-weight: 500;
       color: var(--primary);
       margin-bottom: 0.35rem;
       line-height: 1.3;
@@ -859,8 +913,9 @@
       top: -8px;
       right: -8px;
       z-index: 2;
-      background-color: var(--accent-gold);
+      background-color: var(--surface);
       color: var(--primary);
+      border: 1px solid var(--border);
       font-family: var(--font-body);
       font-size: 0.6875rem;
       font-weight: 500;
@@ -900,7 +955,7 @@
     }
 
     .about-mission {
-      background-color: var(--neutral-warm);
+      background-color: var(--paper);
       border-radius: var(--radius-lg);
       padding: var(--space-lg) var(--space-xl);
       margin: var(--space-md) 0;
@@ -923,13 +978,13 @@
       height: 48px;
       border-radius: var(--radius-full);
       object-fit: cover;
-      border: 2px solid var(--accent-gold);
+      border: 2px solid var(--accent);
       flex-shrink: 0;
     }
     .about-testimonial-text .name {
       font-family: var(--font-body);
       font-size: 0.9rem;
-      font-weight: 600;
+      font-weight: 500;
       color: var(--primary);
     }
     .about-testimonial-text .since {
@@ -980,7 +1035,7 @@
       position: absolute;
       inset: -2px;
       border-radius: calc(var(--radius-xl) + 2px);
-      background: var(--neutral-cool);
+      background: var(--surface-muted);
       z-index: -1;
     }
 
@@ -990,7 +1045,7 @@
     .team-member-name {
       font-family: var(--font-display);
       font-size: 1.75rem;
-      font-weight: 700;
+      font-weight: 400;
       color: var(--primary);
       line-height: 1.2;
     }
@@ -1062,8 +1117,9 @@
     .stat-number {
       font-family: var(--font-display);
       font-size: 2.2rem;
-      font-weight: 800;
-      color: var(--accent-gold);
+      font-weight: 400;
+      font-variant-numeric: tabular-nums;
+      color: var(--accent);
       line-height: 1.1;
     }
     .stat-label {
@@ -1091,7 +1147,7 @@
     }
 
     .contact-info-card {
-      background-color: var(--neutral-warm);
+      background-color: var(--paper);
       padding: var(--space-lg);
       border-radius: var(--radius-xl);
       border: 1px solid var(--border);
@@ -1111,13 +1167,13 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      color: var(--accent-gold);
+      color: var(--accent);
       margin-top: 2px;
     }
     .contact-icon-label {
       font-family: var(--font-body);
       font-size: 0.85rem;
-      font-weight: 600;
+      font-weight: 500;
       color: var(--primary);
     }
     .contact-icon-value {
@@ -1145,7 +1201,7 @@
       padding: 0;
     }
     .social-link:hover {
-      color: var(--accent-gold);
+      color: var(--accent);
     }
     .social-sep {
       color: var(--border);
@@ -1164,7 +1220,7 @@
     .form-title {
       font-family: var(--font-body);
       font-size: 1.3rem;
-      font-weight: 600;
+      font-weight: 500;
       color: var(--primary);
       margin-bottom: var(--space-lg);
     }
@@ -1188,7 +1244,7 @@
       font-family: var(--font-body);
       font-size: 1rem;
       font-weight: 400;
-      color: var(--on-surface);
+      color: var(--primary);
       background-color: var(--surface);
       border: 1px solid var(--border);
       border-radius: var(--radius-sm);
@@ -1199,7 +1255,7 @@
     .form-input:focus,
     .form-textarea:focus {
       border-color: var(--border-strong);
-      box-shadow: 0 0 0 2px rgba(139, 165, 155, 0.4);
+      box-shadow: 0 0 0 2px color-mix(in oklab, var(--accent) 26%, transparent);
       background-color: var(--surface);
     }
     .form-input.error,
@@ -1213,29 +1269,25 @@
     }
     .form-input::placeholder,
     .form-textarea::placeholder {
-      color: var(--secondary);
-      opacity: 0.7;
+      color: var(--muted);
+      opacity: 1;
     }
     .form-submit {
       width: 100%;
       padding: 16px;
       font-family: var(--font-body);
-      font-size: 1rem;
+      font-size: 0.9375rem;
       font-weight: 500;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      background-color: var(--accent-gold);
-      color: var(--primary);
+      background-color: var(--primary);
+      color: var(--on-primary);
       border: none;
       border-radius: var(--radius-md);
       cursor: pointer;
-      transition: background-color var(--transition-fast),
-                  transform var(--transition-fast);
+      transition: background-color var(--transition-fast);
       min-height: 44px;
     }
     .form-submit:hover {
-      background-color: var(--accent-gold-hover);
-      transform: translateY(-1px);
+      background-color: var(--primary-hover);
     }
     .form-submit:focus-visible {
       outline: 2px solid var(--border-strong);
@@ -1255,7 +1307,7 @@
        ============================================================ */
     .footer {
       background-color: var(--primary);
-      color: rgba(255,255,255,0.85);
+      color: var(--on-primary);
       padding: var(--space-2xl) 0 var(--space-lg);
       margin-top: var(--space-2xl);
     }
@@ -1268,30 +1320,40 @@
       padding: var(--space-lg);
     }
     .footer-brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
       font-family: var(--font-display);
-      font-size: 1.4rem;
-      font-weight: 700;
+      font-size: 1.45rem;
+      font-weight: 400;
+      letter-spacing: -0.01em;
+      line-height: 1;
       color: var(--on-primary);
       margin-bottom: var(--space-sm);
+    }
+    .footer-brand .brand-mark {
+      width: 26px;
+      height: 26px;
+      color: var(--accent-soft);
     }
     .footer-tagline {
       font-family: var(--font-body);
       font-size: 0.85rem;
-      color: rgba(255,255,255,0.6);
+      color: color-mix(in oklab, var(--on-primary) 62%, transparent);
       max-width: 260px;
       line-height: 1.5;
     }
     .footer-copyright {
       font-family: var(--font-body);
       font-size: 0.78rem;
-      color: rgba(255,255,255,0.35);
+      color: color-mix(in oklab, var(--on-primary) 56%, transparent);
       margin-top: var(--space-md);
     }
     .footer-heading {
       font-family: var(--font-body);
       font-size: 0.85rem;
-      font-weight: 600;
-      color: rgba(255,255,255,0.8);
+      font-weight: 500;
+      color: color-mix(in oklab, var(--on-primary) 82%, transparent);
       margin-bottom: 0.75rem;
       letter-spacing: 0.02em;
     }
@@ -1299,7 +1361,7 @@
       display: block;
       font-family: var(--font-body);
       font-size: 0.85rem;
-      color: rgba(255,255,255,0.55);
+      color: color-mix(in oklab, var(--on-primary) 62%, transparent);
       text-decoration: none;
       padding: 4px 0;
       transition: color var(--transition-fast);
@@ -1308,7 +1370,7 @@
       border: none;
     }
     .footer-link:hover {
-      color: var(--accent-gold);
+      color: var(--accent-soft);
     }
     .footer-bottom {
       text-align: center;
@@ -1317,12 +1379,12 @@
     .footer-bottom p {
       font-family: var(--font-body);
       font-size: 0.8rem;
-      color: rgba(255,255,255,0.3);
+      color: color-mix(in oklab, var(--on-primary) 56%, transparent);
     }
     .footer-divider {
       width: 200px;
       height: 1px;
-      background-color: rgba(255,255,255,0.15);
+      background-color: color-mix(in oklab, var(--on-primary) 14%, transparent);
       margin: var(--space-sm) auto;
       border: none;
     }
@@ -1335,7 +1397,7 @@
       position: fixed;
       inset: 0;
       z-index: var(--z-modal);
-      background-color: rgba(27, 31, 34, 0.6);
+      background-color: color-mix(in oklab, var(--primary) 62%, transparent);
       align-items: center;
       justify-content: center;
       padding: var(--page-safe);
@@ -1365,7 +1427,7 @@
     .modal-title {
       font-family: var(--font-display);
       font-size: 1.5rem;
-      font-weight: 700;
+      font-weight: 400;
       color: var(--primary);
       margin-bottom: var(--space-md);
     }
@@ -1401,7 +1463,7 @@
     }
     .modal-close:hover {
       color: var(--primary);
-      background-color: var(--neutral-cool);
+      background-color: var(--surface-muted);
     }
 
     /* ============================================================
@@ -1706,7 +1768,7 @@
     .hero {
       min-height: 0;
       padding: 136px 0 88px;
-      background: var(--neutral-warm);
+      background: var(--paper);
     }
     .hero-split { gap: clamp(44px, 7vw, 96px); }
     .hero-text { flex: 0 0 56%; }
@@ -1715,14 +1777,17 @@
       aspect-ratio: 4 / 4.2;
       border: 0;
       border-radius: 140px 140px 18px 18px;
-      box-shadow: 0 22px 48px rgba(27, 31, 34, .12);
+      box-shadow: 0 22px 48px color-mix(in oklab, var(--primary) 14%, transparent);
     }
     .hero-visual::before {
       inset: 14px -14px -14px 14px;
-      border-color: var(--accent-glass);
+      border-color: var(--accent);
       border-radius: 140px 140px 18px 18px;
     }
-    .hero-title { max-width: 680px; font-size: clamp(3rem, 5.4vw, 4.6rem); }
+    /* Newsreader sets "Nossa Obra-Prima" at 9.48x the font size, and the
+       56% column is 641px wide, so 67px is the largest size that holds one
+       line. That is the old 5.4vw scale less about 8%, not a resize. */
+    .hero-title { max-width: 100%; font-size: clamp(3rem, 5vw, 4.2rem); }
     .hero-subtitle { max-width: 58ch; }
     .hero .btn-accent {
       background: var(--primary);
@@ -1748,7 +1813,7 @@
       height: auto;
       z-index: -1;
       border-radius: 0;
-      background: var(--neutral-cool);
+      background: var(--surface-muted);
     }
     .services-intro { max-width: 720px; margin-bottom: 48px; }
     .services-grid {
@@ -1859,16 +1924,18 @@
       border: 0;
       border-radius: 70px 70px 14px 14px;
     }
-    .stat-number { color: #e4d6a7; }
-    .stat-label { color: rgba(255,255,255,.82); }
+    .stat-number { color: var(--accent-soft); }
+    .stat-label { color: color-mix(in oklab, var(--on-primary) 82%, transparent); }
 
     .contact-section { align-items: flex-start; gap: clamp(32px, 5vw, 72px); }
     .contact-info { flex: 1 1 42%; }
     .contact-form-col { flex: 1 1 58%; }
     .contact-info-card { background: var(--surface); }
-    .appointment-form { border-radius: 14px; box-shadow: 0 12px 32px rgba(27,31,34,.06); }
-    .form-submit { background: var(--accent-gold); color: var(--primary); }
-    .form-submit:hover { background: var(--accent-gold-hover); }
+    .appointment-form { border-radius: 14px; box-shadow: 0 12px 32px color-mix(in oklab, var(--primary) 7%, transparent); }
+    /* The submit action is the same ink fill as the hero action: clay is a
+       mark colour here, not a button fill (ink on clay measures 2.8:1). */
+    .form-submit { background: var(--primary); color: var(--on-primary); }
+    .form-submit:hover { background: var(--primary-hover); }
 
     @media (max-width: 900px) {
       .hero { padding: 112px 0 64px; }
@@ -1905,8 +1972,12 @@
       .hero-label {
         grid-row: 1;
         margin: 0 0 10px;
-        font-size: .68rem;
-        letter-spacing: .14em;
+        font-size: .78rem;
+        letter-spacing: 0.01em;
+      }
+      .hero-label::before {
+        width: 10px;
+        height: 5px;
       }
       .hero-title {
         grid-row: 2;
@@ -2007,7 +2078,7 @@
       z-index: 10000;
       inset: 0;
       overflow: hidden;
-      background: var(--neutral-warm);
+      background: var(--paper);
       color: transparent;
     }
     .skeleton-header {
@@ -2017,13 +2088,13 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      border-bottom: 1px solid rgb(27 31 34 / 8%);
+      border-bottom: 1px solid color-mix(in oklab, var(--primary) 8%, transparent);
     }
     .skeleton-block, .skeleton-nav i, .skeleton-lines i,
     .skeleton-actions i, .skeleton-cards i {
       display: block;
       border-radius: var(--radius-md);
-      background: linear-gradient(100deg, #e8e6e1 25%, #f2f0eb 42%, #e8e6e1 62%);
+      background: linear-gradient(100deg, var(--surface-muted) 25%, var(--surface-elevated) 42%, var(--surface-muted) 62%);
       background-size: 300% 100%;
       animation: skeleton-shimmer 1.5s ease-in-out infinite;
     }
@@ -2041,7 +2112,7 @@
     .skeleton-lines i:last-child { width: 64%; }
     .skeleton-actions { display: flex; gap: 14px; margin-top: 30px; }
     .skeleton-actions i { width: 148px; height: 44px; border-radius: var(--radius-full); }
-    .skeleton-actions i:last-child { width: 126px; background: #e8e6e1; animation: none; }
+    .skeleton-actions i:last-child { width: 126px; background: var(--surface-muted); animation: none; }
     .skeleton-hero-image { width: 100%; aspect-ratio: 1.13; border-radius: var(--radius-arch-lg); }
     .skeleton-section-heading { margin: 68px auto 28px; text-align: center; }
     .skeleton-section-heading .skeleton-eyebrow { margin-inline: auto; }
@@ -2052,7 +2123,7 @@
     @media (max-width: 700px) {
       .skeleton-header { width: calc(100% - 40px); height: 70px; }
       .skeleton-nav { display: none; }
-      .skeleton-header::after { content: ''; width: 34px; height: 34px; border-radius: 50%; background: #e8e6e1; }
+      .skeleton-header::after { content: ''; width: 34px; height: 34px; border-radius: 50%; background: var(--surface-muted); }
       .skeleton-content { width: calc(100% - 40px); margin-top: 32px; }
       .skeleton-hero { grid-template-columns: 1fr; gap: 22px; }
       .skeleton-hero-copy { padding: 10px 0 0; }
@@ -2193,7 +2264,7 @@
 
     .stat-label {
       font-size: 0.8125rem;
-      color: rgba(255, 255, 255, 0.75);
+      color: color-mix(in oklab, var(--on-primary) 78%, transparent);
     }
 
     /* 2. Badges are quiet facts, not pills ------------------------ */
@@ -2240,13 +2311,13 @@
 
     /* 4. WhatsApp: keep the green, drop the glow and the pulse ---- */
     .whatsapp-float {
-      box-shadow: 0 1px 2px rgba(27, 31, 34, 0.18);
+      box-shadow: 0 1px 2px color-mix(in oklab, var(--primary) 20%, transparent);
       animation: none;
       transition: box-shadow var(--transition-fast);
     }
     .whatsapp-float:hover {
       transform: none;
-      box-shadow: 0 2px 8px rgba(27, 31, 34, 0.22);
+      box-shadow: 0 2px 8px color-mix(in oklab, var(--primary) 24%, transparent);
       animation: none;
     }
 
