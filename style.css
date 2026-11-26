@@ -1784,10 +1784,10 @@
       border-color: var(--accent);
       border-radius: 140px 140px 18px 18px;
     }
-    /* Newsreader sets "Nossa Obra-Prima" at 9.48x the font size, and the
-       56% column is 641px wide, so 67px is the largest size that holds one
-       line. That is the old 5.4vw scale less about 8%, not a resize. */
-    .hero-title { max-width: 100%; font-size: clamp(3rem, 5vw, 4.2rem); }
+    /* Newsreader sets "Nossa Obra-Prima" at about 9.7x the font size, and
+       the 56% column is 641px wide, so 64px holds one line with margin
+       (65px is the hard ceiling). Matches design.md's display-xl. */
+    .hero-title { max-width: 100%; font-size: clamp(3rem, 5vw, 4rem); }
     .hero-subtitle { max-width: 58ch; }
     .hero .btn-accent {
       background: var(--primary);
